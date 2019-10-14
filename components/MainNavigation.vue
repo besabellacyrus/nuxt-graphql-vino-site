@@ -80,6 +80,7 @@ export default {
   background-color: #fff;
   padding: 2rem;
   opacity: 1;
+  @apply shadow;
 }
 .app-main-nav {
   font-size: 13px;

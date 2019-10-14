@@ -14,13 +14,6 @@ export default {
   components: {
     MainNavigation,
     FooterSection
-  },
-  head () {
-    return {
-      meta: [
-        { hid: 'viewport1', name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
-      ]
-    }
   }
 }
 </script>

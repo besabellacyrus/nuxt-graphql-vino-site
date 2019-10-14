@@ -10,7 +10,7 @@
       message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolore quibusdam minus? Facere repudiandae error aspernatur natus. Aliquam, tenetur eum cupiditate quae impedit possimus repellendus accusamus incidunt deleniti dignissimos corrupti quasi, perferendis dolorum explicabo a? Ipsam dolor eveniet facilis molestiae cupiditate cum magni id unde?"
     >
       <img
-        class="image-right mx-auto"
+        class="shadow-md image-right mx-auto"
         src="~/assets/img/our_story/Untitled-1-min.png"
         alt=""
       >
@@ -23,14 +23,14 @@
     >
       <div class="">
         <img
-          class="md:absolute left-image-one md:left-0 z-10"
+          class="shadow-md md:absolute left-image-one md:left-0 z-10"
           :src="ourHistoryOne"
           alt=""
         >
       </div>
       <div class="">
         <img
-          class="right-image-one z-0"
+          class="shadow-md right-image-one z-0"
           :src="ourHistoryTwo"
           alt=""
         >

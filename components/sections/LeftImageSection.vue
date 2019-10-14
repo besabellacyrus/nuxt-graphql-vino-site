@@ -4,14 +4,14 @@
       <div class="w-full md:w-1/2 relative">
         <div class="">
           <img
-            class="md:absolute left-image-one md:left-0 z-10"
+            class="shadow-md md:absolute left-image-one md:left-0 z-10"
             src="~/assets/img/Visit 1-min.jpg"
             alt=""
           >
         </div>
         <div class="">
           <img
-            class="right-image-one z-0"
+            class="shadow-md right-image-one z-0"
             src="~/assets/img/visitt.png"
             alt=""
           >

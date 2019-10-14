@@ -9,7 +9,7 @@
       <div class="w-full mb-8 md:px-5 md:w-1/2">
         <div class="event-item px-10 md:px-0">
           <img
-            class="float-none mx-auto md:pr-6 md:float-left md:h-32 "
+            class="shadow-md float-none mx-auto md:mr-6 md:float-left md:h-32 "
             src="~/assets/img/Event 2-min.png"
             alt=""
           >
@@ -25,7 +25,7 @@
       <div class="w-full mb-8 md:px-5 md:w-1/2">
         <div class="event-item px-10 md:px-0">
           <img
-            class="float-none mx-auto md:pr-6 md:float-left md:h-32"
+            class="shadow-md float-none mx-auto md:mr-6 md:float-left md:h-32"
             src="~/assets/img/Event 2-min.png"
             alt=""
           >
@@ -41,7 +41,7 @@
       <div class="w-full mb-8 md:px-5 md:w-1/2">
         <div class="event-item px-10 md:px-0">
           <img
-            class="float-none mx-auto md:pr-6 md:float-left md:h-32"
+            class="shadow-md float-none mx-auto md:mr-6 md:float-left md:h-32"
             src="~/assets/img/Event 2-min.png"
             alt=""
           >
@@ -57,7 +57,7 @@
       <div class="w-full mb-8 md:px-5 md:w-1/2">
         <div class="event-item px-10 md:px-0">
           <img
-            class="float-none mx-auto md:pr-6 md:float-left md:h-32"
+            class="shadow-md float-none mx-auto md:mr-6 md:float-left md:h-32"
             src="~/assets/img/Event 2-min.png"
             alt=""
           >

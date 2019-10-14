@@ -20,10 +20,18 @@
       </div>
       <div class="w-full md:w-1/2 relative">
         <div class="">
-          <img class="md:absolute md:h-48 md:right-0 z-10" src="~/assets/img/About 1-min.png" alt="">
+          <img
+            class="shadow-md md:absolute md:h-48 md:right-0 z-10"
+            src="~/assets/img/About 1-min.png"
+            alt=""
+          >
         </div>
         <div class="">
-          <img class="md:absolute md:h-48 md:left-0 md:bottom-0 z-0" src="~/assets/img/About 2-min.png" alt="">
+          <img
+            class="shadow-md md:absolute md:h-48 md:left-0 md:bottom-0 z-0"
+            src="~/assets/img/About 2-min.png"
+            alt=""
+          >
         </div>
       </div>
     </div>
