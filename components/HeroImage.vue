@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <img src="~/assets/img/home-image.png" alt="">
+  <div class="mx-auto">
+    <img
+      class="app-hero-img"
+      src="~/assets/img/Home Image-min.png"
+      alt=""
+    >
   </div>
 </template>
 
@@ -10,6 +14,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.app-hero-img {
+  // height: 60vh;
+}
 </style>

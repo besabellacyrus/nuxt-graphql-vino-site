@@ -1,27 +1,53 @@
 <template>
   <div>
-    <AppLogo></AppLogo>
-    <MainNavigation></MainNavigation>
-    <HeroImage></HeroImage>
+    <div class="pt-32">
+      <HeroImage></HeroImage>
+    </div>
+    <div class="app-spacer">&nbsp;</div>
     <RightImageSection></RightImageSection>
+    <div class="app-spacer">&nbsp;</div>
+    <WhatToPairSection></WhatToPairSection>
+    <div class="app-spacer">&nbsp;</div>
+    <LeftImageSection></LeftImageSection>
+    <div class="app-spacer">&nbsp;</div>
+    <WhereToPurchase></WhereToPurchase>
+    <div class="app-spacer">&nbsp;</div>
+    <OurEventsSection></OurEventsSection>
+    <div class="app-spacer">&nbsp;</div>
+
   </div>
 </template>
 
 <script>
-import MainNavigation from "../components/MainNavigation"
-import AppLogo from "../components/AppLogo"
 import HeroImage from "../components/HeroImage"
 import RightImageSection from "../components/sections/RightImageSection"
+import WhatToPairSection from "../components/sections/WhatToPairSection"
+import LeftImageSection from "../components/sections/LeftImageSection"
+import WhereToPurchase from "../components/sections/WhereToPurchase"
+import OurEventsSection from "../components/sections/OurEventsSection"
+
 export default {
   components: {
-    AppLogo,
-    MainNavigation,
     HeroImage,
-    RightImageSection
+    RightImageSection,
+    WhatToPairSection,
+    LeftImageSection,
+    WhereToPurchase,
+    OurEventsSection
+  },
+  data () {
+    return {}
+  },
+  head () {
+    return {
+      title: 'Vino |',
+    }
   }
 }
 </script>
 
 <style lang="scss">
-
+.app-spacer {
+  margin-top: 23rem;
+}
 </style>

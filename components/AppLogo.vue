@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-center my-5">
-    <img class="app-logo" src="~/assets/img/Logo.svg" alt="">
+  <div class="flex justify-center my-5 invisible sm:visible">
+    <img class="app-logo pl-1" src="~/assets/img/Logo.svg" alt="">
   </div>
 </template>
 
