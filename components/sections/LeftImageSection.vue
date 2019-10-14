@@ -86,7 +86,12 @@ export default {
     left: 10rem;
   }
   @media screen and (max-width: 375px) {
-    height: 10rem;
+    img {
+      position: absolute;
+      right: 0;
+      top: 135px;
+    }
+    height: 12rem;
     position: initial;
     right: initial;
     top: initial;

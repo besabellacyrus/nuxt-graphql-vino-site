@@ -14,6 +14,7 @@
     <div class="app-spacer">&nbsp;</div>
     <OurEventsSection></OurEventsSection>
     <div class="app-spacer">&nbsp;</div>
+    <FooterSection></FooterSection>
 
   </div>
 </template>
@@ -25,6 +26,7 @@ import WhatToPairSection from "../components/sections/WhatToPairSection"
 import LeftImageSection from "../components/sections/LeftImageSection"
 import WhereToPurchase from "../components/sections/WhereToPurchase"
 import OurEventsSection from "../components/sections/OurEventsSection"
+import FooterSection from "../components/sections/FooterSection"
 
 export default {
   components: {
@@ -33,7 +35,8 @@ export default {
     WhatToPairSection,
     LeftImageSection,
     WhereToPurchase,
-    OurEventsSection
+    OurEventsSection,
+    FooterSection
   },
   data () {
     return {}
@@ -49,5 +52,8 @@ export default {
 <style lang="scss">
 .app-spacer {
   margin-top: 23rem;
+  @media screen and (max-width: 768px) {
+    margin-top: 1rem;
+  }
 }
 </style>

@@ -70,7 +70,7 @@ export default {
 .list {
   p {
     padding-bottom: 1rem;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #c4c4c4;
   }
 }
 </style>
