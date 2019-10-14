@@ -3,3 +3,58 @@ $app-main-light: rgb(68, 60, 57);
 $app-gray: rgb(115, 111, 108);
 $app-brown: rgb(175, 141, 114);
 $app-main-bg: rgb(228, 237, 236);
+
+// FOR HEADINGS
+h1 {
+  color: $app-main-light;
+  margin-top: 1rem;
+}
+h3 {
+  color: $app-brown;
+}
+
+p {
+  @apply leading-normal;
+}
+
+.app-h3 {
+  @apply tracking-wider font-semibold;
+}
+
+.app-h1 {
+  @apply tracking-wider font-semibold mb-0;
+}
+
+// BUTTONS
+.app-btn {
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 2px solid $app-brown;
+  padding: 0.5rem 1rem;
+  color: $app-main-light;
+  outline: none;
+  @apply font-semibold tracking-wide px-5;
+  transition: all 300ms;
+  @media screen and (max-width: 320px) {
+    margin-bottom: 1rem;
+  }
+  &:hover,
+  &:active {
+    background-color: $app-brown;
+    color: #fff;
+  }
+}
+
+// MISCS
+.bottom-bar {
+  border-bottom: 5px solid $app-main-light;
+  height: 5px;
+  padding: 1px 11px;
+}
+
+.app-spacer {
+  margin-top: 23rem;
+  @media screen and (max-width: 768px) {
+    margin-top: 1rem;
+  }
+}

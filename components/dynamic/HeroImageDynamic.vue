@@ -2,7 +2,7 @@
   <div class="mx-auto">
     <img
       class="app-hero-img"
-      src="~/assets/img/Home Image-min.png"
+      :src="imgUrl"
       alt=""
     >
   </div>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-
+  props: ['imgUrl']
 }
 </script>
 
