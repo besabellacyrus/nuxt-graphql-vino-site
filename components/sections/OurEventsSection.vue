@@ -82,10 +82,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h3 {
-  color: $app-main-light;
-  font-weight: bold;
-}
 .event-item {
   padding-bottom: 1rem;
   border-bottom: 1px solid #c4c4c4;

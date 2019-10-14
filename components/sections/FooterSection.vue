@@ -4,7 +4,7 @@
       <div class="w-full mb-6 md:w-1/3">
         <div class="mt-6 w-full">
           <img
-            class="h-20 px-5"
+            class="h-20 mx-auto"
             src="~/assets/img/logo-footer.svg"
             alt=""
           >
@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="w-full mt-20 md:mt-10 md:w-1/3">
-        <h4 class="mb-6 mt-6">RESOURCES</h4>
+        <h4 class="mb-6 mt-6 text-center md:text-left reso">RESOURCES</h4>
         <ul class="flex flex-wrap">
           <div class="w-full md:w-1/2">
             <li>
@@ -36,8 +36,8 @@
         </ul>
       </div>
       <div class="w-full mt-10 md:w-1/3">
-        <h4 class="mb-6 mt-6">CONTACT US</h4>
-        <p class="px-5">
+        <h4 class="mb-6 mt-6 text-center px-5 md:text-left">CONTACT US</h4>
+        <p class="px-5 text-center md:text-left">
           3800 Kinney Street, Springfield
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, eaque?
         </p>
@@ -66,5 +66,10 @@ li {
 }
 footer {
   background-color: $app-main-dark;
+}
+.reso {
+  @media screen and (min-width: 768px) {
+    margin-left: 4rem;
+  }
 }
 </style>

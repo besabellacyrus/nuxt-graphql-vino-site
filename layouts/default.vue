@@ -2,15 +2,18 @@
   <div>
     <MainNavigation></MainNavigation>
     <nuxt />
+    <FooterSection></FooterSection>
   </div>
 </template>
 
 <script>
 import MainNavigation from "../components/MainNavigation"
+import FooterSection from "../components/sections/FooterSection"
 
 export default {
   components: {
-    MainNavigation
+    MainNavigation,
+    FooterSection
   },
   head () {
     return {
