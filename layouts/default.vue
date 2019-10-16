@@ -10,10 +10,11 @@
 import MainNavigation from "../components/MainNavigation"
 import FooterSection from "../components/sections/FooterSection"
 
+
 export default {
   components: {
     MainNavigation,
-    FooterSection
+    FooterSection,
   }
 }
 </script>

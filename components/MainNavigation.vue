@@ -1,6 +1,9 @@
 <template>
   <nav class="app-nav fixed w-full z-30 top-0 text-white">
     <AppLogo v-show="scrolled < 15"></AppLogo>
+    <div class="visible md:invisible">
+    </div>
+
     <div :class="{ 'white-bar': scrolled > 15 }">
       <div class="app-main-nav container mx-auto invisible sm:visible">
         <AppLogo
