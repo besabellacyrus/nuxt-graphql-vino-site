@@ -5,75 +5,57 @@
       :img-url="heroImage"
     ></HeroImageDynamic>
     <RightImageSectionDynamic
-      subtitle="VINO ISLA"
-      title="OUR STORY"
+      subtitle="ABOUT VINO ISLA"
+      title="A NOTE FROM THE FOUNDER"
       message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolore quibusdam minus? Facere repudiandae error aspernatur natus. Aliquam, tenetur eum cupiditate quae impedit possimus repellendus accusamus incidunt deleniti dignissimos corrupti quasi, perferendis dolorum explicabo a? Ipsam dolor eveniet facilis molestiae cupiditate cum magni id unde?"
     >
       <img
         class="shadow-md image-right mx-auto"
-        src="~/assets/img/our_story/Untitled-1-min.png"
+        src="~/assets/img/about/About Image-min.png"
         alt=""
       >
     </RightImageSectionDynamic>
-    <div class="app-spacer">&nbsp;</div>
-    <LeftImageSectionDynamic
-      subtitle="WHO WE ARE"
-      title="OUR TEAM"
-      message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolore quibusdam minus? Facere repudiandae error aspernatur natus. Aliquam, tenetur eum cupiditate quae impedit possimus repellendus accusamus incidunt deleniti dignissimos corrupti quasi, perferendis dolorum explicabo a? Ipsam dolor eveniet facilis molestiae cupiditate cum magni id unde?"
-    >
-      <div class="">
-        <img
-          class="shadow-md md:absolute left-image-one md:left-0 z-10"
-          :src="ourHistoryOne"
-          alt=""
-        >
-      </div>
-      <div class="">
-        <img
-          class="shadow-md right-image-one z-0"
-          :src="ourHistoryTwo"
-          alt=""
-        >
-      </div>
-    </LeftImageSectionDynamic>
-    <div class="app-spacer">&nbsp;</div>
-    <CenterSectionDynamic
+    <TextAndImageSection
       class="mb-10"
       subtitle="WHERE IT ALL STARTED"
       title="OUR ORCHARD"
     >
       <img
-        :src="ourOrchard"
+        src="~/assets/img/about/Our-Orchard Gradient-min.png"
         alt=""
       >
-    </CenterSectionDynamic>
+    </TextAndImageSection>
+    <TextAndImageSection
+      class="mb-10"
+      subtitle="VINO ISLA"
+      title="OUR STORY"
+    >
+      <img
+        src="~/assets/img/about/Our-Story Gradient-min.png"
+        alt=""
+      >
+    </TextAndImageSection>
   </div>
 </template>
 
 <script>
 const heroImage = require('~/assets/img/our_story/Our Story-Header-min.png');
-const ourHistoryOne = require('~/assets/img/our_story/Untitled-2-min.png')
-const ourHistoryTwo = require('~/assets/img/our_story/Untitled-3-min.png')
-const ourOrchard = require('~/assets/img/our_story/our-orchard.png')
 
 import HeroImageDynamic from "../../components/dynamic/HeroImageDynamic"
 import RightImageSectionDynamic from "../../components/dynamic/RightImageSectionDynamic"
 import LeftImageSectionDynamic from "../../components/dynamic/LeftImageSectionDynamic"
-import CenterSectionDynamic from "../../components/dynamic/CenterSectionDynamic"
+import TextAndImageSection from "../../components/dynamic/TextAndImageSection"
 
 export default {
   components: {
     HeroImageDynamic,
     RightImageSectionDynamic,
     LeftImageSectionDynamic,
-    CenterSectionDynamic
+    TextAndImageSection
   },
   data () {
     return {
       heroImage,
-      ourHistoryOne,
-      ourHistoryTwo,
-      ourOrchard
     }
   }
 }

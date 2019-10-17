@@ -1,8 +1,8 @@
 <template>
   <div class="container mx-auto">
     <div class="mt-32 text-center">
-      <h3 class="app-h3">JOIN US!</h3>
-      <h1 class="app-h1">OUR EVENTS</h1>
+      <h3 class="app-subtitle">JOIN US!</h3>
+      <h1 class="app-title">OUR EVENTS</h1>
       <span class="bottom-bar md:pl-3">&nbsp;</span>
     </div>
     <div class="mt-10 flex flex-wrap text-center md:text-left md:-mx-5">

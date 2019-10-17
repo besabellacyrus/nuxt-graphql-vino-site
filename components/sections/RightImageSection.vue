@@ -2,9 +2,9 @@
   <div class="container mx-auto px-4 mt-20">
     <div class="md:flex md:flex-wrap">
       <div class="w-full md:w-1/2 text-center mt-6 mb-6 md:text-left">
-        <h3 class="app-h3">ABOUT</h3>
+        <h3 class="app-subtitle">ABOUT</h3>
         <div class="px-0 md:px-3">
-          <h1 class="app-h1">VINO ISLA</h1>
+          <h1 class="app-title">VINO ISLA</h1>
           <span class="bottom-bar md:pl-3">&nbsp;</span>
           <p class="mt-6">
             Lorem ipsum dolor sit amet consectetur
@@ -13,8 +13,12 @@
             maiores eius?
           </p>
           <div class="mt-6">
-            <button class="app-btn mr-3">OUR STORY</button>
-            <button class="app-btn">ORCHARDS</button>
+            <a href="/our-story">
+              <button class="app-btn mr-3">OUR STORY</button>
+            </a>
+            <a href="/our-orchard">
+              <button class="app-btn">ORCHARDS</button>
+            </a>
           </div>
         </div>
       </div>

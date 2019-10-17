@@ -2,10 +2,13 @@
   <div class="container mx-auto px-4 mt-20">
     <div class="md:flex md:flex-wrap">
       <div class="w-full md:w-1/2 text-center mt-6 mb-6 md:text-left">
-        <h3 class="app-h3">{{ subtitle }}</h3>
+        <h3 class="app-subtitle">{{ subtitle }}</h3>
         <div class="px-0 md:px-3">
-          <h1 class="app-h1">{{ title }}</h1>
-          <span class="bottom-bar md:pl-3">&nbsp;</span>
+          <h1 class="app-title">{{ title }}</h1>
+          <span
+            v-show="title !== ''"
+            class="bottom-bar md:pl-3"
+          >&nbsp;</span>
           <p class="mt-6">
             {{ message }}
           </p>

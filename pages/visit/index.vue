@@ -1,3 +1,14 @@
 <template>
-    <h1>Visit</h1>
+  <div>
+    visit
+  </div>
 </template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+</style>
