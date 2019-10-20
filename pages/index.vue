@@ -13,8 +13,6 @@
     <WhereToPurchase></WhereToPurchase>
     <div class="app-spacer">&nbsp;</div>
     <OurEventsSection></OurEventsSection>
-    <div class="app-spacer">&nbsp;</div>
-
   </div>
 </template>
 

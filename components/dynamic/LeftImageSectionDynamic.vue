@@ -5,11 +5,14 @@
         <slot></slot>
       </div>
       <div class="w-full md:w-1/2 text-center mt-32 mb-6 md:mt-6 md:text-left">
-        <h3 class="app-h3 text-center md:text-right">{{ subtitle }}</h3>
+        <h3 class="app-subtitle text-center md:text-right">{{ subtitle }}</h3>
         <div class="px-0 md:px-3">
-          <h1 class="app-h1 text-center md:text-right">{{ title }}</h1>
-          <span class="bottom-bar float-none md:float-right mt-6">&nbsp;</span>
-          <p class="mt-12 text-center md:text-right">
+          <h1 class="app-title text-center md:text-right">{{ title }}</h1>
+          <span
+            v-show="title !== ''"
+            class="bottom-bar float-none md:float-right mt-6"
+          >&nbsp;</span>
+          <p class="mt-12 text-center md:text-left">
             {{ message }}
           </p>
         </div>

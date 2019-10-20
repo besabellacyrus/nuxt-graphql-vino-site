@@ -18,9 +18,9 @@
         </div>
       </div>
       <div class="w-full md:w-1/2 text-center mt-32 mb-6 md:mt-6 md:text-left">
-        <h3 class="app-h3 text-center md:text-right">CARE FOR A VISIT?</h3>
+        <h3 class="app-subtitle text-center md:text-right">CARE FOR A VISIT?</h3>
         <div class="px-0 md:px-3">
-          <h1 class="app-h1 text-center md:text-right">TASTE OUR WINES</h1>
+          <h1 class="app-title text-center md:text-right">TASTE OUR WINES</h1>
           <span class="bottom-bar float-none md:float-right mt-6">&nbsp;</span>
           <p class="mt-12 text-center md:text-right">
             Lorem ipsum dolor sit amet consectetur
@@ -29,7 +29,9 @@
             maiores eius?
           </p>
           <div class="mt-6 text-center md:text-right">
-            <button class="app-btn">SCHEDULE YOUR VISIT</button>
+            <a href="/visit">
+              <button class="app-btn">SCHEDULE YOUR VISIT</button>
+            </a>
           </div>
         </div>
       </div>

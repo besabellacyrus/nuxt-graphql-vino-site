@@ -2,25 +2,25 @@
   <div class="container mx-auto px-4 mt-20">
     <div class="md:flex md:flex-wrap">
       <div class="w-full md:w-1/2 text-center mt-6 mb-6 md:text-left">
-        <h3 class="app-h3">WHERE TO PURCHASE?</h3>
+        <h3 class="app-subtitle">WHERE TO PURCHASE?</h3>
         <div class="px-0 md:px-3">
-          <h1 class="app-h1">SHOP VINO ISLA</h1>
+          <h1 class="app-title">SHOP VINO ISLA</h1>
           <span class="bottom-bar md:pl-3">&nbsp;</span>
           <ul class="mt-10 list">
             <li class="mb-5">
-              <h3 class="app-h3 mb-1">WINES</h3>
+              <h3 class="app-subtitle mb-1">WINES</h3>
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error eos veritatis non sed perspiciatis fugit veniam nemo. Quia officiis veritatis velit minima qui.
               </p>
             </li>
             <li class="mb-5">
-              <h3 class="app-h3 mb-1">COLLECTIONS</h3>
+              <h3 class="app-subtitle mb-1">COLLECTIONS</h3>
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error eos veritatis non sed perspiciatis fugit veniam nemo. Quia officiis veritatis velit minima qui.
               </p>
             </li>
             <li class="mb-5">
-              <h3 class="app-h3 mb-1">STORE LOCATOR</h3>
+              <h3 class="app-subtitle mb-1">STORE LOCATOR</h3>
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error eos veritatis non sed perspiciatis fugit veniam nemo. Quia officiis veritatis velit minima qui.
               </p>
