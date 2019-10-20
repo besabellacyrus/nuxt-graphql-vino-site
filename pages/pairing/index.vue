@@ -2,7 +2,7 @@
   <div>
     <HeroImageDynamic
       class="pt-32"
-      :img-url="heroImage"
+      :img-url="require('~/assets/img/pairing/Pairings---Header-min.png')"
     ></HeroImageDynamic>
     <CenterSectionDynamic
       subtitle="WHAT TO PAIR?"
@@ -61,7 +61,6 @@
 </template>
 
 <script>
-const heroImage = require('~/assets/img/pairing/Pairings---Header-min.png');
 import HeroImageDynamic from "../../components/dynamic/HeroImageDynamic"
 import CenterSectionDynamic from "../../components/dynamic/CenterSectionDynamic"
 

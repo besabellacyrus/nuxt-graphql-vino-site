@@ -2,7 +2,7 @@
   <div>
     <HeroImageDynamic
       class="pt-32"
-      :img-url="heroImage"
+      :img-url="require('~/assets/img/our_story/Our Story-Header-min.png')"
     ></HeroImageDynamic>
     <RightImageSectionDynamic
       subtitle="VINO ISLA"

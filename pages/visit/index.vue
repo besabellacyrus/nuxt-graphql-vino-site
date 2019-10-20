@@ -2,7 +2,7 @@
   <div>
     <HeroImageDynamic
       class="pt-32"
-      :img-url="heroImage"
+      :img-url="require('~/assets/img/visit/visit-header-min.png')"
     ></HeroImageDynamic>
     <RightImageSectionDynamic
       subtitle="CARE FOR A VISIT?"
@@ -23,7 +23,6 @@
 import HeroImageDynamic from "../../components/dynamic/HeroImageDynamic"
 import RightImageSectionDynamic from "../../components/dynamic/RightImageSectionDynamic"
 import ReservationComponent from "../../components/sections/ReservationComponent"
-const heroImage = require('../../assets/img/visit/visit-header-min.png')
 
 export default {
   components: {

@@ -2,14 +2,13 @@
   <div>
     <HeroImageDynamic
       class="pt-32"
-      :img-url="heroImage"
+      :img-url="require('~/assets/img/events/events-header-min.png')"
     ></HeroImageDynamic>
     <EventBlogContainer></EventBlogContainer>
   </div>
 </template>
 
 <script>
-const heroImage = require('~/assets/img/events/events-header-min.png')
 
 import CenterSectionDynamic from "../../components/dynamic/CenterSectionDynamic"
 import HeroImageDynamic from "../../components/dynamic/HeroImageDynamic"

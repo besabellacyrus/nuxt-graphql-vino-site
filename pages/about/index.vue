@@ -2,7 +2,7 @@
   <div>
     <HeroImageDynamic
       class="pt-32"
-      :img-url="heroImage"
+      :img-url="require('~/assets/img/our_story/Our Story-Header-min.png')"
     ></HeroImageDynamic>
     <RightImageSectionDynamic
       subtitle="ABOUT VINO ISLA"
@@ -39,8 +39,6 @@
 </template>
 
 <script>
-const heroImage = require('~/assets/img/our_story/Our Story-Header-min.png');
-
 import HeroImageDynamic from "../../components/dynamic/HeroImageDynamic"
 import RightImageSectionDynamic from "../../components/dynamic/RightImageSectionDynamic"
 import LeftImageSectionDynamic from "../../components/dynamic/LeftImageSectionDynamic"
@@ -55,7 +53,6 @@ export default {
   },
   data () {
     return {
-      heroImage,
     }
   }
 }

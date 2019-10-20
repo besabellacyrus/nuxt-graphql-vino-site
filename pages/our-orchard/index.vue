@@ -2,7 +2,7 @@
   <div>
     <HeroImageDynamic
       class="pt-32"
-      :img-url="heroImage"
+      :img-url="require('~/assets/img/our-orchard-header-min.png')"
     ></HeroImageDynamic>
     <LeftImageSectionDynamic
       subtitle="WHERE IT ALL STARTED"
@@ -96,7 +96,6 @@ import HeroImageDynamic from "../../components/dynamic/HeroImageDynamic"
 import LeftImageSectionDynamic from "../../components/dynamic/LeftImageSectionDynamic"
 import RightImageSectionDynamic from "../../components/dynamic/RightImageSectionDynamic";
 
-const heroImage = require('~/assets/img/our-orchard-header-min.png');
 const ourOrchard = require('~/assets/img/Our Orchard - Image-min.png');
 
 export default {
