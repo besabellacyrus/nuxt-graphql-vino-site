@@ -69,7 +69,7 @@
           >About</a>
           <a
             class="mb-6 font-semibold text-lg"
-            href="/paring"
+            href="/pairing"
           >Pairing</a>
           <a
             class="mb-6 font-semibold text-lg"
