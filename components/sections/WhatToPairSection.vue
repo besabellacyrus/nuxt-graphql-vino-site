@@ -16,25 +16,31 @@
       </div>
       <div class="flex flex-wrap px-3 md:px-0 mt-6">
         <div class="w-full md:w-1/3 px-4">
-          <img
-            class="shadow-md"
-            src="~/assets/img/Pairings 1-min.png"
-            alt=""
-          >
+          <a href="pairing/coconut-wine">
+            <img
+              class=""
+              src="~/assets/img/Pairings 1-min.png"
+              alt=""
+            >
+          </a>
         </div>
         <div class="w-full md:w-1/3 px-4">
-          <img
-            class="shadow-md"
-            src="~/assets/img/Pairings 2-min.png"
-            alt=""
-          >
+          <a href="pairing/mango-wine">
+            <img
+              class=""
+              src="~/assets/img/Pairings 2-min.png"
+              alt=""
+            >
+          </a>
         </div>
         <div class="w-full md:w-1/3 px-4">
-          <img
-            class="shadow-md"
-            src="~/assets/img/Pairings 3-min.png"
-            alt=""
-          >
+          <a href="pairing/sugarcane-wine">
+            <img
+              class=""
+              src="~/assets/img/Pairings 3-min.png"
+              alt=""
+            >
+          </a>
         </div>
       </div>
     </div>

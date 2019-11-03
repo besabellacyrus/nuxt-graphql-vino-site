@@ -2,16 +2,16 @@
   <div class="dynamic-bg-color">
     <HeroImageDynamic
       class="pt-32"
-      :img-url="require('~/assets/img/pairing/coconut/Untitled-1-min.png')"
+      :img-url="require('~/assets/img/pairing/mango/Mango-Wine---Header-min.png')"
     ></HeroImageDynamic>
     <RightImageSectionDynamic
       subtitle="WHAT TO PAIR?"
-      title="COCONUT WINE"
+      title="MANGO WINE"
       message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolore quibusdam minus? Facere repudiandae error aspernatur natus. Aliquam, tenetur eum cupiditate quae impedit possimus repellendus accusamus incidunt deleniti dignissimos corrupti quasi, perferendis dolorum explicabo a? Ipsam dolor eveniet facilis molestiae cupiditate cum magni id unde?"
     >
       <img
         class="shadow-md right-img mx-auto"
-        src="~/assets/img/pairing/coconut/Image-1-min.png"
+        src="~/assets/img/pairing/mango/Image-1-min.png"
         alt=""
       >
     </RightImageSectionDynamic>
@@ -24,14 +24,14 @@
       <div class="">
         <img
           class="shadow-md md:absolute left-image-one md:left-0 z-10"
-          src="~/assets/img/pairing/coconut/Image-2-min.png"
+          src="~/assets/img/pairing/mango/Image-2-min.png"
           alt=""
         >
       </div>
       <div class="">
         <img
           class="shadow-md right-image-one z-0"
-          src="~/assets/img/pairing/coconut/Image-3-min.png"
+          src="~/assets/img/pairing/mango/Image-3-min.png"
           alt=""
         >
       </div>
@@ -106,38 +106,38 @@ export default {
   height: 10rem;
 }
 .dynamic-bg-color {
-  background: rgba(241, 243, 232, 1);
+  background: rgba(244, 242, 229, 1);
   background: -moz-linear-gradient(
     top,
-    rgba(241, 243, 232, 1) 0%,
-    rgba(226, 234, 183, 1) 100%
+    rgba(244, 242, 229, 1) 0%,
+    rgba(246, 221, 154, 1) 100%
   );
   background: -webkit-gradient(
     left top,
     left bottom,
-    color-stop(0%, rgba(241, 243, 232, 1)),
-    color-stop(100%, rgba(226, 234, 183, 1))
+    color-stop(0%, rgba(244, 242, 229, 1)),
+    color-stop(100%, rgba(246, 221, 154, 1))
   );
   background: -webkit-linear-gradient(
     top,
-    rgba(241, 243, 232, 1) 0%,
-    rgba(226, 234, 183, 1) 100%
+    rgba(244, 242, 229, 1) 0%,
+    rgba(246, 221, 154, 1) 100%
   );
   background: -o-linear-gradient(
     top,
-    rgba(241, 243, 232, 1) 0%,
-    rgba(226, 234, 183, 1) 100%
+    rgba(244, 242, 229, 1) 0%,
+    rgba(246, 221, 154, 1) 100%
   );
   background: -ms-linear-gradient(
     top,
-    rgba(241, 243, 232, 1) 0%,
-    rgba(226, 234, 183, 1) 100%
+    rgba(244, 242, 229, 1) 0%,
+    rgba(246, 221, 154, 1) 100%
   );
   background: linear-gradient(
     to bottom,
-    rgba(241, 243, 232, 1) 0%,
-    rgba(226, 234, 183, 1) 100%
+    rgba(244, 242, 229, 1) 0%,
+    rgba(246, 221, 154, 1) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f3e8', endColorstr='#e2eab7', GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f2e5', endColorstr='#f6dd9a', GradientType=0 );
 }
 </style>

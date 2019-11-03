@@ -51,7 +51,6 @@
 </template>
 
 <script>
-const heroImage = require('~/assets/img/our_story/Our Story-Header-min.png');
 const ourHistoryOne = require('~/assets/img/our_story/Untitled-2-min.png')
 const ourHistoryTwo = require('~/assets/img/our_story/Untitled-3-min.png')
 const ourOrchard = require('~/assets/img/our_story/our-orchard.png')
@@ -70,7 +69,6 @@ export default {
   },
   data () {
     return {
-      heroImage,
       ourHistoryOne,
       ourHistoryTwo,
       ourOrchard

@@ -11,8 +11,6 @@
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et est blanditiis consequatur asperiores magni voluptatem a vero cupiditate fugiat tempora tenetur sequi omnis ipsa eligendi nostrum error officia aspernatur optio dolor, adipisci doloribus magnam?
       "
     >
-      <h1>Hello</h1>
-
     </RightImageSectionDynamic>
     <ReservationComponent></ReservationComponent>
   </div>
@@ -20,9 +18,9 @@
 </template>
 
 <script>
-import HeroImageDynamic from "../../components/dynamic/HeroImageDynamic"
 import RightImageSectionDynamic from "../../components/dynamic/RightImageSectionDynamic"
 import ReservationComponent from "../../components/sections/ReservationComponent"
+import HeroImageDynamic from "../../components/dynamic/HeroImageDynamic"
 
 export default {
   components: {
@@ -32,7 +30,6 @@ export default {
   },
   data () {
     return {
-      heroImage
     }
   }
 }

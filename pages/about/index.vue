@@ -15,26 +15,31 @@
         alt=""
       >
     </RightImageSectionDynamic>
-    <TextAndImageSection
-      class="mb-10"
-      subtitle="WHERE IT ALL STARTED"
-      title="OUR ORCHARD"
-    >
-      <img
-        src="~/assets/img/about/Our-Orchard Gradient-min.png"
-        alt=""
+    <a href="our-story/">
+      <TextAndImageSection
+        class="mb-10"
+        subtitle="WHERE IT ALL STARTED"
+        title="OUR ORCHARD"
       >
-    </TextAndImageSection>
-    <TextAndImageSection
-      class="mb-10"
-      subtitle="VINO ISLA"
-      title="OUR STORY"
-    >
-      <img
-        src="~/assets/img/about/Our-Story Gradient-min.png"
-        alt=""
+        <img
+          src="~/assets/img/about/Our-Orchard Gradient-min.png"
+          alt=""
+        >
+      </TextAndImageSection>
+    </a>
+    <a href="our-story/">
+      <TextAndImageSection
+        class="mb-10"
+        subtitle="VINO ISLA"
+        title="OUR STORY"
       >
-    </TextAndImageSection>
+        <img
+          src="~/assets/img/about/Our-Story Gradient-min.png"
+          alt=""
+        >
+      </TextAndImageSection>
+
+    </a>
   </div>
 </template>
 
