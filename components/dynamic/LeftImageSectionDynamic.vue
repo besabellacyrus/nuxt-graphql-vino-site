@@ -2,7 +2,31 @@
   <div class="container mx-auto px-4 mt-20 relative">
     <div class="md:flex mx-10 md:flex-wrap">
       <div class="w-full md:w-1/2 relative">
-        <slot></slot>
+        <div v-if="images.length === 1">
+          <img
+          v-for="(img, index) in images" :key="index"
+            :src="renderImage(img)"
+            alt=""
+          >
+        </div>
+        <div v-else>
+          <div class="flex justify-center md:relative">
+            <div class="">
+              <img
+                class="md:absolute left-image-one md:left-0 z-10"
+                :src="renderImage(images[0])"
+                alt=""
+              >
+            </div>
+            <div class="">
+              <img
+                class="right-image-one z-0"
+                :src="renderImage(images[1])"
+                alt=""
+              >
+            </div>
+          </div>
+        </div>
       </div>
       <div class="w-full md:w-1/2 text-center mt-32 mb-6 md:mt-6 md:text-left">
         <h3 class="app-subtitle text-center md:text-right">{{ subtitle }}</h3>
@@ -12,9 +36,16 @@
             v-show="title !== ''"
             class="bottom-bar float-none md:float-right mt-6"
           >&nbsp;</span>
-          <p class="mt-12 text-center md:text-left">
-            {{ message }}
+          <p class="mt-12 text-center md:text-right">
+            {{ content }}
           </p>
+          <div class="md:float-right mt-8" v-if="buttons">
+            <span v-for="(btn, index) in buttons" :key="index">
+              <a :href="btn.url">
+                <button class="app-btn mr-3">{{ btn.label}}</button>
+              </a>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -23,7 +54,15 @@
 
 <script>
 export default {
-  props: ['title', 'subtitle', 'message']
+  props: ['title', 'subtitle', 'content', 'images', 'buttons'],
+  methods: {
+    renderImage(images) {
+      if (images) {
+        return images.image.sourceUrl
+      }
+      return ""
+    }
+  }
 }
 </script>
 

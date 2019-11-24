@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import MainNavigation from "../components/MainNavigation"
-import FooterSection from "../components/sections/FooterSection"
+import MainNavigation from "~/components/MainNavigation"
+import FooterSection from "~/components/sections/FooterSection"
 
 
 export default {
@@ -20,6 +20,8 @@ export default {
 </script>
 
 <style lang="scss">
+// @import url('https://fonts.googleapis.com/css?family=Cardo&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text&display=swap');
 body {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
@@ -28,5 +30,9 @@ body {
   background-color: $app-main-bg;
   color: $app-gray;
   transition: all 300ms;
+}
+p {
+  // font-family: 'Cardo', serif;
+  font-family: 'Crimson Text', serif;
 }
 </style>

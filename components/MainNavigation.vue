@@ -94,7 +94,7 @@
 </template>
 
 <script>
-import AppLogo from "../components/AppLogo"
+import AppLogo from "~/components/AppLogo"
 
 export default {
   components: {
@@ -109,7 +109,7 @@ export default {
   methods: {
     handleScroll (event) {
       // Any code to be executed when the window is scrolled
-      console.log({ sss: window.scrollY })
+      // console.log({ sss: window.scrollY })
       this.scrolled = window.scrollY
     },
     openSidebar () {

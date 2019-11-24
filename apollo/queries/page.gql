@@ -1,0 +1,72 @@
+
+
+fragment textAndImageContent on Vino_page_Fc_HomeFc_TextAndImageContent {
+  content
+  fieldGroupName
+  buttons {
+    label
+    url
+    fieldGroupName
+  }
+  orientation
+  subTitle
+  title
+  images {
+    image {
+      sourceUrl
+    }
+  }
+}
+
+
+fragment showcase on Vino_page_Fc_HomeFc_Showcase {
+  content
+  fieldGroupName
+  subTitle
+  title
+  items {
+    content
+    link
+    title
+    image {
+      sourceUrl
+    }
+  }
+}
+
+fragment centerText on Vino_page_Fc_HomeFc_CenterText {
+  content
+  fieldGroupName
+  title
+  subTitle
+  buttons {
+    buttonUrl
+    label
+  }
+  imageButtons {
+    image {
+      sourceUrl
+    }
+    routePath
+  }
+}
+
+fragment heroImage on Vino_page_Fc_HomeFc_HeroImage {
+  image {
+    sourceUrl
+  }
+}
+
+query GET_CUSTOM_POST($slug: String!) {
+  vino_pageBy(slug: $slug) {
+      slug
+      fc {
+        homeFc {
+          ...textAndImageContent
+          ...centerText
+          ...heroImage
+          ...showcase
+        }
+      }
+  }
+}

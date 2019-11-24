@@ -55,8 +55,13 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/style-resources"],
-
+  modules: ["@nuxtjs/style-resources", "@nuxtjs/axios", "@nuxtjs/apollo"],
+  apollo: {
+    includeNodeModules: true,
+    clientConfigs: {
+      default: '~/apollo/config.js'
+    }
+  },
   styleResources: {
     // your settings here
     scss: ["@/assets/scss/main.scss"]

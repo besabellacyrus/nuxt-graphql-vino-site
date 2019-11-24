@@ -1,0 +1,51 @@
+fragment textAndImageContent on Page_Fc_HomeFc_TextAndImageContent {
+  content
+  fieldGroupName
+  buttons {
+    label
+    url
+    fieldGroupName
+  }
+  orientation
+  subTitle
+  title
+  images {
+    image {
+      sourceUrl
+    }
+  }
+}
+
+fragment centerText on Page_Fc_HomeFc_CenterText {
+  content
+  fieldGroupName
+  title
+  subTitle
+  buttons {
+    buttonUrl
+    label
+  }
+  imageButtons {
+    image {
+      sourceUrl
+    }
+    routePath
+  }
+}
+
+ query {
+   pageBy(uri: "home-page") {
+    title
+    hero_image {
+      image {
+        sourceUrl
+      }
+    }
+    fc {
+      homeFc {
+        ...textAndImageContent
+        ...centerText
+      }
+    }
+  }
+}

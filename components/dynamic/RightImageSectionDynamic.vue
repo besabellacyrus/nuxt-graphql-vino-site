@@ -10,12 +10,46 @@
             class="bottom-bar md:pl-3"
           >&nbsp;</span>
           <p class="mt-6">
-            {{ message }}
+            {{ content }}
           </p>
+          <div class="mt-6" v-if="buttons">
+            <span v-for="(btn, index) in buttons" :key="index">
+              <a :href="btn.url">
+                <button class="app-btn mr-3">{{ btn.label}}</button>
+              </a>
+            </span>
+          </div>
         </div>
       </div>
       <div class="w-full md:w-1/2 relative">
-        <slot></slot>
+
+
+        <div  v-if="images.length === 1">
+          <img
+          v-for="(img, index) in images" :key="index"
+            :src="renderImage(img)"
+            alt=""
+          >
+        </div>
+        <div v-else>
+          <div class="flex justify-center md:relative">
+            <div>
+              <img
+                class="orchard-image z-10 md:absolute md:right-0 md:-mt-20"
+                :src="renderImage(images[0])"
+                alt=""
+              >
+            </div>
+            <div>
+              <img
+                class="z-0 orchard-image md:absolute md:left-0"
+                :src="renderImage(images[1])"
+                alt=""
+              >
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -23,12 +57,26 @@
 
 <script>
 export default {
-  props: ['title', 'subtitle', 'message']
+  props: ['title', 'subtitle', 'content', 'images', 'buttons'],
+  mounted () {
+    console.log({ images: this.images })
+  },
+  methods: {
+    renderImage(images) {
+      if (images) {
+        return images.image.sourceUrl
+      }
+      return ""
+    }
+  }
 
 }
 </script>
 
 <style lang="scss" scoped>
+.orchard-image {
+  height: 17rem;
+}
 .top-right-img {
   float: right;
   height: 14rem;

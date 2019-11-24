@@ -1,48 +1,118 @@
 <template>
   <div>
-    <div class="pt-32">
-      <HeroImage></HeroImage>
+    <div v-if="vino_pageBy">
+      <div v-for="(vino, index) in vino_pageBy.fc.homeFc" :key="index">
+        <HeroImageDynamic
+          v-if="vino.__typename === 'Vino_page_Fc_HomeFc_HeroImage'"
+          class="pt-32"
+          :img-url="vino.image.sourceUrl"
+        ></HeroImageDynamic>
+
+        <div v-if="vino.orientation && vino.orientation === 'right'">
+          <RightImageSectionDynamic
+            :title="vino.title"
+            :subtitle="vino.subTitle"
+            :content="vino.content"
+            :images="vino.images"
+            :buttons="vino.buttons"
+          />
+          <div class="app-spacer">&nbsp;</div>
+        </div>
+        <div v-if="vino.orientation && vino.orientation === 'left'">
+          <LeftImageSectionDynamic
+            :title="vino.title"
+            :subtitle="vino.subTitle"
+            :content="vino.content"
+            :images="vino.images"
+            :buttons="vino.buttons"
+          />
+          <div class="app-spacer">&nbsp;</div>
+        </div>
+        <div v-if="vino.fieldGroupName === 'vino_page_Fc_HomeFc_CenterText'">
+          <CenterSectionDynamic
+            :title="vino.title"
+            :subtitle="vino.subTitle"
+            :content="vino.content"
+            :imageButtons="vino.imageButtons"
+            :buttons="vino.buttons"
+          />
+          <div class="app-spacer">&nbsp;</div>
+        </div>
+        <div v-if="vino.fieldGroupName === 'vino_page_Fc_HomeFc_Showcase'">
+          <ShowcaseSectionDynamic
+            :title="vino.title"
+            :subtitle="vino.subTitle"
+            :content="vino.content"
+            :imageButtons="vino.imageButtons"
+            :buttons="vino.buttons"
+            :items="vino.items"
+          />
+          <div class="app-spacer">&nbsp;</div>
+        </div>
+      </div>
+
     </div>
-    <div class="app-spacer">&nbsp;</div>
-    <RightImageSection></RightImageSection>
-    <div class="app-spacer">&nbsp;</div>
-    <WhatToPairSection></WhatToPairSection>
-    <div class="app-spacer">&nbsp;</div>
-    <LeftImageSection></LeftImageSection>
-    <div class="app-spacer">&nbsp;</div>
-    <WhereToPurchase></WhereToPurchase>
-    <div class="app-spacer">&nbsp;</div>
-    <OurEventsSection></OurEventsSection>
+    <div v-else>
+      Sorry No content.
+    </div>
   </div>
 </template>
 
 <script>
-import HeroImage from "../components/HeroImage"
-import RightImageSection from "../components/sections/RightImageSection"
-import WhatToPairSection from "../components/sections/WhatToPairSection"
-import LeftImageSection from "../components/sections/LeftImageSection"
-import WhereToPurchase from "../components/sections/WhereToPurchase"
-import OurEventsSection from "../components/sections/OurEventsSection"
+import pageGql from "~/apollo/queries/page"
+import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic"
+import RightImageSectionDynamic from "~/components/dynamic/RightImageSectionDynamic"
+import LeftImageSectionDynamic from "~/components/dynamic/LeftImageSectionDynamic"
+import CenterSectionDynamic from "~/components/dynamic/CenterSectionDynamic"
+import ShowcaseSectionDynamic from "~/components/dynamic/ShowcaseSectionDynamic"
 
 export default {
   components: {
-    HeroImage,
-    RightImageSection,
-    WhatToPairSection,
-    LeftImageSection,
-    WhereToPurchase,
-    OurEventsSection
+    HeroImageDynamic,
+    CenterSectionDynamic,
+    LeftImageSectionDynamic,
+    RightImageSectionDynamic,
+    ShowcaseSectionDynamic
   },
   data () {
-    return {}
+    return {
+      slug: null
+    }
+  },
+  created () {
+    console.log({ ssslug: this.$route })
+  },
+  watch: {
+    vino_pageBy(val) {
+      console.log({ pageByyy: val, slslsls: this.$route })
+    }
+  },
+  apollo: {
+    vino_pageBy: {
+      query: pageGql,
+      variables () {
+        return {
+          slug: this.$route.path === '/' ? 'home' : this.$route.params.slug
+        }
+      }
+    },
+  },
+  methods: {
+    renderImage(images) {
+      if (images) {
+        return images.image.sourceUrl
+      }
+      return ""
+    }
   },
   head () {
     return {
-      title: 'Vino |',
+      title: `Vino | ${this.$route.params.slug}`,
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style>
+
 </style>

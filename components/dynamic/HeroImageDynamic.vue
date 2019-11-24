@@ -1,10 +1,10 @@
 <template>
   <div class="mx-auto">
-    <img
-      class="app-hero-img"
-      :src="imgUrl"
-      alt=""
-    >
+    <div class="header-shape-container mx-auto" :style="{
+      backgroundImage: `url(${imgUrl})`,
+      backgroundSize: 'cover',
+      backgroundPositionY: '94%' }">
+    </div>
   </div>
 </template>
 
@@ -15,7 +15,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app-hero-img {
-  // height: 60vh;
+.header-shape-container {
+  mask-image: url('~assets/img/header_shape.svg');
+  height: 24rem;
+  background-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  margin-bottom: 10rem;
+
+  @media screen and (max-width: 425px) {
+    height: 7rem;
+    margin-bottom: 0rem;
+  }
 }
 </style>

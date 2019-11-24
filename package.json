@@ -5,13 +5,16 @@
   "author": "Cyrus Besabella",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt --open",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "test": "jest"
+    "test": "jest",
+    "build-fragment" : "node apollo/schemaQuery.js"
   },
   "dependencies": {
+    "@nuxtjs/apollo": "^4.0.0-rc17",
+    "@nuxtjs/axios": "^5.8.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.0.0",
     "sass-resources-loader": "^2.0.1"
@@ -22,7 +25,9 @@
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-jest": "^24.1.0",
     "jest": "^24.9.0",
+    "node-sass": "^4.13.0",
     "sass": "^1.23.0",
+    "sass-loader": "^8.0.0",
     "vue-jest": "^4.0.0-0"
   }
 }
