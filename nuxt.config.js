@@ -24,6 +24,11 @@ export default {
         rel: "stylesheet",
         href:
           "https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap"
+      },
+      {
+        rel: "stylesheet",
+        href:
+          "https://fonts.googleapis.com/css?family=Crimson+Text&display=swap"
       }
     ]
   },
@@ -43,7 +48,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/appFilters.js'],
 
   /*
    ** Nuxt.js dev-modules
@@ -73,6 +78,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend (config, ctx) { }
   }
 };

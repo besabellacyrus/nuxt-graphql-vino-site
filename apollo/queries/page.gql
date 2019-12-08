@@ -48,10 +48,29 @@ fragment centerText on Vino_page_Fc_HomeFc_CenterText {
       sourceUrl
     }
     routePath
+    subTitle
+    title
+    content
   }
 }
 
 fragment heroImage on Vino_page_Fc_HomeFc_HeroImage {
+  image {
+    sourceUrl
+  }
+}
+
+fragment spacer on Vino_page_Fc_HomeFc_Spacer {
+  fieldGroupName
+}
+
+fragment textArea on Vino_page_Fc_HomeFc_TextArea {
+  content
+  fieldGroupName
+}
+
+fragment imageContent on Vino_page_Fc_HomeFc_Image {
+  fieldGroupName
   image {
     sourceUrl
   }
@@ -66,6 +85,9 @@ query GET_CUSTOM_POST($slug: String!) {
           ...centerText
           ...heroImage
           ...showcase
+          ...spacer
+          ...textArea
+          ...imageContent
         }
       }
   }

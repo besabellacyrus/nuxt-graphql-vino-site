@@ -27,27 +27,16 @@
             class="float-left left-logo"
             v-show="scrolled > 40"
           ></AppLogo>
+          <!-- {{ navItems }} -->
           <ul class="flex justify-center font-semibold tracking-wide">
-            <li class="mr-6">
-              <a href="/">HOME</a>
-            </li>
-            <li class="mr-6">
-              <a href="/about">ABOUT</a>
-            </li>
-            <li class="mr-6">
-              <a href="/pairing">PAIRING</a>
-            </li>
-            <li class="mr-6">
-              <a href="/visit">VISIT</a>
-            </li>
-            <li class="mr-6">
-              <a href="/shop">SHOP</a>
-            </li>
-            <li class="mr-6">
-              <a href="/events">EVENTS</a>
-            </li>
-            <li class="mr-6">
-              <a href="/contact">CONTACT</a>
+            <li
+              class="mr-6 mt-1"
+              v-for="(nav, index) in navItems"
+              :key="index"
+            >
+              <a :href="nav.node.order_gql.link">
+                {{ nav.node.title.toUpperCase() }}
+              </a>
             </li>
           </ul>
         </div>
@@ -95,16 +84,32 @@
 
 <script>
 import AppLogo from "~/components/AppLogo"
+import navGql from "~/apollo/queries/nav"
+import _ from "lodash"
 
 export default {
   components: {
     AppLogo
+  },
+  apollo: {
+    vino_pages: {
+      query: navGql
+    },
+  },
+  computed: {
+    navItems () {
+      const items = this.vino_pages.edges.filter(e => e.node.order_gql.isMainPage);
+      return _.orderBy(items, 'node.order_gql.order', 'asc');
+    }
   },
   data () {
     return {
       scrolled: 0,
       isOpen: false
     }
+  },
+  mounted () {
+    console.log({ vino_pages: this.vino_pages.edges })
   },
   methods: {
     handleScroll (event) {

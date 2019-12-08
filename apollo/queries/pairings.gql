@@ -1,0 +1,28 @@
+query GET_CUSTOM_POST($slug: String!) {
+  pairingBy(slug: $slug) {
+    title
+    pairings_gql {
+      heroImage {
+        sourceUrl
+      }
+      content
+      backgroundColor
+      images {
+        image {
+          sourceUrl
+        }
+      }
+      items {
+        content
+        images {
+          image {
+            sourceUrl
+          }
+          label
+        }
+        title
+      }
+      subTitle
+    }
+  }
+}

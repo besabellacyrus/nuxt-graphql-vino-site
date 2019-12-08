@@ -1,28 +1,71 @@
 $app-main-dark: rgb(35, 30, 27);
 $app-main-light: rgb(68, 60, 57);
+$app-main-font-color:  #443d39;
 $app-gray: rgb(115, 111, 108);
 $app-brown: rgb(175, 141, 114);
-$app-main-bg: rgb(228, 237, 236);
+$app-main-bg: rgb(227,233,233);
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-size: 1.4rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-color: $app-main-bg;
+  color: $app-gray;
+  transition: all 300ms;
+  // max-width: 100%;
+  overflow-x: hidden;
+  line-height: 1.5;
+  // text-shadow: rgba(0, 0, 0, 0.1) 1px 1px 1px;
+
+}
+p {
+  // font-family: 'Cardo', serif;
+  font-family: "Crimson Text", serif;
+  font-size: 1.7rem;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+}
 
 // FOR HEADINGS
 h1 {
   color: $app-main-light;
   margin-top: 1rem;
+  font-size: 24px;
+  font-size: 2.4rem;
+
 }
 h3 {
   color: $app-brown;
+
 }
 
-p {
-  @apply leading-normal;
+hr {
+  border: 0.2px solid;
 }
 
 .app-subtitle {
+  color: $app-brown;
   @apply tracking-wider font-semibold;
+  font-size: 1.4rem;
+  @media screen and (max-width: 425px) {
+    font-size: 1.3rem;
+  }
 }
 
 .app-title {
-  @apply tracking-wider font-semibold mb-0;
+  color: $app-main-light;
+  @apply font-semibold mb-0;
+  font-size: 3rem;
+  line-height: 1;
+  margin: 0;
+  @media screen and (max-width: 425px) {
+    font-size: 4.2rem;
+    margin-top: 3rem;
+  }
 }
 
 // BUTTONS
@@ -33,6 +76,7 @@ p {
   padding: 0.5rem 1rem;
   color: $app-main-light;
   outline: none;
+  font-size: 1.2rem;
   @apply font-semibold tracking-wide px-5;
   transition: all 300ms;
   @media screen and (max-width: 320px) {

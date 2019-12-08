@@ -10,7 +10,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "test": "jest",
-    "build-fragment" : "node apollo/schemaQuery.js"
+    "build-fragment": "node apollo/schemaQuery.js"
   },
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.0-rc17",
@@ -28,6 +28,7 @@
     "node-sass": "^4.13.0",
     "sass": "^1.23.0",
     "sass-loader": "^8.0.0",
+    "stylelint-config-recommended": "^3.0.0",
     "vue-jest": "^4.0.0-0"
   }
 }

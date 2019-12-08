@@ -1,0 +1,14 @@
+query {
+  vino_pages {
+    edges {
+      node {
+        order_gql {
+          order
+          isMainPage
+          link
+        }
+        title
+      }
+    }
+  }
+}

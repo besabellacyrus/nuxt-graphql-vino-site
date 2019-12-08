@@ -1,0 +1,205 @@
+<template>
+  <div :class="{'sticky-menu': scrolled > 15}">
+    <div class="main-navigation-wrapper">
+      <div class="main-navigation-container text-center">
+        <AppLogo :class="{ 'side-logo': scrolled > 15 }" />
+        <ul class="pc-menu">
+          <li
+            v-for="(nav, index) in navItems"
+            :key="index"
+          >
+            <a :href="nav.node.order_gql.link">
+              {{ nav.node.title.toUpperCase() }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mobile mobile-two">
+      <div class="header">
+        <div
+          class="menu-toggle"
+          @click="toggleMenu($event)"
+        >
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div
+        class="mobile-nav"
+        ref="mobileNav"
+      >
+        <!-- <h2>Navigation</h2> -->
+        <ul>
+          <li
+            v-for="(nav, index) in navItems"
+            :key="index"
+          >
+            <a :href="nav.node.order_gql.link">
+              {{ nav.node.title.toUpperCase() }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import AppLogo from "~/components/AppLogo"
+import navGql from "~/apollo/queries/nav"
+import _ from "lodash"
+
+export default {
+  components: {
+    AppLogo
+  },
+  apollo: {
+    vino_pages: {
+      query: navGql
+    },
+  },
+  data () {
+    return {
+      scrolled: 0,
+    }
+  },
+  computed: {
+    navItems () {
+      const items = this.vino_pages.edges.filter(e => e.node.order_gql.isMainPage);
+      return _.orderBy(items, 'node.order_gql.order', 'asc');
+    }
+  },
+  methods: {
+    handleScroll (event) {
+      // Any code to be executed when the window is scrolled
+      this.scrolled = window.scrollY
+    },
+    toggleMenu (event) {
+      const { mobileNav } = this.$refs;
+      if (window.getComputedStyle(mobileNav, null).display === 'block') {
+        this.hideElem(mobileNav);
+        return;
+      }
+      this.showElem(mobileNav);
+    },
+    showElem (elem) {
+      elem.style.display = 'block';
+
+    },
+    hideElem (elem) {
+      elem.style.display = 'none';
+    }
+  },
+  created () {
+    if (process.browser) {
+      window.addEventListener('scroll', this.handleScroll);
+    }
+  },
+  destroyed () {
+    if (process.browser) {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.side-logo {
+  position: absolute;
+  top: -6px;
+  margin-bottom: 0px !important;
+  margin-left: 1rem;
+}
+.sticky-menu {
+  position: fixed;
+  z-index: 99999;
+  margin: 0 auto;
+  width: 100%;
+  transition: all 300ms ease-in-out;
+  background-color: rgba(255, 255, 255, 0.663);
+}
+.main-navigation-wrapper {
+  @media screen and (min-width: 769px) {
+    display: block;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+  .main-navigation-container {
+    padding: 2rem 0;
+  }
+  .pc-menu {
+    font-weight: bold;
+    color: $app-main-font-color;
+    li {
+      display: inline;
+      padding: 0 1rem;
+    }
+  }
+}
+
+.mobile {
+  width: 100%;
+  font-weight: bold;
+  // background-color: #eee;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+}
+
+.mobile .header {
+  background-color: #fff;
+  color: #fff;
+  padding: 10px;
+  transition: all 300ms;
+}
+
+.line {
+  width: 30px;
+  height: 2px;
+  margin: 10px 0;
+  background-color: #3c3842;
+}
+
+.menu-toggle:hover {
+  cursor: pointer;
+}
+
+.mobile-nav ul {
+  height: 54rem;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.mobile-two {
+  background: #fff;
+}
+
+.mobile-two .mobile-nav {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  display: none;
+  text-align: center;
+}
+
+.mobile-two .mobile-nav li a {
+  color: $app-main-font-color;
+  display: block;
+  padding: 15px 20px;
+}
+
+.mobile-two .mobile-nav li a:hover {
+  background-color: #3c3842;
+  color: #fff;
+}
+</style>

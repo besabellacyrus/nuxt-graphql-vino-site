@@ -1,0 +1,24 @@
+query {
+   shop_items {
+    edges {
+      node {
+        shop_gql {
+          buyNowUrl
+          details
+          fieldGroupName
+          images {
+            image {
+              sourceUrl
+            }
+          }
+          price
+          thumbnail {
+            sourceUrl
+          }
+          subTitle
+        }
+        title
+      }
+    }
+  }
+}
