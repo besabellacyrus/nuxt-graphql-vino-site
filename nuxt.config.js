@@ -20,6 +20,7 @@ export default {
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: 'stylesheet', href: 'https://unpkg.com/leaflet@1.2.0/dist/leaflet.css' },
       {
         rel: "stylesheet",
         href:
@@ -35,20 +36,16 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#fff" },
+  loading: { color: "red" },
   /*
    ** Global CSS
    */
   css: ["normalize.css/normalize.css"],
 
-  styleResources: {
-    scss: ["./assets/scss/main.scss"]
-  },
-
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/appFilters.js'],
+  plugins: [{ src: '~/plugins/appFilters', ssr: true }, { src: '~/plugins/vue-leaflet', ssr: false }],
 
   /*
    ** Nuxt.js dev-modules
@@ -60,16 +57,18 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/style-resources", "@nuxtjs/axios", "@nuxtjs/apollo"],
+  modules: [
+    "@nuxtjs/style-resources", "@nuxtjs/axios", "@nuxtjs/apollo"
+  ],
+  styleResources: {
+    // your settings here
+    scss: ["~/assets/scss/main.scss", "~/assets/scss/theme.scss"]
+  },
   apollo: {
     includeNodeModules: true,
     clientConfigs: {
       default: '~/apollo/config.js'
     }
-  },
-  styleResources: {
-    // your settings here
-    scss: ["@/assets/scss/main.scss"]
   },
   /*
    ** Build configuration
@@ -78,6 +77,10 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend (config, ctx) { }
+    splitChunks: {
+      layouts: true
+    },
+    extend (config, ctx) {
+    }
   }
 };

@@ -7,7 +7,6 @@
       >
         <HeroImageDynamic
           v-if="vino.__typename === 'Vino_page_Fc_HomeFc_HeroImage'"
-          class="pt-32"
           :img-url="vino.image.sourceUrl"
         ></HeroImageDynamic>
         <div v-if="vino.orientation && vino.orientation === 'right'">
@@ -87,14 +86,6 @@ export default {
   data () {
     return {
       slug: null
-    }
-  },
-  created () {
-    console.log({ ssslug: this.$route })
-  },
-  watch: {
-    vino_pageBy (val) {
-      console.log({ pageByyy: val, slslsls: this.$route })
     }
   },
   apollo: {

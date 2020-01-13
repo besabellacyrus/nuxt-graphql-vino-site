@@ -5,7 +5,6 @@
   >
     <HeroImageDynamic
       v-if="pairingBy.pairings_gql.heroImage"
-      class="pt-32"
       :img-url="pairingBy.pairings_gql.heroImage.sourceUrl"
     ></HeroImageDynamic>
 

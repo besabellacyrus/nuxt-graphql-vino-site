@@ -1,6 +1,33 @@
 <template>
-  <div class="contaier mx-auto">
-
+  <div class="app-wrapper-image-left">
+    <div class="images-wrapper">
+      <img
+        :src="renderImage(images[1])"
+        alt=""
+      >
+      <img
+        :src="renderImage(images[1])"
+        alt=""
+      >
+    </div>
+    <div class="content">
+      <h3 class="subtitle">{{ subtitle }}</h3>
+      <h1 class="title">{{ title }}</h1>
+      <p class="app-top-line-right">{{ content }}</p>
+      <div class="app-button-wrapper">
+        <!-- <button>OUR STORY</button>
+        <button>ORCHARD</button> -->
+        <div
+          v-for="(btn, index) in buttons"
+          :key="index"
+          class="app-buttons"
+        >
+          <a :href="btn.url">
+            <button>{{ btn.label}}</button>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
   <!-- <div class="container mx-auto mt-20 relative">
     <div class="md:flex mx-10 md:flex-wrap">
@@ -77,59 +104,59 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.top-right-img {
-  float: right;
-  height: 14rem;
-  position: relative;
-  z-index: 20;
-}
+// .top-right-img {
+//   float: right;
+//   height: 14rem;
+//   position: relative;
+//   z-index: 20;
+// }
 
-.bottom-left-img {
-  height: 11rem;
-  position: absolute;
-  margin-top: 8rem;
-  margin-left: 6rem;
-  position: relative;
-  z-index: 1;
-}
-.left-image-one {
-  height: 32rem;
-  @media screen and (max-width: 1024px) {
-    height: 15rem;
-    margin-left: 5rem;
-    margin-top: 2rem;
-  }
-  @media screen and (max-width: 768px) {
-    height: 15rem;
-    margin-left: 0rem;
-    margin-top: 2rem;
-  }
-}
-.right-image-one {
-  height: 32rem;
-  position: absolute;
-  right: 0;
-  top: 8rem;
-  left: 23rem;
-  @media screen and (max-width: 1024px) {
-    height: 12rem;
-  }
-  @media screen and (max-width: 768px) {
-    height: 12rem;
-    top: 9rem;
-    left: 10rem;
-  }
-  @media screen and (max-width: 375px) {
-    img {
-      position: absolute;
-      right: 0;
-      top: 135px;
-    }
-    height: 12rem;
-    position: initial;
-    right: initial;
-    top: initial;
-    left: initial;
-  }
-}
+// .bottom-left-img {
+//   height: 11rem;
+//   position: absolute;
+//   margin-top: 8rem;
+//   margin-left: 6rem;
+//   position: relative;
+//   z-index: 1;
+// }
+// .left-image-one {
+//   height: 32rem;
+//   @media screen and (max-width: 1024px) {
+//     height: 15rem;
+//     margin-left: 5rem;
+//     margin-top: 2rem;
+//   }
+//   @media screen and (max-width: 768px) {
+//     height: 15rem;
+//     margin-left: 0rem;
+//     margin-top: 2rem;
+//   }
+// }
+// .right-image-one {
+//   height: 32rem;
+//   position: absolute;
+//   right: 0;
+//   top: 8rem;
+//   left: 23rem;
+//   @media screen and (max-width: 1024px) {
+//     height: 12rem;
+//   }
+//   @media screen and (max-width: 768px) {
+//     height: 12rem;
+//     top: 9rem;
+//     left: 10rem;
+//   }
+//   @media screen and (max-width: 375px) {
+//     img {
+//       position: absolute;
+//       right: 0;
+//       top: 135px;
+//     }
+//     height: 12rem;
+//     position: initial;
+//     right: initial;
+//     top: initial;
+//     left: initial;
+//   }
+// }
 </style>

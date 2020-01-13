@@ -1,48 +1,115 @@
 $app-main-dark: rgb(35, 30, 27);
 $app-main-light: rgb(68, 60, 57);
-$app-main-font-color:  #443d39;
+$app-main-font-color:  #6d6662;
 $app-gray: rgb(115, 111, 108);
 $app-brown: rgb(175, 141, 114);
 $app-main-bg: rgb(227,233,233);
-html {
-  font-size: 62.5%;
-}
+$app-main-bg-color: #E6ECEC;
+
 body {
   font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  font-size: 1.4rem;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  background-color: $app-main-bg;
+  background-color: $app-main-bg-color;
   color: $app-gray;
   transition: all 300ms;
-  // max-width: 100%;
-  overflow-x: hidden;
-  line-height: 1.5;
-  // text-shadow: rgba(0, 0, 0, 0.1) 1px 1px 1px;
-
+  font-size: 1.3rem;
 }
 p {
-  // font-family: 'Cardo', serif;
   font-family: "Crimson Text", serif;
-  font-size: 1.7rem;
-  line-height: 1.7;
+  font-size: 1.5rem;
+  line-height: 1.6;
   letter-spacing: 0.2px;
+  color: $app-main-font-color;
+
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    margin: 0 auto;
+    width: 92%;
+  }
+}
+p.app-top-line, p.app-top-line-right, p.app-top-line-center, b.app-top-line-center{
+  position: relative;
+  &:before {
+    position: absolute;
+    content: "";
+    top: -1rem;
+    height: 0.5rem;
+    background-color: $app-main-light;
+    width: 3rem;
+    @media screen and (max-width: 768px){
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+p.app-top-line-right {
+  @media screen and (min-width: 1024px) {
+    margin-right: 2rem;
+  }
+  &:before {
+    right: 0;
+  }
+}
+b.app-top-line-center {
+  &:before {
+    left: 50%;
+      transform: translateX(-50%);
+  }
+}
+p.app-top-line-center {
+  @media screen and (max-width: 450px) {
+    margin-top: 3rem;
+  }
+  &:before {
+    left: 50%;
+      transform: translateX(-50%);
+  }
 }
 
-// FOR HEADINGS
 h1 {
   color: $app-main-light;
-  margin-top: 1rem;
-  font-size: 24px;
-  font-size: 2.4rem;
-
 }
 h3 {
   color: $app-brown;
-
 }
 
+.title {
+  color: $app-main-light;
+  font-size: 6.2rem;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.28rem;
+  position: relative;
+  height: 9rem;
+  @media screen and (max-width: 912px) {
+    font-size: 4.3rem;
+
+  }
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
+}
+
+.subtitle {
+  color: $app-brown;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  font-size: 1.4rem;
+  @media screen and (max-width: 912px) {
+    font-size: 1.3rem;
+  }
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    margin-bottom: 0.5rem;
+
+  }
+}
+.line-bot {
+  background-color: $app-main-dark;
+  width: 2rem;
+  height: 0.5rem;
+}
 hr {
   border: 0.2px solid;
 }
@@ -68,7 +135,6 @@ hr {
   }
 }
 
-// BUTTONS
 .app-btn {
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -89,7 +155,6 @@ hr {
   }
 }
 
-// MISCS
 .bottom-bar {
   border-bottom: 5px solid $app-main-light;
   height: 5px;

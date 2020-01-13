@@ -1,5 +1,37 @@
 <template>
-  <div class="container mx-auto">
+  <div class="center-content-wrapper">
+    <div class="subtitle">{{ subtitle }}</div>
+    <div class="title">{{ title }}</div>
+    <p class="app-top-line-center">
+      {{ content }}
+    </p>
+    <div class="app-button-wrapper">
+      <div
+        v-for="(btn, index) in buttons"
+        :key="index"
+        class="app-buttons"
+      >
+        <a :href="btn.url">
+          <button>{{ btn.label}}</button>
+        </a>
+      </div>
+    </div>
+    <div class="center-images">
+      <div
+        class="image-btn"
+        v-for="(img, index) in imageButtons"
+        :key="index"
+      >
+        <a :href="img.routePath">
+          <img
+            :src="img.image ? img.image.sourceUrl : '' "
+            alt=""
+          >
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="container mx-auto">
     <div class="text-center">
       <h3 class="app-subtitle">{{ subtitle }}</h3>
       <h1 class="app-title">{{ title }}</h1>
@@ -52,7 +84,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>

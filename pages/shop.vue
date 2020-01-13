@@ -7,7 +7,6 @@
       >
         <HeroImageDynamic
           v-if="vino.__typename === 'Vino_page_Fc_HomeFc_HeroImage'"
-          class="pt-32"
           :img-url="vino.image.sourceUrl"
         ></HeroImageDynamic>
         <div v-if="vino.orientation && vino.orientation === 'right'">

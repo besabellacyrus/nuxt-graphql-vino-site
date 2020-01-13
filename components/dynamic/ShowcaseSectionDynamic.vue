@@ -1,5 +1,60 @@
 <template>
-  <div class="container mx-auto">
+  <div class="center-content-wrapper">
+    <div class="subtitle">JOIN US?</div>
+    <div class="title">OUR EVENTS</div>
+    <b class="app-top-line-center"></b>
+    <div class="events-list-wrapper">
+      <div class="event-item-card">
+        <div>
+          <img
+            src="~assets/img/Event 2-min.png"
+            alt=""
+          >
+        </div>
+        <div>
+          <h1>EVENT NAME</h1>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero, iste?</p>
+        </div>
+      </div>
+      <div class="event-item-card">
+        <div>
+          <img
+            src="~assets/img/Event 2-min.png"
+            alt=""
+          >
+        </div>
+        <div>
+          <h1>EVENT NAME</h1>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero, iste?</p>
+        </div>
+      </div>
+      <div class="event-item-card">
+        <div>
+          <img
+            src="~assets/img/Event 2-min.png"
+            alt=""
+          >
+        </div>
+        <div>
+          <h1>EVENT NAME</h1>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero, iste?</p>
+        </div>
+      </div>
+      <div class="event-item-card">
+        <div>
+          <img
+            src="~assets/img/Event 2-min.png"
+            alt=""
+          >
+        </div>
+        <div>
+          <h1>EVENT NAME</h1>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero, iste?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="container mx-auto">
     <div class="mt-32 text-center">
       <h3 class="app-subtitle">{{ subtitle }}</h3>
       <h1 class="app-title">{{ title }}</h1>
@@ -31,18 +86,18 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
 export default {
   props: {
-     imageButtons: { default: null },
-     subtitle: String,
-     title: String,
-     content: String,
-     buttons: Array,
-     items: Array
+    imageButtons: { default: null },
+    subtitle: String,
+    title: String,
+    content: String,
+    buttons: Array,
+    items: Array
   }
 
 }
