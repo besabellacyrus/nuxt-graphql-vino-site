@@ -18,13 +18,21 @@
 
     <div class="mobile mobile-two">
       <div class="header">
-        <div
-          class="menu-toggle"
-          @click="toggleMenu($event)"
-        >
-          <div class="line"></div>
-          <div class="line"></div>
+        <div class="header-grid">
+          <div
+            class="menu-toggle"
+            @click="toggleMenu($event)"
+          >
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <img
+            class=""
+            src="~/assets/img/logo-footer.svg"
+            alt=""
+          >
         </div>
+
       </div>
       <div
         class="mobile-nav"
@@ -143,7 +151,6 @@ export default {
 .mobile {
   width: 100%;
   font-weight: bold;
-  // background-color: #eee;
   overflow: hidden;
   position: relative;
   display: inline-block;
@@ -156,10 +163,20 @@ export default {
 }
 
 .mobile .header {
-  background-color: #fff;
   color: #fff;
-  padding: 10px;
   transition: all 300ms;
+}
+
+.header-grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  padding: 2rem;
+  & img {
+    height: 4rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .line {
@@ -178,10 +195,6 @@ export default {
   padding: 0;
   margin: 0;
   list-style-type: none;
-}
-
-.mobile-two {
-  background: #fff;
 }
 
 .mobile-two .mobile-nav {
