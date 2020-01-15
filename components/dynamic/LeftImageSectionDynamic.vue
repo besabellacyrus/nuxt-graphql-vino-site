@@ -2,7 +2,7 @@
   <div class="app-wrapper-image-left">
     <div class="images-wrapper">
       <img
-        :src="renderImage(images[1])"
+        :src="renderImage(images[0])"
         alt=""
       >
       <img
