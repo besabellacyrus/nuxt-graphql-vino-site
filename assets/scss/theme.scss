@@ -45,7 +45,7 @@
     display: grid;
     grid-template-rows: auto;
     .header {
-      height: 9rem;
+      height: auto;
       @media screen and (max-width: 425px) {
         height: auto;
       }

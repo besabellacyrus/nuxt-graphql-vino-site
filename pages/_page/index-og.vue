@@ -1,14 +1,6 @@
 <template>
-  <div class="main-wrapper">
-    <div class="bg-pattern-one"></div>
-    <div class="bg-pattern-two"></div>
-    <div class="bg-pattern-three"></div>
-    <div class="bg-pattern-four"></div>
-    <div class="bg-pattern-five"></div>
-    <div
-      class="content-wrapper mx-auto"
-      v-if="vino_pageBy"
-    >
+  <div>
+    <div v-if="vino_pageBy">
       <div
         v-for="(vino, index) in vino_pageBy.fc.homeFc"
         :key="index"
@@ -96,14 +88,6 @@ export default {
       slug: null
     }
   },
-  created () {
-    console.log({ ssslug: this.$route })
-  },
-  watch: {
-    vino_pageBy (val) {
-      console.log({ pageByyy: val, slslsls: this.$route })
-    }
-  },
   apollo: {
     vino_pageBy: {
       query: pageGql,
@@ -130,56 +114,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.main-wrapper {
-  overflow: hidden;
-  .content-wrapper {
-    z-index: 9;
-    position: relative;
-  }
-}
-.bg-pattern-one {
-  background-image: url("~assets/img/bg/bg_01.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 46rem;
-  width: 37%;
-  right: 0;
-  position: absolute;
-  top: 50%;
-  z-index: 1;
-}
-.bg-pattern-two {
-  background-image: url("~assets/img/bg/bg_02.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 60rem;
-  width: 37%;
-  left: 0;
-  position: absolute;
-  top: 75rem;
-  z-index: 1;
-}
-.bg-pattern-three {
-  background-image: url("~assets/img/bg/bg_03.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 60rem;
-  width: 37%;
-  right: 0;
-  position: absolute;
-  top: 150rem;
-  z-index: 1;
-}
-.bg-pattern-four {
-  background-image: url("~assets/img/bg/bg_04.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 60rem;
-  width: 37%;
-  left: 0;
-  position: absolute;
-  top: 200rem;
-  z-index: 1;
-}
+<style>
 </style>
