@@ -6,7 +6,7 @@
     <div class="bg-pattern-four"></div>
     <div class="bg-pattern-five"></div>
     <div
-      class="content-wrapper container mx-auto"
+      class="content-wrapper mx-auto"
       v-if="vino_pageBy"
     >
       <div

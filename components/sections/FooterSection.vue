@@ -6,59 +6,38 @@
         src="~/assets/img/logo-footer.svg"
         alt=""
       >
-      <h2>LOGO MOTTO HERE</h2>
+      <h2 class="mt-3"><b>HERITAGE LIQOURS</b></h2>
     </div>
-    <div>
+    <div class="explores">
+      <h1>EXPLORES</h1>
+      <ul>
+        <li>HOME</li>
+        <li>ABOUT</li>
+        <li>WINES</li>
+        <li>PAIRING</li>
+        <li>VISIT</li>
+        <li>SHOP</li>
+        <li>EVENTS</li>
+        <li>STORE LOCATOR</li>
+      </ul>
+    </div>
+    <div class="resources">
       <h1>RESOURCES</h1>
+      <ul>
+        <li>SHIPPING</li>
+        <li>PRIVACY POLICY</li>
+        <li>SUSTAINABILITY</li>
+        <li>PARTNERSHIPS</li>
+      </ul>
     </div>
     <div>
       <h1>CONTACT US</h1>
+      <p class="px-5 text-center md:text-left">
+        3800 Kinney Street, Springfield
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, eaque?
+      </p>
       <h1>GET CONNECTED</h1>
     </div>
-    <!-- <div class="flex flex-wrap text-center mx-auto ">
-      <div class="w-full mb-6 md:w-1/3">
-        <div class="mt-6 w-full">
-          <img
-            class="h-20 mx-auto"
-            src="~/assets/img/logo-footer.svg"
-            alt=""
-          >
-          <h2>LOGO MOTTO HERE</h2>
-        </div>
-      </div>
-      <div class="w-full mt-20 md:mt-10 md:w-1/3">
-        <h4 class="mb-6 mt-6 text-center md:text-left reso">RESOURCES</h4>
-        <ul class="flex flex-wrap">
-          <div class="w-full md:w-1/2">
-            <li>
-              STORE LOCATOR
-            </li>
-            <li>
-              SHIPPING
-            </li>
-            <li>
-              PRIVACY POLICY
-            </li>
-          </div>
-          <div class="w-full md:w-1/2">
-            <li>
-              SUSTAINABILITY
-            </li>
-            <li>
-              PARTNERSHIPS
-            </li>
-          </div>
-        </ul>
-      </div>
-      <div class="w-full mt-10 md:w-1/3">
-        <h4 class="mb-6 mt-6 text-center px-5 md:text-left">CONTACT US</h4>
-        <p class="px-5 text-center md:text-left">
-          3800 Kinney Street, Springfield
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, eaque?
-        </p>
-        <h4 class="mb-6 mt-6">GET CONNECTED</h4>
-      </div>
-    </div> -->
   </footer>
 </template>
 
@@ -77,8 +56,13 @@ h1 {
 }
 li {
   color: $app-gray;
-  font-size: 0.9rem;
   padding-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: left;
+  font-weight: bold;
+  @media screen and (max-width: 475px) {
+    text-align: center;
+  }
 }
 footer {
   background-color: $app-main-dark;
@@ -91,5 +75,11 @@ footer {
   @media screen and (min-width: 768px) {
     margin-left: 4rem;
   }
+}
+.explores {
+  padding: 0 12rem;
+}
+.resources {
+  padding: 0 12rem;
 }
 </style>

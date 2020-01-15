@@ -21,16 +21,6 @@ export default {
 
 <style lang="scss">
 html {
-  box-sizing: border-box;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-html {
   font-size: 62.5%;
 }
-@import url("@/assets/scss/main.scss");
-@import url("@/assets/scss/theme.scss");
 </style>

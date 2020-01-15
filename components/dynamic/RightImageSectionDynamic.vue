@@ -1,8 +1,10 @@
 <template>
   <div class="app-wrapper-image-right">
     <div class="content">
-      <h3 class="subtitle">{{ subtitle }}</h3>
-      <h1 class="title">{{ title }}</h1>
+      <div class="header">
+        <h3 class="subtitle">{{ subtitle }}</h3>
+        <h1 class="title">{{ title }}</h1>
+      </div>
       <p class="app-top-line">
         {{ content }}
       </p>
