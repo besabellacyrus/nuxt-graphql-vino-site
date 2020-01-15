@@ -1,7 +1,9 @@
 <template>
   <div class="center-content-wrapper">
-    <div class="subtitle">{{ subtitle }}</div>
-    <div class="title">{{ title }}</div>
+    <div>
+      <div class="subtitle">{{ subtitle }}</div>
+      <div class="title">{{ title }}</div>
+    </div>
     <div class="app-bot-bar">
     </div>
     <p>

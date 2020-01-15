@@ -1,11 +1,37 @@
+.header-shape-container {
+  @media screen and (min-width: 426px) {
+    mask-image: url("~assets/img/header_shape.svg");
+    height: 37rem;
+    background-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    margin-bottom: 10rem;
+  }
+
+  @media screen and (max-width: 425px) {
+    mask-image: initial;
+    -webkit-mask-image: initial;
+    height: 13rem;
+    margin-bottom: 3rem;
+  }
+  @media screen and (max-width: 768px) {
+    height: 19rem;
+    background-size: cover;
+    background-position-y: 94%;
+  }
+}
+
+
+
 .app-wrapper-image-right,
 .app-wrapper-image-left {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(37rem, 1fr));
   grid-gap: 2.5rem;
-  margin: 0 2rem;
-
-  @media screen and (width: 375px) {
+  @media screen and (min-width: 769px) {
+    margin: 0 8rem;
+  }
+  @media screen and (max-width: 375px) {
     grid-template-rows: 1fr 1fr;
   }
 
@@ -18,6 +44,12 @@
   .content {
     display: grid;
     grid-template-rows: auto;
+    .header {
+      height: 9rem;
+      @media screen and (max-width: 425px) {
+        height: auto;
+      }
+    }
   }
   .images-wrapper {
     display: grid;
@@ -82,11 +114,16 @@
   button {
     font-size: 1.4rem;
     font-weight: bold;
-    padding: 1rem;
+    padding: 1rem 2rem;
     border: 0.2rem solid $app-brown;
     border-bottom-left-radius: 1rem;
     border-top-right-radius: 1rem;
     margin-right: 1rem;
+  }
+  &:last-child {
+    button {
+      margin-right: 0rem;
+    }
   }
 }
 .app-button-wrapper {
@@ -126,12 +163,25 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
   margin-top: 3rem;
+  @media screen and (min-width: 769px) {
+    width: 88rem;
+    margin: 4rem auto;
+  }
+  @media screen and (max-width: 425px) {
+    grid-template-columns: repeat(auto-fit, minmax(37rem, 1fr));
+    padding-left: 1rem;
+  }
   .event-item-card {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 2rem;
     text-align: left;
-
+    @media screen and (max-width: 768px) {
+      p {
+        text-align: left;
+        margin: 0;
+      }
+    }
     img {
       height: 100%;
       width: 100%;
@@ -139,6 +189,8 @@
     }
     h1 {
       font-size: 1.7rem;
+      font-weight: bold;
+    margin: 0;
     }
   }
 }
@@ -147,4 +199,7 @@
   width: 4rem;
   margin: 0 auto;
   border-bottom: 0.5rem solid #443c39;
+  @media screen and (max-width: 475px ){
+    margin-top: 1rem;
+  }
 }
