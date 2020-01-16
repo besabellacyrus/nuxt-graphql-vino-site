@@ -56,7 +56,7 @@ h1 {
   letter-spacing: 1.2px;
   color: rgb(128, 126, 127);
   text-align: left;
-  @media screen and (min-width: 375px) {
+  @media screen and (max-width: 375px) {
     text-align: center;
   }
 }
