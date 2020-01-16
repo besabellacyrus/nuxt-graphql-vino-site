@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'sticky-menu': scrolled > 15}">
+  <div :class="{'sticky-menu': scrolled > 58 }">
     <div class="main-navigation-wrapper">
       <div class="main-navigation-container text-center">
         <AppLogo :class="{ 'side-logo': scrolled > 15 }" />
@@ -81,7 +81,6 @@ export default {
   },
   methods: {
     handleScroll (event) {
-      // Any code to be executed when the window is scrolled
       this.scrolled = window.scrollY
     },
     toggleMenu (event) {

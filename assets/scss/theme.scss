@@ -31,9 +31,9 @@
   @media screen and (min-width: 769px) {
     margin: 0 8rem;
   }
-  @media screen and (max-width: 375px) {
-    grid-template-rows: 1fr 1fr;
-  }
+  // @media screen and (max-width: 375px) {
+  //   grid-template-rows: 1fr 1fr;
+  // }
 
   @media screen and (max-width: 375px) {
     grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
@@ -44,6 +44,9 @@
   .content {
     display: grid;
     grid-template-rows: auto;
+    p {
+      padding-top: 4rem;
+    }
     .header {
       height: auto;
       @media screen and (max-width: 425px) {
@@ -55,7 +58,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     @media screen and (width: 375px) {
-      grid-template-columns: auto;
+      // grid-template-columns: auto;
     }
     @media screen and (min-width: 769px) {
       img:nth-child(1) {
@@ -80,15 +83,16 @@
 .app-wrapper-image-left {
   .content {
     display: grid;
-    grid-template-rows: 0.1fr 1.7fr 3fr 0.2fr;
+    grid-template-rows: 0.1fr 1.7fr 1fr 1fr;
+    p {
+      padding-top: 4rem;
+    }
   }
   .images-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
-    @media screen and (width: 375px) {
-      grid-template-columns: auto;
-    }
+
     @media screen and (min-width: 769px) {
       img:nth-child(1) {
         position: relative;
@@ -138,6 +142,7 @@
   @media screen and (min-width: 1024px) {
     & > p {
       margin: 0 23rem;
+      padding-top: 4rem;
     }
   }
 }
@@ -148,12 +153,12 @@
   grid-gap: 2rem;
   @media screen and (min-width: 1024px) {
     grid-gap: 0rem;
-    max-width: 76rem;
+    max-width: 88rem;
     margin: 0 auto;
   }
   .image-btn {
     img {
-      height: 22rem;
+      height: 28rem;
       margin: 0 auto;
     }
   }

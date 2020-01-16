@@ -6,6 +6,106 @@ $app-brown: rgb(175, 141, 114);
 $app-main-bg: rgb(227,233,233);
 $app-main-bg-color: #E6ECEC;
 
+
+// index
+.main-wrapper {
+  overflow: hidden;
+  position: relative;
+  .content-wrapper {
+    z-index: 9;
+    position: relative;
+  }
+}
+.bg-pattern-one {
+  background-image: url("~assets/img/bg/bg_01.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 46rem;
+  width: 37%;
+  right: 0;
+  position: absolute;
+  top: 8%;
+  z-index: 1;
+}
+.bg-pattern-two {
+  background-image: url("~assets/img/bg/bg_02.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50rem;
+  width: 45rem;
+  left: 0;
+  position: absolute;
+  top: 64rem;
+  z-index: 1;
+}
+.bg-pattern-three {
+  background-image: url("~assets/img/bg/bg_03.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60rem;
+  width: 37%;
+  right: 0;
+  position: absolute;
+  top: 121rem;
+  z-index: 1;
+}
+.bg-pattern-four {
+  background-image: url("~assets/img/bg/bg_04.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60rem;
+  width: 37%;
+  left: 0;
+  position: absolute;
+  top: 157rem;
+  z-index: 1;
+}
+.bg-pattern-five {
+  background-image: url("~assets/img/bg/bg_05.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60rem;
+  width: 37%;
+  right: 0;
+  position: absolute;
+  top: 193rem;
+  z-index: 1;
+}
+.bg-pattern-six {
+  background-image: url("~assets/img/bg/bg_06.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 69rem;
+  width: 37%;
+  left: 0;
+  position: absolute;
+  z-index: 1;
+  top: 260rem;
+
+  @media screen and (max-width: 768px) {
+    height: 47rem;
+    width: 36rem;
+    top: 290rem;
+  }
+}
+
+.bg-pattern-seven {
+  background-image: url("~assets/img/bg/bg_07.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 69rem;
+  width: 37%;
+  right: 0;
+  position: absolute;
+  top: 333rem;
+  z-index: 1;
+  @media screen and (max-width: 768px) {
+    height: 39rem;
+    width: 34rem;
+    top: 377rem;
+  }
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   text-rendering: optimizeLegibility;
@@ -28,6 +128,50 @@ p {
     width: 92%;
   }
 }
+
+.bar-top-line-center,
+.bar-top-line-left,
+.bar-top-line-right {
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    height: 0.4rem;
+    width: 2.5rem;
+    background-color: #443c39;
+    top: 2rem;
+  }
+}
+
+.bar-top-line-right {
+  &:before {
+    right: 0;
+  }
+}
+
+.bar-top-line-center {
+  &:before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.bar-top-line-left,
+.bar-top-line-right {
+  &:before {
+    @media screen and (max-width: 768px) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.bar-top-line-center {
+  @media screen and (max-width: 425px) {
+    padding-top: 4rem;
+  }
+}
+
 p.app-top-line, p.app-top-line-right, p.app-top-line-center, b.app-top-line-center{
   position: relative;
   &:before {

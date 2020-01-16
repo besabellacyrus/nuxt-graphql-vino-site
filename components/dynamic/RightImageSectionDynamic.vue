@@ -5,7 +5,7 @@
         <h3 class="subtitle">{{ subtitle }}</h3>
         <h1 class="title">{{ title }}</h1>
       </div>
-      <p class="app-top-line">
+      <p class="bar-top-line-left">
         {{ content }}
       </p>
       <div class="app-button-wrapper">
