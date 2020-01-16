@@ -30,13 +30,15 @@
         <li>PARTNERSHIPS</li>
       </ul>
     </div>
-    <div>
+    <div class="contact">
       <h1>CONTACT US</h1>
       <p class="px-5 text-center md:text-left">
         3800 Kinney Street, Springfield
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, eaque?
       </p>
-      <h1>GET CONNECTED</h1>
+      <div class="get-connected">
+        <h1>GET CONNECTED</h1>
+      </div>
     </div>
   </footer>
 </template>
@@ -53,6 +55,16 @@ h1 {
   font-weight: bold;
   letter-spacing: 1.2px;
   color: rgb(128, 126, 127);
+  text-align: left;
+  @media screen and (min-width: 375px) {
+    text-align: center;
+  }
+}
+ul {
+  padding-left: 2rem;
+  @media screen and (max-width: 768px) {
+    padding-left: 0;
+  }
 }
 li {
   color: $app-gray;
@@ -67,19 +79,28 @@ li {
 footer {
   background-color: $app-main-dark;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
   text-align: center;
   padding: 2rem;
 }
-.reso {
-  @media screen and (min-width: 768px) {
-    margin-left: 4rem;
+.explores {
+  @media screen and (max-width: 425px) {
+    margin-top: 4rem;
   }
 }
-.explores {
-  padding: 0 12rem;
-}
 .resources {
-  padding: 0 12rem;
+  @media screen and (max-width: 425px) {
+    margin-top: 4rem;
+  }
+}
+.contact {
+  @media screen and (max-width: 425px) {
+    margin-top: 4rem;
+  }
+}
+.get-connected {
+  @media screen and (max-width: 425px) {
+    margin-top: 4rem;
+  }
 }
 </style>

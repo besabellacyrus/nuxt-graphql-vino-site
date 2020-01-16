@@ -4,9 +4,8 @@
       <div class="subtitle">{{ subtitle }}</div>
       <div class="title">{{ title }}</div>
     </div>
-    <div class="app-bot-bar">
-    </div>
-    <p>
+
+    <p class="bar-top-line-center">
       {{ content }}
     </p>
     <div class="app-button-wrapper">

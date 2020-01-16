@@ -114,7 +114,6 @@ export default {
   methods: {
     handleScroll (event) {
       // Any code to be executed when the window is scrolled
-      // console.log({ sss: window.scrollY })
       this.scrolled = window.scrollY
     },
     openSidebar () {

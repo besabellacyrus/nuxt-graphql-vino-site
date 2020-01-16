@@ -16,11 +16,4 @@ export default {
 </script>
 
 <style lang="scss">
-.text-area {
-  p {
-    @media screen and (max-width: 1024px) {
-      padding: 1rem;
-    }
-  }
-}
 </style>

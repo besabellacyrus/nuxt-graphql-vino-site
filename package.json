@@ -22,7 +22,8 @@
     "nuxt-sass-resources-loader": "^2.0.5",
     "prunecluster": "^2.1.0",
     "sass-resources-loader": "^2.0.1",
-    "vue2-leaflet": "^2.4.2"
+    "vue2-leaflet": "^2.4.2",
+    "core-js": "^2.6.5"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.0.0",

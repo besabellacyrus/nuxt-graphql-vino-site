@@ -1,6 +1,16 @@
 <template>
-  <div>
-    <div v-if="vino_pageBy">
+  <div class="main-wrapper">
+    <div class="bg-pattern-one"></div>
+    <div class="bg-pattern-two"></div>
+    <div class="bg-pattern-three"></div>
+    <div class="bg-pattern-four"></div>
+    <div class="bg-pattern-five"></div>
+    <div class="bg-pattern-six"></div>
+    <div class="bg-pattern-seven"></div>
+    <div
+      class="content-wrapper mx-auto"
+      v-if="vino_pageBy"
+    >
       <div
         v-for="(vino, index) in vino_pageBy.fc.homeFc"
         :key="index"
@@ -114,5 +124,5 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 </style>
