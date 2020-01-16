@@ -165,17 +165,22 @@ export default {
   color: #fff;
   transition: all 300ms;
 }
-
+.sticky-menu {
+  .header-grid {
+    background-color: initial;
+  }
+}
 .header-grid {
   display: grid;
   grid-template-columns: 1fr 4fr;
   padding: 2rem;
+  background-color: #fff;
   & img {
     height: 4rem;
     position: absolute;
     left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%);
+    margin-top: 1rem;
   }
 }
 

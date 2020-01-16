@@ -1,16 +1,18 @@
 <template>
   <div class="app-wrapper-image-left">
-    <div class="images-wrapper">
+    <div class="images-wrapper wow fadeInLeft">
       <img
         :src="renderImage(images[0])"
         alt=""
+        v-lazy-load
       >
       <img
         :src="renderImage(images[1])"
         alt=""
+        v-lazy-load
       >
     </div>
-    <div class="content">
+    <div class="content wow fadeInRight">
       <div class="header">
         <h3 class="subtitle">{{ subtitle }}</h3>
         <h1 class="title">{{ title }}</h1>

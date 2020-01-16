@@ -1,5 +1,5 @@
 <template>
-  <div class="center-content-wrapper">
+  <div class="center-content-wrapper wow fadeIn">
     <div class="subtitle">JOIN US?</div>
     <div class="title">OUR EVENTS</div>
     <p class="bar-top-line-center"></p>
@@ -9,6 +9,7 @@
           <img
             src="~assets/img/Event 2-min.png"
             alt=""
+            v-lazy-load
           >
         </div>
         <div>
@@ -21,6 +22,7 @@
           <img
             src="~assets/img/Event 2-min.png"
             alt=""
+            v-lazy-load
           >
         </div>
         <div>
@@ -33,6 +35,7 @@
           <img
             src="~assets/img/Event 2-min.png"
             alt=""
+            v-lazy-load
           >
         </div>
         <div>
@@ -45,6 +48,7 @@
           <img
             src="~assets/img/Event 2-min.png"
             alt=""
+            v-lazy-load
           >
         </div>
         <div>

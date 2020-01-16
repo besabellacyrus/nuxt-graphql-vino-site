@@ -40,12 +40,15 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["normalize.css/normalize.css"],
+  css: ["normalize.css/normalize.css", "~/assets/css/animate.css"],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/appFilters', ssr: true }, { src: '~/plugins/vue-leaflet', ssr: false }],
+  plugins: [
+    { src: '~/plugins/appFilters', ssr: true },
+    { src: '~/plugins/vue-leaflet', ssr: false }
+  ],
 
   /*
    ** Nuxt.js dev-modules
@@ -58,7 +61,16 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    "@nuxtjs/style-resources", "@nuxtjs/axios", "@nuxtjs/apollo"
+    "@nuxtjs/style-resources",
+    "@nuxtjs/axios",
+    "@nuxtjs/apollo",
+    ["nuxt-lazy-load", {
+      observerConfig: {
+        rootMargin: '50px 0px 50px 0px',
+        threshold: 0
+        // See IntersectionObserver documentation
+      }
+    }]
   ],
   styleResources: {
     // your settings here

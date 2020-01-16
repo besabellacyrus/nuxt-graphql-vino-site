@@ -1,6 +1,6 @@
 <template>
   <div class="app-wrapper-image-right">
-    <div class="content">
+    <div class="content  wow fadeInLeft">
       <div class="header">
         <h3 class="subtitle">{{ subtitle }}</h3>
         <h1 class="title">{{ title }}</h1>
@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div class="images-wrapper">
+    <div class="images-wrapper wow fadeInRight">
       <img
         :src="renderImage(images[1])"
         alt=""
@@ -36,9 +36,6 @@
 <script>
 export default {
   props: ['title', 'subtitle', 'content', 'images', 'buttons'],
-  mounted () {
-    console.log({ images: this.images })
-  },
   methods: {
     renderImage (images) {
       if (images) {
