@@ -82,7 +82,9 @@ import RightImageSectionDynamic from "~/components/dynamic/RightImageSectionDyna
 import LeftImageSectionDynamic from "~/components/dynamic/LeftImageSectionDynamic"
 import CenterSectionDynamic from "~/components/dynamic/CenterSectionDynamic"
 import ShowcaseSectionDynamic from "~/components/dynamic/ShowcaseSectionDynamic"
-
+if (process.browser) {
+  var { WOW } = require('wowjs')
+}
 export default {
   components: {
     HeroImageDynamic,
@@ -96,6 +98,15 @@ export default {
   data () {
     return {
       slug: null
+    }
+  },
+  mounted () {
+
+    if (process.browser) {
+      new WOW({
+        live: true,
+        offset: 0
+      }).init()
     }
   },
   apollo: {

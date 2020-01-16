@@ -1,11 +1,10 @@
 <template>
   <div class="center-content-wrapper">
-    <div>
+    <div class="wow fadeInDown">
       <div class="subtitle">{{ subtitle }}</div>
       <div class="title">{{ title }}</div>
     </div>
-
-    <p class="bar-top-line-center">
+    <p class="bar-top-line-center wow fadeInUp">
       {{ content }}
     </p>
     <div class="app-button-wrapper">
@@ -29,6 +28,7 @@
           <img
             :src="img.image ? img.image.sourceUrl : '' "
             alt=""
+            v-lazy-load
           >
         </a>
       </div>
