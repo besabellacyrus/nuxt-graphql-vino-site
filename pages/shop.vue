@@ -89,9 +89,6 @@ export default {
       slug: null
     }
   },
-  created () {
-    console.log({ ssslug: this.vino_pageBy })
-  },
   apollo: {
     vino_pageBy: {
       query: pageGql,
