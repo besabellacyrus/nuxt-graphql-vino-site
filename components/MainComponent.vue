@@ -101,10 +101,9 @@ export default {
     }
   },
   mounted () {
-
     if (process.browser) {
       new WOW({
-        live: true,
+        live: false,
         offset: 0
       }).init()
     }
