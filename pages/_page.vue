@@ -96,14 +96,6 @@ export default {
       slug: null
     }
   },
-  created () {
-    console.log({ ssslug: this.$route })
-  },
-  watch: {
-    vino_pageBy (val) {
-      console.log({ pageByyy: val, slslsls: this.$route })
-    }
-  },
   apollo: {
     vino_pageBy: {
       query: pageGql,
