@@ -101,12 +101,11 @@ export default {
     }
   },
   mounted () {
-
     if (process.browser) {
       new WOW({
         live: true,
         offset: 0
-      }).init()
+      }).init();
     }
   },
   apollo: {
@@ -135,5 +134,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 </style>
