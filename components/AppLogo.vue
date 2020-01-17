@@ -4,7 +4,6 @@
       class="app-logo pl-1"
       src="~/assets/img/Logo.svg"
       alt=""
-      v-lazy-load
     >
   </div>
 </template>
