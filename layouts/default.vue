@@ -37,8 +37,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~/assets/css/animate.css";
+
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 .loader {
   position: absolute;
