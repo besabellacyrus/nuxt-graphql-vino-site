@@ -101,7 +101,7 @@ export default {
   },
   head () {
     return {
-      title: 'Vino | Shop',
+      title: `Vino 🍷 Shop`,
     }
   }
 

@@ -101,9 +101,10 @@ export default {
     }
   },
   mounted () {
+    console.log({ vino: this.vino_pageBy })
     if (process.browser) {
       new WOW({
-        live: true,
+        live: false,
         offset: 0
       }).init();
     }
@@ -128,7 +129,7 @@ export default {
   },
   head () {
     return {
-      title: `Vino | ${this.$options.filters.capitalize(this.$route.params.page) || 'Home'}`,
+      title: `Vino 🍷 ${this.$options.filters.capitalize(this.$route.params.page) || 'Home'}`,
     }
   }
 }

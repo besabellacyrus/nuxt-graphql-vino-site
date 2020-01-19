@@ -6,7 +6,9 @@ $app-brown: rgb(175, 141, 114);
 $app-main-bg: rgb(227,233,233);
 $app-main-bg-color: #E6ECEC;
 
-
+html {
+  height: auto !important;
+}
 // index
 .main-wrapper {
   overflow: hidden;
@@ -311,4 +313,42 @@ hr {
   @media screen and (max-width: 768px) {
     margin-top: 1rem;
   }
+}
+
+// BG WINES
+.dynamic-bg-color {
+  background: rgba(244, 242, 229, 1);
+  background: -moz-linear-gradient(
+    top,
+    rgba(244, 242, 229, 1) 0%,
+    var(--bg-color) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(0%, rgba(244, 242, 229, 1)),
+    color-stop(100%, var(--bg-color))
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(244, 242, 229, 1) 0%,
+    var(--bg-color) 100%
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(244, 242, 229, 1) 0%,
+    var(--bg-color) 100%
+  );
+  background: -ms-linear-gradient(
+    top,
+    rgba(244, 242, 229, 1) 0%,
+    var(--bg-color) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(244, 242, 229, 1) 0%,
+    var(--bg-color) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f2e5', endColorstr='#f6dd9a', GradientType=0 );
+  background-repeat: no-repeat;
 }

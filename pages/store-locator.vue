@@ -112,6 +112,11 @@ export default {
       this.lat = lat;
       this.applyMarker(this.mymap);
     }
+  },
+  head () {
+    return {
+      title: `Vino 🍷 Store Locator`,
+    }
   }
 }
 </script>

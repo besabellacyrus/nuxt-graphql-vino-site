@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="dynamic-bg-color"
-    :style="cssVars"
-  >
+  <div>
     <HeroImageDynamic
       v-if="pairingBy.pairings_gql.heroImage"
       :img-url="pairingBy.pairings_gql.heroImage.sourceUrl"
@@ -85,14 +82,10 @@ export default {
   mounted () {
     this.slug = this.$route.params.slug;
     this.bgColor = this.pairingBy.pairings_gql.backgroundColor
-    console.log({ pairingBy: this.pairingBy.pairings_gql })
-  },
-  computed: {
-    cssVars () {
-      return {
-        '--bg-color': this.bgColor,
-      }
-    }
+
+    let root = document.documentElement;
+    root.style.setProperty('--bg-color', this.bgColor);
+
   },
   apollo: {
     pairingBy: {
@@ -127,40 +120,5 @@ export default {
 }
 .other-pair-thumb {
   height: 10rem;
-}
-.dynamic-bg-color {
-  background: rgba(244, 242, 229, 1);
-  background: -moz-linear-gradient(
-    top,
-    rgba(244, 242, 229, 1) 0%,
-    var(--bg-color) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    left bottom,
-    color-stop(0%, rgba(244, 242, 229, 1)),
-    color-stop(100%, var(--bg-color))
-  );
-  background: -webkit-linear-gradient(
-    top,
-    rgba(244, 242, 229, 1) 0%,
-    var(--bg-color) 100%
-  );
-  background: -o-linear-gradient(
-    top,
-    rgba(244, 242, 229, 1) 0%,
-    var(--bg-color) 100%
-  );
-  background: -ms-linear-gradient(
-    top,
-    rgba(244, 242, 229, 1) 0%,
-    var(--bg-color) 100%
-  );
-  background: linear-gradient(
-    to bottom,
-    rgba(244, 242, 229, 1) 0%,
-    var(--bg-color) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f2e5', endColorstr='#f6dd9a', GradientType=0 );
 }
 </style>
