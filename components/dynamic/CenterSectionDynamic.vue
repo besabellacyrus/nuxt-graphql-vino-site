@@ -13,7 +13,7 @@
         :key="index"
         class="app-buttons"
       >
-        <a :href="btn.url">
+        <a :href="btn.buttonUrl">
           <button>{{ btn.label}}</button>
         </a>
       </div>
@@ -45,7 +45,6 @@ export default {
     content: String,
     buttons: Array
   }
-
 }
 </script>
 

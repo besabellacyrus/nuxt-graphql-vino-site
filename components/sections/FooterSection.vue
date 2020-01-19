@@ -50,6 +50,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+footer {
+  margin-top: 10rem;
+}
 h1 {
   font-size: 1.7rem;
   font-weight: bold;

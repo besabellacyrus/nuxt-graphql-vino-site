@@ -28,10 +28,21 @@ export default {
     }
   },
   created () {
+    if (process.browser) {
+      var html = document.querySelector('html');
+    }
     this.isLoading = true;
     setTimeout(() => {
       this.isLoading = false;
+      if (process.browser) {
+        html.style.overflow = 'initial';
+      }
     }, 300);
+  },
+  head: {
+    bodyAttrs: {
+      class: 'dynamic-bg-color'
+    }
   }
 }
 </script>
@@ -42,12 +53,14 @@ export default {
 html {
   font-size: 62.5%;
   height: 100%;
+  overflow: hidden;
 }
 .loader {
   position: absolute;
   background-color: rgba(255, 255, 255, 1);
-  height: 100vh;
+  height: 100%;
   width: 100%;
+  background-size: contain;
   z-index: 9999999;
 }
 .fade-enter-active,
@@ -56,5 +69,8 @@ html {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+[v-cloak] {
+  display: none;
 }
 </style>
