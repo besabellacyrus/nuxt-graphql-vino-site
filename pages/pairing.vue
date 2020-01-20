@@ -69,7 +69,13 @@ export default {
         }
       }
     },
+
   },
+  head () {
+    return {
+      title: `Vino 🍷 Pairing`,
+    }
+  }
 }
 </script>
 

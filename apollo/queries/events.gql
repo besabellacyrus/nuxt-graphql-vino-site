@@ -1,0 +1,18 @@
+query {
+  events {
+    edges {
+      node {
+        events_gql {
+          category
+          content
+          date
+          fieldGroupName
+          image {
+            sourceUrl
+          }
+        }
+        title
+      }
+    }
+  }
+}
