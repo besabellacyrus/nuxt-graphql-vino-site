@@ -29,13 +29,19 @@
           </div>
         </div>
         <div class="item-images">
-          <div class="large-image">
+          <div
+            class="large-image"
+            v-if="shop_itemBy.shop_gql.images"
+          >
             <img
               :src="shop_itemBy.shop_gql.images[0].image.sourceUrl"
               alt=""
             >
           </div>
-          <div class="small-images">
+          <div
+            class="small-images"
+            v-if="shop_itemBy.shop_gql.images"
+          >
             <div
               v-for="(img, index) in shop_itemBy.shop_gql.images"
               :key="index"
