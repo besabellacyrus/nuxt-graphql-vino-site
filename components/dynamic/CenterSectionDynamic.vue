@@ -7,7 +7,10 @@
     <p class="bar-top-line-center wow fadeInUp">
       {{ content }}
     </p>
-    <div class="app-button-wrapper">
+    <div
+      class="app-button-wrapper"
+      v-if="buttons"
+    >
       <div
         v-for="(btn, index) in buttons"
         :key="index"
@@ -18,7 +21,10 @@
         </a>
       </div>
     </div>
-    <div class="center-images">
+    <div
+      class="center-images"
+      v-if="imageButtons[0].title"
+    >
       <div
         class="image-btn"
         v-for="(img, index) in imageButtons"
@@ -44,6 +50,9 @@ export default {
     title: String,
     content: String,
     buttons: Array
+  },
+  mounted () {
+    console.log({ imageButtons: this.imageButtons })
   }
 }
 </script>
