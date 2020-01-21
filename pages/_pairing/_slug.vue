@@ -97,6 +97,11 @@ export default {
       }
     },
   },
+  head: {
+    bodyAttrs: {
+      class: 'dynamic-bg-color'
+    }
+  }
 
 }
 </script>

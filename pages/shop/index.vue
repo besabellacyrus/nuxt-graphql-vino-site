@@ -1,25 +1,44 @@
 <template>
-  <div class="container mx-auto mt-20">
-    <div class="product-wrapper">
-      <div class="product-container">
-        <div class="flex flex-wrap md:-mx-10">
-          <div
-            class="w-full product-lists lg:w-1/3"
-            v-for="(item, index) in items"
-            :key="index"
-          >
-            <div class="image-wrapper px-5 lg:px-10">
+  <div class="shop-wrapper">
+    <div v-if="vino_pageBy">
+      <div
+        v-for="(vino, index) in vino_pageBy.fc.homeFc"
+        :key="index"
+      >
+        <HeroImageDynamic
+          v-if="vino.__typename === 'Vino_page_Fc_HomeFc_HeroImage'"
+          :img-url="vino.image.sourceUrl"
+        ></HeroImageDynamic>
+        <div v-if="vino.fieldGroupName === 'vino_page_Fc_HomeFc_CenterText'">
+          <CenterSectionDynamic
+            :title="vino.title"
+            :subtitle="vino.subTitle"
+            :content="vino.content"
+            :imageButtons="vino.imageButtons"
+            :buttons="vino.buttons"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="container mx-auto">
+      <div class="shop-items">
+        <div
+          v-for="(item, index) in items"
+          :key="index"
+        >
+          <div class="shop-item">
+            <div class="item-thumbnail">
               <img
                 :src="item.node.shop_gql.thumbnail.sourceUrl"
                 alt=""
               >
             </div>
-            <div class="item-detail text-center">
-              <span class="app-subtitle">{{ item.node.shop_gql.subTitle }}</span>
-              <h1 class="app-title">{{ item.node.title }}</h1>
-              <div class="mt-6">
-                <a href="">
-                  <button class="app-btn mr-3">BUY NOW</button>
+            <div class="item-info text-center mt-10">
+              <h4 class="subtitle">{{ item.node.shop_gql.subTitle }}</h4>
+              <h2 class="title">{{ item.node.title }}</h2>
+              <div class="app-buttons">
+                <a :href="`shop/${item.node.slug}`">
+                  <button>BUY NOW</button>
                 </a>
               </div>
             </div>
@@ -32,8 +51,16 @@
 
 <script>
 import shopItemsGql from "~/apollo/queries/shopItems"
+import pageGql from "~/apollo/queries/page"
+import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic"
+import CenterSectionDynamic from "~/components/dynamic/CenterSectionDynamic"
+
 
 export default {
+  components: {
+    HeroImageDynamic,
+    CenterSectionDynamic
+  },
   mounted () {
     console.log({ items: this.shop_items })
   },
@@ -50,38 +77,47 @@ export default {
         }
       }
     },
+    vino_pageBy: {
+      query: pageGql,
+      variables () {
+        return {
+          slug: 'shop'
+        }
+      }
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.product-container {
-  min-height: 75rem;
-}
-.product-lists {
-  @media screen and (max-width: 425px) {
-    padding: 3rem;
-  }
-}
-.item-detail {
-  margin-top: 3rem;
-  h1 {
-    margin-top: 0;
-    font-size: 3rem;
-  }
-  .app-btn {
-    padding: 0.7rem 3rem;
-  }
-}
-.image-wrapper {
-  height: 357px;
-  margin-bottom: 1rem;
-  @media screen and (max-width: 320px) {
-    height: 250px;
-  }
-  img {
-    width: 100%;
-    height: 100%;
+.shop-wrapper {
+  .shop-items {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(34rem, 1fr));
+    grid-gap: 3rem;
+    .shop-item {
+      position: relative;
+      margin-bottom: 4rem;
+      .item-thumbnail {
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+      .item-info {
+        .app-buttons {
+          position: relative;
+          top: 3rem;
+        }
+        .subtitle {
+          font-size: 1.3rem;
+        }
+        .title {
+          font-size: 3rem;
+        }
+      }
+    }
   }
 }
 </style>

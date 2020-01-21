@@ -38,11 +38,6 @@ export default {
         html.style.overflow = 'initial';
       }
     }, 300);
-  },
-  head: {
-    bodyAttrs: {
-      class: 'dynamic-bg-color'
-    }
   }
 }
 </script>

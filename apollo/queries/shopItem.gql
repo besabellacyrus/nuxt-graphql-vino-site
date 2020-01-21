@@ -1,0 +1,17 @@
+query GET_CUSTOM_POST($slug: String!) {
+  shop_itemBy(slug: $slug) {
+    title
+    slug
+    shop_gql {
+      buyNowUrl
+      details
+      images {
+        image {
+          sourceUrl
+        }
+      }
+      price
+      subTitle
+    }
+  }
+}
