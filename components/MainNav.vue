@@ -74,7 +74,7 @@ export default {
     }
   },
   computed: {
-    navItems () {
+    navItems () { 
       const items = this.vino_pages.edges.filter(e => e.node.order_gql.isMainPage);
       return _.orderBy(items, 'node.order_gql.order', 'asc');
     }

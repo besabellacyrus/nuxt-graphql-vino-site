@@ -1,12 +1,11 @@
-import cache from './cache'
+import cache from "./cache";
 
-export default function (context) {
+export default function(context) {
   return {
-    // httpEndpoint: 'http://157.245.62.130/wp-api/graphql',
-    httpEndpoint: 'http://157.245.62.130/wp-api/graphql',
+    httpEndpoint: "http://bitbucket-wp-api-vino.test/graphql",
     httpLinkOptions: {
-      credentials: 'same-origin'
+      credentials: "same-origin"
     },
     cache
-  }
+  };
 }

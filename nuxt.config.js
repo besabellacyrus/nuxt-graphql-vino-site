@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 export default {
   mode: "universal",
   /*
@@ -20,7 +22,10 @@ export default {
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-      { rel: 'stylesheet', href: 'https://unpkg.com/leaflet@1.2.0/dist/leaflet.css' },
+      {
+        rel: "stylesheet",
+        href: "https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+      },
       {
         rel: "stylesheet",
         href:
@@ -46,8 +51,8 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~/plugins/appFilters', ssr: true },
-    { src: '~/plugins/vue-leaflet', ssr: false }
+    { src: "~/plugins/appFilters", ssr: true },
+    { src: "~/plugins/vue-leaflet", ssr: false }
   ],
 
   /*
@@ -64,13 +69,16 @@ export default {
     "@nuxtjs/style-resources",
     "@nuxtjs/axios",
     "@nuxtjs/apollo",
-    ["nuxt-lazy-load", {
-      observerConfig: {
-        rootMargin: '50px 0px 50px 0px',
-        threshold: 0
-        // See IntersectionObserver documentation
+    [
+      "nuxt-lazy-load",
+      {
+        observerConfig: {
+          rootMargin: "50px 0px 50px 0px",
+          threshold: 0
+          // See IntersectionObserver documentation
+        }
       }
-    }]
+    ]
   ],
   styleResources: {
     // your settings here
@@ -79,7 +87,7 @@ export default {
   apollo: {
     includeNodeModules: true,
     clientConfigs: {
-      default: '~/apollo/config.js'
+      default: "~/apollo/config.js"
     }
   },
   /*
@@ -92,7 +100,6 @@ export default {
     splitChunks: {
       layouts: true
     },
-    extend (config, ctx) {
-    }
+    extend(config, ctx) {}
   }
 };
