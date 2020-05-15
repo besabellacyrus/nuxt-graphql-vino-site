@@ -17,7 +17,6 @@
     "@nuxtjs/apollo": "^4.0.0-rc17",
     "@nuxtjs/axios": "^5.8.0",
     "core-js": "^2.6.5",
-    "dotenv": "^8.2.0",
     "exports-loader": "^0.7.0",
     "leaflet": "^1.6.0",
     "normalize.css": "^8.0.1",

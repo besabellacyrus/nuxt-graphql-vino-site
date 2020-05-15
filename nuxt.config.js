@@ -38,6 +38,9 @@ export default {
       }
     ]
   },
+  env: {
+    baseUrl: process.env.VUE_APP_BASEURL
+  },
   /*
    ** Customize the progress-bar color
    */
