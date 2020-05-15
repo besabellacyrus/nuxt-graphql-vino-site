@@ -22,7 +22,7 @@
               {{ shop_itemBy.shop_gql.details }}
             </p>
             <div class="app-buttons">
-              <a href="">
+              <a :href="shop_itemBy.shop_gql.buyNowUrl">
                 <button>PURCHASE</button>
               </a>
             </div>

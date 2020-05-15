@@ -1,12 +1,12 @@
-import cache from './cache'
-
-export default function (context) {
+import cache from "./cache";
+// process.env.VUE_APP_BASEURL http://157.245.62.130/wp-api/graphql
+console.log({ eeee: process.env.baseUrl });
+export default function(context) {
   return {
-    // httpEndpoint: 'http://157.245.62.130/wp-api/graphql',
-    httpEndpoint: 'http://157.245.62.130/wp-api/graphql',
+    httpEndpoint: process.env.baseUrl,
     httpLinkOptions: {
-      credentials: 'same-origin'
+      credentials: "same-origin"
     },
     cache
-  }
+  };
 }
