@@ -15,10 +15,19 @@
 
 <style lang="scss" scoped>
   ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr;  */
+    padding: 0;
+    padding-left: 0 !important;
+    @media screen and (max-width: 375px) {
+      width: 10rem;
+      margin: 0 auto;
+    }
     li {
-      height: 4rem;
+      float: left;
+      padding-right: 1rem;
+    height: 4rem;
+
       img {
         height: 100%;
       }

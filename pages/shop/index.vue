@@ -36,6 +36,7 @@
             <div class="item-info text-center mt-10">
               <h4 class="subtitle">{{ item.node.shop_gql.subTitle }}</h4>
               <h2 class="title">{{ item.node.title }}</h2>
+              <p>{{ item.node.shop_gql.details}}</p>
               <div class="app-buttons">
                 <a :href="`shop/${item.node.slug}`">
                   <button>BUY NOW</button>

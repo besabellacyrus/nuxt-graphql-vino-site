@@ -11,14 +11,46 @@
     <div class="explores">
       <h1>EXPLORE</h1>
       <ul>
-        <li>HOME</li>
-        <li>ABOUT</li>
-        <li>WINES</li>
-        <li>PAIRING</li>
-        <li>VISIT</li>
-        <li>SHOP</li>
-        <li>EVENTS</li>
-        <li>STORE LOCATOR</li>
+        <li>
+          <a href="/">
+            HOME
+          </a>
+        </li>
+        <li>
+          <a href="/our-story">
+            OUR STORY
+          </a>
+        </li>
+        <li>
+          <a href="/wines">
+            WINES
+          </a>
+        </li>
+        <li>
+          <a href="">
+            PAIRING
+          </a>
+        </li>
+        <li>
+          <a href="/visit">
+            VISIT
+          </a>
+        </li>
+        <li>
+          <a href="/shop">
+            SHOP
+          </a>
+        </li>
+        <li>
+          <a href="our-orchard">
+            OUR ORCHARD
+          </a>
+        </li>
+        <li>
+          <a href="/store-locator">
+            STORE LOCATOR
+          </a>
+        </li>
       </ul>
     </div>
     <div class="resources">
