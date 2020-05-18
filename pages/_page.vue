@@ -66,7 +66,7 @@
       </div>
     </div>
     <div v-else>
-      Sorry No content.
+      <LoadingComponent />
     </div>
   </div>
 </template>
@@ -80,6 +80,7 @@ import RightImageSectionDynamic from "~/components/dynamic/RightImageSectionDyna
 import LeftImageSectionDynamic from "~/components/dynamic/LeftImageSectionDynamic"
 import CenterSectionDynamic from "~/components/dynamic/CenterSectionDynamic"
 import ShowcaseSectionDynamic from "~/components/dynamic/ShowcaseSectionDynamic"
+import LoadingComponent from "~/components/LoadingComponent"
 
 export default {
   components: {
@@ -89,7 +90,8 @@ export default {
     RightImageSectionDynamic,
     ShowcaseSectionDynamic,
     ImageComponent,
-    TextAreaComponent
+    TextAreaComponent,
+    LoadingComponent
   },
   data () {
     return {

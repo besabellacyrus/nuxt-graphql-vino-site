@@ -56,9 +56,11 @@ export default {
     }
   },
   mounted () {
-    const { fc: { homeFc } } = this.vino_pageBy;
-    this.pairing = homeFc;
-    console.log({ slug: this.pairing });
+    if (this.vino_pageBy && this.vino_pageBy.fc) {
+      const { fc: { homeFc } } = this.vino_pageBy;
+      this.pairing = homeFc;
+      console.log({ slug: this.pairing });
+    }
   },
   apollo: {
     vino_pageBy: {
