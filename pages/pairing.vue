@@ -1,14 +1,14 @@
 <template>
   <div class="pairing-wrapper">
-    <div v-if="pairing">
-      <HeroImageDynamic :img-url="pairing[0].image.sourceUrl"></HeroImageDynamic>
+    <div v-if="vino_pageBy && vino_pageBy.fc">
+      <HeroImageDynamic :img-url="vino_pageBy.fc.homeFc[0].image.sourceUrl"></HeroImageDynamic>
       <div class="container mx-auto text-center pairing-content">
         <div class="wow fadeInDown mx-10">
-          <div class="subtitle">{{ pairing[1].subTitle}}</div>
-          <div class="title">{{ pairing[1].title }}</div>
+          <div class="subtitle">{{ vino_pageBy.fc.homeFc[1].subTitle}}</div>
+          <div class="title">{{ vino_pageBy.fc.homeFc[1].title }}</div>
         </div>
         <p class="bar-top-line-center mt-10 wow fadeInUp">
-          {{ pairing[1].content }}
+          {{ vino_pageBy.fc.homeFc[1].content }}
         </p>
       </div>
       <div class="text-center header-title">
@@ -16,7 +16,7 @@
       </div>
       <div class="pairing-items">
         <div
-          v-for="(pair, index) in pairing[1].imageButtons"
+          v-for="(pair, index) in vino_pageBy.fc.homeFc[1].imageButtons"
           :key="index"
         >
           <a :href="pair.routePath">
@@ -34,7 +34,7 @@
       </div>
     </div>
     <div v-else>
-      Sorry No content.
+      <LoadingComponent />
     </div>
 
   </div>
@@ -43,23 +43,17 @@
 <script>
 import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic"
 import pageGql from "~/apollo/queries/page"
+import LoadingComponent from "~/components/LoadingComponent"
 
 
 export default {
   components: {
-    HeroImageDynamic
+    HeroImageDynamic,
+    LoadingComponent
   },
   data () {
     return {
-      slug: null,
-      pairing: null
-    }
-  },
-  mounted () {
-    if (this.vino_pageBy && this.vino_pageBy.fc) {
-      const { fc: { homeFc } } = this.vino_pageBy;
-      this.pairing = homeFc;
-      console.log({ slug: this.pairing });
+      slug: null
     }
   },
   apollo: {

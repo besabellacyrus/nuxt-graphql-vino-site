@@ -5,6 +5,7 @@
     <div class="bg-pattern-three"></div>
     <div class="bg-pattern-four"></div>
     <div class="bg-pattern-five"></div>
+    <!-- v-if="vino_pageBy && vino_pageBy.fc" -->
     <div
       class="content-wrapper mx-auto"
       v-if="vino_pageBy && vino_pageBy.fc"
