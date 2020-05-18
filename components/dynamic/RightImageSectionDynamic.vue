@@ -5,9 +5,8 @@
         <h3 class="subtitle">{{ subtitle }}</h3>
         <h1 class="title">{{ title }}</h1>
       </div>
-      <p class="bar-top-line-left">
-        {{ content }}
-      </p>
+      <div class="bar-top-line-left" v-html="content"> 
+      </div>
       <div class="app-button-wrapper">
         <div
           v-for="(btn, index) in buttons"

@@ -17,9 +17,8 @@
         <h3 class="subtitle">{{ subtitle }}</h3>
         <h1 class="title">{{ title }}</h1>
       </div>
-      <p class="bar-top-line-right">
-        {{ content }}
-      </p>
+      <div class="bar-top-line-right" v-html="content">
+      </div>
       <div class="app-button-wrapper">
         <!-- <button>OUR STORY</button>
         <button>ORCHARD</button> -->

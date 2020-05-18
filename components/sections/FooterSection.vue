@@ -17,7 +17,7 @@
           </a>
         </li>
         <li>
-          <a href="/our-story">
+          <a href="/about">
             OUR STORY
           </a>
         </li>
@@ -27,7 +27,7 @@
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="/pairing">
             PAIRING
           </a>
         </li>

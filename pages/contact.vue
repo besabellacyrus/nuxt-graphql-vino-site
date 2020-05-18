@@ -47,12 +47,13 @@
           <br>
           <br>
           <p>
-            <b>Call Us at</b> Tel. No. (02) 556 9788
+            <b>Call us at</b> <br> 
+            Tel. No. (02) 8 556 9788
           </p>
           <br>
           <br>
           <p>
-            <b>Email Us at</b><br>
+            <b>Email us at</b><br>
             vinoislawines@gmail.com
           </p>
         </div>
