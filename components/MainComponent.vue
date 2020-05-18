@@ -9,7 +9,7 @@
     <div class="bg-pattern-seven"></div>
     <div
       class="content-wrapper mx-auto"
-      v-if="vino_pageBy"
+      v-if="vino_pageBy && vino_pageBy.fc"
     >
       <div
         v-for="(vino, index) in vino_pageBy.fc.homeFc"
@@ -101,7 +101,7 @@ export default {
     }
   },
   mounted () {
-    console.log({ vino: this.vino_pageBy })
+    
     if (process.browser) {
       new WOW({
         live: false,

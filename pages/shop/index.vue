@@ -1,6 +1,6 @@
 <template>
   <div class="shop-wrapper">
-    <div v-if="vino_pageBy">
+    <div v-if="vino_pageBy && vino_pageBy.fc">
       <div
         v-for="(vino, index) in vino_pageBy.fc.homeFc"
         :key="index"
@@ -67,7 +67,9 @@ export default {
   },
   computed: {
     items () {
-      return this.shop_items.edges
+      if (this.shop_items && this.shop_items.edges) {
+        return this.shop_items.edges
+      }
     }
   },
   apollo: {

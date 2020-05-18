@@ -7,7 +7,7 @@
     <div class="bg-pattern-five"></div>
     <div
       class="content-wrapper mx-auto"
-      v-if="vino_pageBy"
+      v-if="vino_pageBy && vino_pageBy.fc"
     >
       <div
         v-for="(vino, index) in vino_pageBy.fc.homeFc"
@@ -95,6 +95,9 @@ export default {
     return {
       slug: null
     }
+  },
+  mounted () {
+    console.log({ vino: this.vino_pageBy })
   },
   apollo: {
     vino_pageBy: {

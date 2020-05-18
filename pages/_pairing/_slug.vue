@@ -82,7 +82,7 @@ export default {
   mounted () {
     this.slug = this.$route.params.slug;
     this.bgColor = this.pairingBy.pairings_gql.backgroundColor
-
+    console.log({ pairingBy: this.pairingBy })
     let root = document.documentElement;
     root.style.setProperty('--bg-color', this.bgColor);
 

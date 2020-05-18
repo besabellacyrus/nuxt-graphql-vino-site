@@ -8,9 +8,10 @@
             v-for="(nav, index) in navItems"
             :key="index"
           >
-            <a :href="nav.node.order_gql.link">
+            <!-- <a :href="nav.node.order_gql.link">
               {{ nav.node.title.toUpperCase() }}
-            </a>
+            </a> -->
+            <nuxt-link :to="nav.node.order_gql.link">{{ nav.node.title.toUpperCase() }}</nuxt-link>
           </li>
         </ul>
       </div>
@@ -70,11 +71,11 @@ export default {
   },
   data () {
     return {
-      scrolled: 0,
+      scrolled: 0
     }
   },
   computed: {
-    navItems () {
+    navItems () { 
       const items = this.vino_pages.edges.filter(e => e.node.order_gql.isMainPage);
       return _.orderBy(items, 'node.order_gql.order', 'asc');
     }
@@ -113,6 +114,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.nuxt-link-active {
+  color: #6d6662;
+}
 .side-logo {
   position: absolute;
   top: -6px;
@@ -139,10 +143,15 @@ export default {
   }
   .pc-menu {
     font-weight: bold;
-    color: $app-main-font-color;
+    /* color: $app-main-font-color; */
+    color: #8f8f8f;
     li {
       display: inline;
       padding: 0 1rem;
+      transition: all 300ms;
+      &:hover {
+        color: #6d6662;
+      }
     }
   }
 }
