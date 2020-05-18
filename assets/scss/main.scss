@@ -16,6 +16,8 @@ html {
   .content-wrapper {
     z-index: 9;
     position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
   }
 }
 .bg-pattern-one {
