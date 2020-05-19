@@ -56,5 +56,12 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.bar-top-line-center {
+  p {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 4rem;
+  }
+}
 </style>
