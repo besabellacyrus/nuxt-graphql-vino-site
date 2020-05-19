@@ -4,8 +4,8 @@
       <div class="subtitle">{{ subtitle }}</div>
       <div class="title">{{ title }}</div>
     </div>
-    <div v-html="content" class="bar-top-line-center wow fadeInUp"> 
-    </div>
+    <div v-html="content" class="bar-top-line-center">
+    </div> 
     <div
       class="app-button-wrapper"
       v-if="buttons"
@@ -56,12 +56,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .bar-top-line-center {
   p {
-    max-width: 800px;
-    margin: 0 auto;
-    margin-top: 4rem;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  margin-top: 4rem !important;
+
   }
 }
 </style>
