@@ -48,14 +48,15 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["normalize.css/normalize.css"],
+  css: ["normalize.css/normalize.css", "aos/dist/aos.css"],
 
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
     { src: "~/plugins/appFilters", ssr: true },
-    { src: "~/plugins/vue-leaflet", ssr: false }
+    { src: "~/plugins/vue-leaflet", ssr: false },
+    { src: "~/plugins/aos", ssr: false }
   ],
 
   /*

@@ -1,0 +1,12 @@
+query {
+  store_locations {
+    nodes {
+      store_locations {
+        locationName
+        address 
+        lat
+        lng
+      }
+    }
+  }
+}

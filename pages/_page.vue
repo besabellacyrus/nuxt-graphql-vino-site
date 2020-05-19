@@ -18,7 +18,7 @@
           v-if="vino.__typename === 'Vino_page_Fc_HomeFc_HeroImage'"
           :img-url="vino.image.sourceUrl"
         ></HeroImageDynamic>
-        <div v-if="vino.orientation && vino.orientation === 'right'">
+        <div data-aos="fade-right" v-if="vino.orientation && vino.orientation === 'right'">
           <RightImageSectionDynamic
             :title="vino.title"
             :subtitle="vino.subTitle"
@@ -27,7 +27,7 @@
             :buttons="vino.buttons"
           />
         </div>
-        <div v-if="vino.orientation && vino.orientation === 'left'">
+        <div data-aos="fade-left" v-if="vino.orientation && vino.orientation === 'left'">
           <LeftImageSectionDynamic
             :title="vino.title"
             :subtitle="vino.subTitle"
@@ -36,7 +36,7 @@
             :buttons="vino.buttons"
           />
         </div>
-        <div v-if="vino.fieldGroupName === 'vino_page_Fc_HomeFc_CenterText'">
+        <div data-aos="fade-down" v-if="vino.fieldGroupName === 'vino_page_Fc_HomeFc_CenterText'">
           <CenterSectionDynamic
             :title="vino.title"
             :subtitle="vino.subTitle"
@@ -101,6 +101,7 @@ export default {
   },
   mounted () {
     console.log({ vino: this.vino_pageBy })
+    console.log('index')
   },
   apollo: {
     vino_pageBy: {

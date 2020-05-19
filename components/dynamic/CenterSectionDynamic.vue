@@ -4,9 +4,8 @@
       <div class="subtitle">{{ subtitle }}</div>
       <div class="title">{{ title }}</div>
     </div>
-    <p class="bar-top-line-center wow fadeInUp">
-      {{ content }}
-    </p>
+    <div v-html="content" class="bar-top-line-center wow fadeInUp"> 
+    </div>
     <div
       class="app-button-wrapper"
       v-if="buttons"

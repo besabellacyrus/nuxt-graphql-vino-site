@@ -26,13 +26,13 @@
             <ul>
               <li
                 v-for="store in filteredStores"
-                :key="store.location_name"
+                :key="store.store_locations.lat"
               >
-                <h2>{{ store.location_name }}</h2>
-                <p>{{ store.address  }}</p>
+                <h2>{{ store.store_locations.locationName }}</h2>
+                <p>{{ store.store_locations.address  }}</p>
                 <span
                   class="show-in-map"
-                  @click="showInMap(store.lng, store.lat)"
+                  @click="showInMap(store.store_locations.lng, store.store_locations.lat)"
                 >SHOW IN MAP</span>
               </li>
             </ul>
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import storesGql from "~/apollo/queries/storeLocations"
 
 export default {
   data () {
@@ -55,40 +56,52 @@ export default {
       lng: 0,
       lat: 0,
       stores: [
-        {
-          location_name: "Alabang One",
-          address: "Blk Lot Street Alabang",
-          lng: 14.4168789,
-          lat: 120.9927919
-        },
-        {
-          location_name: "Alabang Two",
-          address: "Blk Lot Street Alabang",
-          lng: 14.4201542,
-          lat: 121.0403922
-        },
-        {
-          location_name: "Alabang Three",
-          address: "Blk Lot Street Alabang",
-          lng: 14.4136807,
-          lat: 121.0353925
-        }
+        // {
+        //   location_name: "Alabang One",
+        //   address: "Blk Lot Street Alabang",
+        //   lng: 14.4168789,
+        //   lat: 120.9927919
+        // },
+        // {
+        //   location_name: "Alabang Two",
+        //   address: "Blk Lot Street Alabang",
+        //   lng: 14.4201542,
+        //   lat: 121.0403922
+        // },
+        // {
+        //   location_name: "Alabang Three",
+        //   address: "Blk Lot Street Alabang",
+        //   lng: 14.4136807,
+        //   lat: 121.0353925
+        // }
       ],
       mymap: null
     }
   },
-  computed: {
+  asyncDate () {
+    return {
+      stores: []
+    }
+  },
+  computed: { 
     filteredStores () {
+      console.log({ filter: this.store })
       if (this.query === '') {
         return this.stores;
       }
       return this.stores.filter(
-        store => store.location_name.toLowerCase().indexOf(this.query.toLowerCase()) !== -1
-          || store.address.toLowerCase().indexOf(this.query.toLowerCase()) !== -1
+        store => {
+          console.log({ store })
+          return store.store_locations.locationName.toLowerCase().indexOf(this.query.toLowerCase()) !== -1
+          || store.store_locations.address.toLowerCase().indexOf(this.query.toLowerCase()) !== -1
+        }
       );
     },
   },
   mounted () {
+    const { nodes } = this.store_locations;
+    this.stores = nodes;
+    console.log({ nnnn: this.stores })
     this.mymap = L.map('map-wrap', {
       attributionControl: false,
       zoomControl: false
@@ -98,6 +111,11 @@ export default {
       maxNativeZoom: 17,
       accessToken: 'pk.eyJ1Ijoic2FpcGhwIiwiYSI6ImNrNTg2NTdrczBqdXMzbHF4ZXRuNHp2ZjMifQ.TCM8c-eog1TKlX9gLbRjhw'
     }).addTo(this.mymap);
+  },
+  apollo: {
+    store_locations: {
+      query: storesGql,
+    }
   },
   methods: {
     applyMarker (mymap) {

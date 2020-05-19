@@ -15,11 +15,11 @@
         v-for="(vino, index) in vino_pageBy.fc.homeFc"
         :key="index"
       >
-        <HeroImageDynamic
+        <HeroImageDynamic 
           v-if="vino.__typename === 'Vino_page_Fc_HomeFc_HeroImage'"
           :img-url="vino.image.sourceUrl"
         ></HeroImageDynamic>
-        <div v-if="vino.orientation && vino.orientation === 'right'">
+        <div data-aos="fade-right" v-if="vino.orientation && vino.orientation === 'right'"> 
           <RightImageSectionDynamic
             :title="vino.title"
             :subtitle="vino.subTitle"
@@ -28,7 +28,7 @@
             :buttons="vino.buttons"
           />
         </div>
-        <div v-if="vino.orientation && vino.orientation === 'left'">
+        <div data-aos="fade-left" v-if="vino.orientation && vino.orientation === 'left'">
           <LeftImageSectionDynamic
             :title="vino.title"
             :subtitle="vino.subTitle"
@@ -37,7 +37,7 @@
             :buttons="vino.buttons"
           />
         </div>
-        <div v-if="vino.fieldGroupName === 'vino_page_Fc_HomeFc_CenterText'">
+        <div data-aos="fade-down" v-if="vino.fieldGroupName === 'vino_page_Fc_HomeFc_CenterText'">
           <CenterSectionDynamic
             :title="vino.title"
             :subtitle="vino.subTitle"
@@ -83,7 +83,7 @@ import LeftImageSectionDynamic from "~/components/dynamic/LeftImageSectionDynami
 import CenterSectionDynamic from "~/components/dynamic/CenterSectionDynamic"
 import ShowcaseSectionDynamic from "~/components/dynamic/ShowcaseSectionDynamic"
 if (process.browser) {
-  var { WOW } = require('wowjs')
+  // var { WOW } = require('wowjs');
 }
 export default {
   components: {
@@ -100,14 +100,11 @@ export default {
       slug: null
     }
   },
-  mounted () {
-    
-    if (process.browser) {
-      new WOW({
-        live: false,
-        offset: 0
-      }).init();
-    }
+  created () { 
+    // new WOW({
+    //   live: false,
+    //   offset: 0
+    // }).init();
   },
   apollo: {
     vino_pageBy: {
