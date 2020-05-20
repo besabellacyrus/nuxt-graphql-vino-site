@@ -123,11 +123,16 @@ footer {
 }
 .footer-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   text-align: center;
   max-width: 1440px;
   margin: 0 auto;
   /* padding: 2rem; */
+  @media screen and (max-width: 425px) {
+    h1 {
+      text-align: center;
+    }
+  }
 }
 .explores {
   @media screen and (max-width: 425px) {
@@ -147,6 +152,12 @@ footer {
 .get-connected {
   @media screen and (max-width: 425px) {
     margin-top: 4rem;
+    ul {
+      display: flex;
+      padding: 0;
+      padding-left: 0 !important;
+      justify-content: center;
+    }
   }
 }
 </style>
