@@ -116,7 +116,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nuxt-link-active {
+.nuxt-link-exact-active {
   color: #6d6662;
 }
 .side-logo {

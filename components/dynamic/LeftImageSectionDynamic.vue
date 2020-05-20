@@ -1,6 +1,6 @@
 <template>
   <div class="app-wrapper-image-left">
-    <div class="images-wrapper wow fadeInLeft">
+    <div v-if="images && images.length > 1" class="images-wrapper wow fadeInLeft">
       <img
         :src="renderImage(images[0])"
         alt=""
@@ -8,6 +8,13 @@
       >
       <img
         :src="renderImage(images[1])"
+        alt=""
+        v-lazy-load
+      >
+    </div>
+    <div v-else class="image-wrapper wow fadeInLeft">
+      <img
+        :src="renderImage(images[0])"
         alt=""
         v-lazy-load
       >
@@ -51,4 +58,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.image-wrapper {
+  display: grid;
+  justify-items: center;
+}
 </style>

@@ -19,11 +19,17 @@
         </div>
       </div>
     </div>
-    <div class="images-wrapper wow fadeInRight">
+    <div v-if="images && images.length > 1" class="images-wrapper wow fadeInRight">
       <img
         :src="renderImage(images[1])"
         alt=""
       >
+      <img
+        :src="renderImage(images[0])"
+        alt=""
+      >
+    </div>
+    <div v-else class="image-wrapper wow fadeInRight">
       <img
         :src="renderImage(images[0])"
         alt=""
@@ -47,5 +53,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.image-wrapper {
+  display: grid;
+  justify-items: center;
+}
 </style>

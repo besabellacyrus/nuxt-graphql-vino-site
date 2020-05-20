@@ -1,7 +1,8 @@
 <template>
   <div class="mx-auto">
     <div
-      class="header-shape-container home-header-shape mx-auto"
+      :class="{ 'home-header-shape': ishome }" 
+      class="header-shape-container mx-auto"
       :style="{
       backgroundImage: `url(${imgUrl})` }"
     >
@@ -11,7 +12,14 @@
 
 <script>
 export default {
-  props: ['imgUrl']
+  props: ['imgUrl'],
+  computed: {
+    ishome () {
+      if (location.pathname === '/') {
+        return true;
+      }
+    }
+  }, 
 }
 </script>
 

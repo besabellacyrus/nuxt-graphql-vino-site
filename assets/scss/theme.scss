@@ -23,12 +23,13 @@
 
 .home-header-shape {
   @media screen and (min-width: 426px) {
-    mask-image: url("~assets/img/header_shape_1.svg") !important;
-    height: 80rem;
-    margin-top: -3rem;
-    background-position: center 5rem;
+    // mask-image: url("~assets/img/Home_Image_New.png") !important;
+    mask-image: initial;
+    background-image: url("~assets/img/Home_Image_New.png") !important;
+    height: 74rem;
+    margin-top: 0rem;
+    background-position: center center;
     background-size: cover;
-    background-attachment: fixed;
   }
 }
 
