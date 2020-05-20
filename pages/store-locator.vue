@@ -41,8 +41,7 @@
         <div id="map-wrap">
         </div>
       </div>
-    </div>
-
+    </div> 
   </div>
 </template>
 
@@ -55,53 +54,30 @@ export default {
       query: "",
       lng: 0,
       lat: 0,
-      stores: [
-        // {
-        //   location_name: "Alabang One",
-        //   address: "Blk Lot Street Alabang",
-        //   lng: 14.4168789,
-        //   lat: 120.9927919
-        // },
-        // {
-        //   location_name: "Alabang Two",
-        //   address: "Blk Lot Street Alabang",
-        //   lng: 14.4201542,
-        //   lat: 121.0403922
-        // },
-        // {
-        //   location_name: "Alabang Three",
-        //   address: "Blk Lot Street Alabang",
-        //   lng: 14.4136807,
-        //   lat: 121.0353925
-        // }
-      ],
+      stores: [],
       mymap: null
     }
-  },
-  asyncDate () {
-    return {
-      stores: []
-    }
-  },
+  },  
   computed: { 
-    filteredStores () {
-      console.log({ filter: this.store })
-      if (this.query === '') {
-        return this.stores;
-      }
-      return this.stores.filter(
-        store => {
-          console.log({ store })
-          return store.store_locations.locationName.toLowerCase().indexOf(this.query.toLowerCase()) !== -1
-          || store.store_locations.address.toLowerCase().indexOf(this.query.toLowerCase()) !== -1
+    filteredStores () { 
+      console.log({ stores: this.store_locations })
+      if (this.store_locations) {
+        if (this.query === '') {
+          return this.store_locations.nodes;
         }
-      );
+        return this.store_locations.nodes.filter(
+          store => { 
+            return store.store_locations.locationName.toLowerCase().indexOf(this.query.toLowerCase()) !== -1
+            || store.store_locations.address.toLowerCase().indexOf(this.query.toLowerCase()) !== -1
+          }
+        );
+      }
     },
-  },
-  mounted () {
-    const { nodes } = this.store_locations;
-    this.stores = nodes;
-    console.log({ nnnn: this.stores })
+  }, 
+  mounted () {  
+    if (this.store_locations && this.store_locations.nodes) {
+      this.stores = this.store_locations.nodes;
+    }
     this.mymap = L.map('map-wrap', {
       attributionControl: false,
       zoomControl: false
@@ -114,7 +90,7 @@ export default {
   },
   apollo: {
     store_locations: {
-      query: storesGql,
+      query: storesGql
     }
   },
   methods: {

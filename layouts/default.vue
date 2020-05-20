@@ -5,10 +5,13 @@
         class="loader"
         v-if="isLoading"
       ></div>
+      <div v-else>
+        <MainNav />
+        <nuxt />
+        <FooterSection></FooterSection>
+      </div>
     </transition>
-    <MainNav />
-    <nuxt />
-    <FooterSection></FooterSection>
+    
   </div>
 </template>
 

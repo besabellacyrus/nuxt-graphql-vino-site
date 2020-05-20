@@ -76,8 +76,10 @@ export default {
   },
   computed: {
     navItems () { 
-      const items = this.vino_pages.edges.filter(e => e.node.order_gql.isMainPage);
-      return _.orderBy(items, 'node.order_gql.order', 'asc');
+      if (this.vino_pages && this.vino_pages.edges) {
+        const items = this.vino_pages.edges.filter(e => e.node.order_gql.isMainPage);
+        return _.orderBy(items, 'node.order_gql.order', 'asc');
+      }
     }
   },
   methods: {
