@@ -125,6 +125,10 @@ export default {
 }
 .query-results {
   margin-top: 2rem;
+  ul {
+    max-height: 40rem;
+    overflow-y: scroll;
+  }
   li {
     margin-bottom: 3rem;
   }
@@ -167,6 +171,11 @@ export default {
       font-weight: bold;
       font-size: 1.5rem;
     }
+  }
+}
+#map-wrap {
+  @media screen and (max-width: 425px) {
+    height: 22rem;
   }
 }
 </style>
