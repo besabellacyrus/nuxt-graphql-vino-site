@@ -15,9 +15,10 @@
     margin-bottom: 3rem;
   }
   @media screen and (max-width: 768px) {
-    height: 19rem;
+    height: 28rem;
     background-size: cover;
-    background-position-y: 94%;
+    // background-position-y: 94%;
+    background-position: center center;
   }
 }
 
