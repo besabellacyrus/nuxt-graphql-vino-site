@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto">
     <div
-      class="header-shape-container mx-auto"
+      class="header-shape-container home-header-shape mx-auto"
       :style="{
       backgroundImage: `url(${imgUrl})` }"
     >

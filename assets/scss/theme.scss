@@ -21,6 +21,17 @@
   }
 }
 
+.home-header-shape {
+  @media screen and (min-width: 426px) {
+    mask-image: url("~assets/img/header_shape_1.svg") !important;
+    height: 80rem;
+    margin-top: -3rem;
+    background-position: center 5rem;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
+
 
 
 .app-wrapper-image-right,
