@@ -76,11 +76,18 @@ fragment imageContent on Vino_page_Fc_HomeFc_Image {
   }
 }
 
+fragment contactUs on Vino_page_Fc_HomeFc_ContactUs {
+  address
+  email
+  phoneNumber
+}
+
 query GET_CUSTOM_POST($slug: String!) {
   vino_pageBy(slug: $slug) {
       slug
       fc {
         homeFc {
+          ...contactUs
           ...textAndImageContent
           ...centerText
           ...heroImage

@@ -1,61 +1,65 @@
 <template>
-  <div class="main-wrapper">
-    <HeroImageDynamic img-url="/img/events-header-min.png"></HeroImageDynamic>
-    <div class="container mx-auto text-center">
-      <div class="wow fadeInDown">
-        <div class="subtitle"> WANNA TALK TO US? </div>
-        <div class="title">CONTACT US</div>
-      </div>
-      <div class="contact-us-wrapper">
-        <div class="contact-us-forms">
-          <div class="subtitle"> WE'D LOVE TO HEAR FROM YOU! </div>
-          <p>Feel free to send us your questions, comments, or suggestions.</p>
-          <form class="mt-10">
-            <div class="contact-forms">
-              <div class="name">
-                <label for="">NAME</label><br>
-                <input type="text">
-              </div>
-              <div class="email">
-                <label for="">EMAIL</label><br>
-                <input type="text">
-              </div>
-              <div class="subject">
-                <label for="">SUBJECT</label><br>
-                <input type="text">
-              </div>
-              <div class="message">
-                <label for="">MESSAGE</label><br>
-                <textarea
-                  name=""
-                  id=""
-                  cols="30"
-                  rows="10"
-                ></textarea>
-                <div class="app-buttons contact-submit-btn">
-                  <button>SUBMIT</button>
+  <div v-if="vino_pageBy && vino_pageBy.fc" class="main-wrapper">
+    <HeroImageDynamic :img-url="vino_pageBy.fc.homeFc[0].image.sourceUrl"></HeroImageDynamic>
+    <div
+        v-for="(vino, index) in vino_pageBy.fc.homeFc"
+        :key="index"
+      >
+      
+      <div v-if="vino.__typename === 'Vino_page_Fc_HomeFc_ContactUs'" class="container mx-auto text-center">
+        <div class="wow fadeInDown">
+          <div class="subtitle"> WANNA TALK TO US? </div>
+          <div class="title">CONTACT US</div>
+        </div>
+        <div class="contact-us-wrapper">
+          <div class="contact-us-forms">
+            <div class="subtitle"> WE'D LOVE TO HEAR FROM YOU! </div>
+            <p>Feel free to send us your questions, comments, or suggestions.</p>
+            <form class="mt-10">
+              <div class="contact-forms">
+                <div class="name">
+                  <label for="">NAME</label><br>
+                  <input type="text">
+                </div>
+                <div class="email">
+                  <label for="">EMAIL</label><br>
+                  <input type="text">
+                </div>
+                <div class="subject">
+                  <label for="">SUBJECT</label><br>
+                  <input type="text">
+                </div>
+                <div class="message">
+                  <label for="">MESSAGE</label><br>
+                  <textarea
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="10"
+                  ></textarea>
+                  <div class="app-buttons contact-submit-btn">
+                    <button>SUBMIT</button>
+                  </div>
                 </div>
               </div>
+            </form>
+          </div>
+          <div>
+            <div v-html="vino.address"> 
             </div>
-          </form>
-        </div>
-        <div>
-          <p>
-            U2518 Corporate Ave. Corner Parkway Place, Filinvest City,
-            Alabng, Muntipula, Metro Manila
-          </p>
-          <br>
-          <br>
-          <p>
-            <b>Call us at</b> <br> 
-            Tel. No. (02) 8 556 9788
-          </p>
-          <br>
-          <br>
-          <p>
-            <b>Email us at</b><br>
-            vinoislawines@gmail.com
-          </p>
+            <br>
+            <br>
+            <div>
+              <b>Call us at</b> <br> 
+              <div v-html="vino.phoneNumber"></div>
+            </div>
+            <br>
+            <br>
+            <div>
+              <b>Email us at</b><br>
+              <div v-html="vino.email"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -64,9 +68,24 @@
 
 <script>
 import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic"
+import pageGql from "~/apollo/queries/page"
+// vino_pageBy.fc.homeFc[0].image.sourceUrl
 export default {
   components: {
     HeroImageDynamic
+  },
+  mounted () {
+    console.log({ vino_pageBy: this.vino_pageBy})
+  },
+  apollo: {
+    vino_pageBy: {
+      query: pageGql,
+      variables () {
+        return {
+          slug: 'contact'
+        }
+      }
+    }
   },
   head () {
     return {
