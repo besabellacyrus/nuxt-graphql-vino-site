@@ -63,7 +63,7 @@ export default {
     CenterSectionDynamic
   },
   mounted () {
-    console.log({ items: this.shop_items })
+    console.log({ itemsss: this.shop_items })
   },
   computed: {
     items () {

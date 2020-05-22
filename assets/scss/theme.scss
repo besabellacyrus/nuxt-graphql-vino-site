@@ -1,4 +1,5 @@
 .header-shape-container {
+  background-position: center center;
   @media screen and (min-width: 426px) {
     mask-image: url("~assets/img/header_shape.svg");
     height: 37rem;
@@ -55,8 +56,8 @@
 }
 .app-wrapper-image-right {
   .content {
-    display: grid;
-    grid-template-rows: auto;
+    // display: grid;
+    // grid-template-rows: auto;
     p {
       padding-top: 4rem;
     }
@@ -162,7 +163,7 @@
 
 .center-images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
   grid-gap: 2rem;
   @media screen and (min-width: 1024px) {
     grid-gap: 0rem;

@@ -7,7 +7,7 @@
     </li>
     <li>
       <a href="">
-        <img src="~assets/img/twitter-icon.svg" alt="">
+        <img src="~assets/img/Instagram.svg" alt="">
       </a>
     </li>
   </ul>

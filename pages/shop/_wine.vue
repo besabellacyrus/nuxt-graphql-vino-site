@@ -11,7 +11,7 @@
         ></HeroImageDynamic>
       </div>
     </div>
-    <div class="container mx-auto">
+    <div v-if="shop_itemBy && shop_itemBy.shop_gql" class="container mx-auto">
       <div class="item-wrapper">
         <div class="item-info">
           <h3 class="subtitle">{{ shop_itemBy.shop_gql.subTitle  }}</h3>
@@ -72,7 +72,7 @@ export default {
     return {}
   },
   mounted () {
-    console.log(this.$route.params.wine)
+    console.log({ wwwww: this.$route.params.wine })
     console.log({ shopItem: this.shop_itemBy })
   },
   computed: {

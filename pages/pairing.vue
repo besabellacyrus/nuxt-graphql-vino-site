@@ -28,7 +28,7 @@
           <div class="mt-5">
             <h3>{{ pair.subTitle }}</h3>
             <h1 class="">{{ pair.title }}</h1>
-            <p>{{ pair.content }}</p>
+            <div v-html="pair.content"></div>
           </div>
         </div>
       </div>
