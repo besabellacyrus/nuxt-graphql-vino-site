@@ -1,5 +1,4 @@
 .header-shape-container {
-  background-position: center center;
   @media screen and (min-width: 426px) {
     mask-image: url("~assets/img/header_shape.svg");
     height: 37rem;
@@ -7,6 +6,8 @@
     mask-repeat: no-repeat;
     mask-position: center;
     margin-bottom: 10rem;
+    background-size: contain;
+    background-position: center center;
   }
 
   @media screen and (max-width: 425px) {

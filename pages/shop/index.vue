@@ -19,7 +19,6 @@
           />
         </div>
       </div>
-    </div>
     <div class="container mx-auto">
       <div class="shop-items">
         <div
@@ -47,6 +46,10 @@
         </div>
       </div>
     </div>
+    </div>
+    <div v-else>
+      <LoadingComponent />
+    </div>
   </div>
 </template>
 
@@ -55,12 +58,14 @@ import shopItemsGql from "~/apollo/queries/shopItems"
 import pageGql from "~/apollo/queries/page"
 import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic"
 import CenterSectionDynamic from "~/components/dynamic/CenterSectionDynamic"
+import LoadingComponent from "~/components/LoadingComponent"
 
 
 export default {
   components: {
     HeroImageDynamic,
-    CenterSectionDynamic
+    CenterSectionDynamic,
+    LoadingComponent
   },
   mounted () {
     console.log({ itemsss: this.shop_items })

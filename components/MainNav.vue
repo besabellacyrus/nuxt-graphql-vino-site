@@ -7,10 +7,7 @@
           <li
             v-for="(nav, index) in navItems"
             :key="index"
-          >
-            <!-- <a :href="nav.node.order_gql.link">
-              {{ nav.node.title.toUpperCase() }}
-            </a> -->
+          > 
             <nuxt-link :to="nav.node.order_gql.link">{{ nav.node.title.toUpperCase() }}</nuxt-link>
           </li>
         </ul>

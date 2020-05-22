@@ -1,12 +1,12 @@
 <template>
   <ul>
     <li>
-      <a href="">
+      <a href="https://fb.com/vinoislatropicalwines" target="_blank">
         <img src="~assets/img/fb-icon.svg" alt="">
       </a>
     </li>
     <li>
-      <a href="">
+      <a href="https://www.instagram.com/p/B9dvP3uA1CU/" target="_blank">
         <img src="~assets/img/Instagram.svg" alt="">
       </a>
     </li>

@@ -1,5 +1,6 @@
 <template>
-  <div v-if="vino_pageBy && vino_pageBy.fc" class="main-wrapper">
+  <div class="main-wrapper">
+  <div v-if="vino_pageBy && vino_pageBy.fc">
     <HeroImageDynamic :img-url="vino_pageBy.fc.homeFc[0].image.sourceUrl"></HeroImageDynamic>
     <div
         v-for="(vino, index) in vino_pageBy.fc.homeFc"
@@ -64,15 +65,21 @@
       </div>
     </div>
   </div>
+  <div v-else>
+      <LoadingComponent />
+    </div>
+  </div>
 </template>
 
 <script>
 import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic"
 import pageGql from "~/apollo/queries/page"
-// vino_pageBy.fc.homeFc[0].image.sourceUrl
+import LoadingComponent from "~/components/LoadingComponent"
+
 export default {
   components: {
-    HeroImageDynamic
+    HeroImageDynamic,
+    LoadingComponent
   },
   mounted () {
     console.log({ vino_pageBy: this.vino_pageBy})
