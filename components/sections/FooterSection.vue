@@ -88,7 +88,13 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-  margin-top: 10rem;
+  /* margin-top: 10rem; */
+  z-index: 3;
+  position: relative;
+  p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4rem;
+  }
 }
 h1 {
   font-size: 1.7rem;

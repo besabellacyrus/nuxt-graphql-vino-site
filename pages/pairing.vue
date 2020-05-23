@@ -77,6 +77,7 @@ export default {
 
 <style lang="scss" scoped>
 .pairing-wrapper {
+  margin-bottom: 10rem;
   .pairing-content {
     padding: 0 26rem;
     @media screen and (max-width: 768px) {

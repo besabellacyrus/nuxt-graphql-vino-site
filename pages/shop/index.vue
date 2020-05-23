@@ -99,6 +99,7 @@ export default {
 
 <style lang="scss" scoped>
 .shop-wrapper {
+  margin-bottom: 10rem;
   .shop-items {
     margin-top: 4rem;
     display: grid;

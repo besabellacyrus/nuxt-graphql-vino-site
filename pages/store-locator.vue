@@ -1,5 +1,5 @@
 <template>
-  <div class="store-locator-container">
+  <div id="store-locator" class="store-locator-container">
     <div class="container mx-auto">
       <img
         class="app-hero-img"
@@ -7,10 +7,10 @@
         alt=""
       >
     </div>
-    <div class="center-content-wrapper mb-10">
-      <div class="subtitle">FIND US</div>
-      <div class="title">VINO ISLA STORES</div>
-      <b class="app-top-line-center"></b>
+    <div v-if="vino_pageBy && vino_pageBy.fc" class="center-content-wrapper mb-10">
+      <div class="subtitle">{{ vino_pageBy.fc.homeFc[0].subTitle }}</div>
+      <div class="title">{{ vino_pageBy.fc.homeFc[0].title }}</div>
+      <div v-html="vino_pageBy.fc.homeFc[0].content" class="app-top-line-center"></div>
     </div>
     <div class="container mx-auto">
       <div class="store-locator-wrapper">
@@ -47,6 +47,7 @@
 
 <script>
 import storesGql from "~/apollo/queries/storeLocations"
+import pageGql from "~/apollo/queries/page"
 
 export default {
   data () {
@@ -74,7 +75,7 @@ export default {
       }
     },
   }, 
-  mounted () {  
+  mounted () {   
     if (this.store_locations && this.store_locations.nodes) {
       this.stores = this.store_locations.nodes;
     }
@@ -91,7 +92,15 @@ export default {
   apollo: {
     store_locations: {
       query: storesGql
-    }
+    },
+    vino_pageBy: {
+      query: pageGql,
+      variables () {
+        return {
+          slug: 'store-locator'
+        }
+      }
+    },
   },
   methods: {
     applyMarker (mymap) {
@@ -115,7 +124,18 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+#store-locator {
+  a {
+    text-decoration: underline;
+  }
+  .app-top-line-center {
+    p {
+      max-width: 69rem !important;
+      margin: 0 auto !important; 
+    }
+  }
+}
 .show-in-map {
   cursor: pointer;
   font-weight: bold;

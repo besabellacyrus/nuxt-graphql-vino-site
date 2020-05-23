@@ -134,7 +134,7 @@ export default {
   overflow: hidden;
   .content-wrapper {
     z-index: 9;
-    position: relative;
+    /* position: relative; */
   }
 }
 .bg-pattern-one {

@@ -111,6 +111,7 @@ export default {
 <style lang="scss" scoped>
 .single-item-wrapper {
   position: relative;
+  margin-bottom: 10rem;
   .item-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
@@ -123,6 +124,7 @@ export default {
       .app-buttons {
         float: right;
         color: #fff;
+        margin-top: 1rem;
         @media screen and (max-width: 768px) {
           position: absolute;
           left: 50%;
@@ -130,7 +132,13 @@ export default {
           transform: translateX(-50%);
         }
         button {
+          outline: none;
           background-color: $app-brown;
+          transition: all 300ms;
+          &:hover {
+            background-color: transparent;
+            color:  $app-brown;
+          }
         }
       }
     }
