@@ -7,9 +7,8 @@
           <div class="subtitle">{{ vino_pageBy.fc.homeFc[1].subTitle}}</div>
           <div class="title">{{ vino_pageBy.fc.homeFc[1].title }}</div>
         </div>
-        <p class="bar-top-line-center mt-10 wow fadeInUp">
-          {{ vino_pageBy.fc.homeFc[1].content }}
-        </p>
+        <div v-html="vino_pageBy.fc.homeFc[1].content" class="bar-top-line-center mt-10 wow fadeInUp"> 
+        </div>
       </div>
       <div class="text-center header-title">
         <h1 class="subtitle">CHOOSE YOUR VINO</h1>

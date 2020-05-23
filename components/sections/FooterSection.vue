@@ -59,8 +59,8 @@
         <ul>
           <li>SHIPPING</li>
           <li>PRIVACY POLICY</li>
-          <li>SUSTAINABILITY</li>
-          <li>PARTNERSHIPS</li>
+          <!-- <li>SUSTAINABILITY</li> -->
+          <!-- <li>PARTNERSHIPS</li> -->
         </ul>
       </div>
       <div class="contact">

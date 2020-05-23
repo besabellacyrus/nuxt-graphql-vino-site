@@ -17,9 +17,8 @@
             <h1 class="title">{{ shop_itemBy.title  }}</h1>
             <div>
               <h3 class="subtitle">Php {{  shop_itemBy.shop_gql.price }}</h3>
-              <p class="bar-top-line-left item-text">
-                {{ shop_itemBy.shop_gql.details }}
-              </p>
+              <div v-html="shop_itemBy.shop_gql.details" class="bar-top-line-left item-text"> 
+              </div>
               <div class="app-buttons">
                 <a :href="shop_itemBy.shop_gql.buyNowUrl">
                   <button>PURCHASE</button>

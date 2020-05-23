@@ -35,7 +35,7 @@
             <div class="item-info text-center mt-10">
               <h4 class="subtitle">{{ item.node.shop_gql.subTitle }}</h4>
               <h2 class="title">{{ item.node.title }}</h2>
-              <p>{{ item.node.shop_gql.details}}</p>
+              <div class="mt-2" v-html="item.node.shop_gql.description"></div>
               <div class="app-buttons">
                 <a :href="`shop/${item.node.slug}`">
                   <button>BUY NOW</button>
@@ -73,6 +73,7 @@ export default {
   },
   computed: {
     items () {
+      
       if (this.shop_items && this.shop_items.edges) {
         return this.shop_items.edges
       }

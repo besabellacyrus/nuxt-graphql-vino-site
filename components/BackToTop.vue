@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss" scoped>
 .back-to-top {
-  height: 9rem;
+  height: 7rem;
   position: fixed; 
   right: 3rem;
   z-index: 99;
