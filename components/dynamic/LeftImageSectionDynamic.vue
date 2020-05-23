@@ -65,6 +65,6 @@ export default {
 }
 .image-section {
   display: grid;
-  justify-items: center;
+  /* justify-items: center; */
 }
 </style>
