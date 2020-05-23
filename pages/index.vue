@@ -1,17 +1,13 @@
-<template>
-  <div>
-    <MainComponent />
-    <BackToTop />
-  </div>
+<template> 
+  <MainComponent /> 
 </template>
 
 <script>
 import MainComponent from "~/components/MainComponent";
-import BackToTop from "~/components/BackToTop";
+
 export default {
   components: {
-    MainComponent,
-    BackToTop
+    MainComponent
   }
 }
 </script>

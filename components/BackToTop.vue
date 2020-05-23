@@ -1,15 +1,28 @@
 <template>
-  <div class="back-to-top" @click="backToTop">
+  <div v-if="scroll > 1151" class="back-to-top" @click="backToTop">
       <img src="~/assets/img/back-to-top.svg" alt="">
   </div>
 </template>
 
 <script>
-export default {
+export default { 
+  data () {
+    return {
+      scroll: 0
+    }
+  },
+  mounted () {
+    window.addEventListener("scroll", this.scrollFunc);
+  },  
+  destroy () { 
+    window.removeEventListener("scroll", this.scrollFunc);
+  },
   methods: {
+    scrollFunc (e) {
+      this.scroll = window.scrollY;
+    },
     backToTop () {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 }
@@ -18,8 +31,11 @@ export default {
 <style lang="scss" scoped>
 .back-to-top {
   height: 9rem;
-  position: absolute; 
+  position: fixed; 
   right: 3rem;
+  z-index: 99;
+  bottom: 3rem;
+  transition: all 300ms;
   img {
     height: 100%;
   }

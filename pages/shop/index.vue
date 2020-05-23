@@ -68,7 +68,8 @@ export default {
     LoadingComponent
   },
   mounted () {
-    console.log({ itemsss: this.shop_items })
+     document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   },
   computed: {
     items () {

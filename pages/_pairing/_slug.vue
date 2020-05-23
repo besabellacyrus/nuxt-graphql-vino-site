@@ -77,15 +77,15 @@ export default {
       slug: null,
       bgColor: ""
     }
-  },
-
+  },  
   mounted () {
     this.slug = this.$route.params.slug;
     this.bgColor = this.pairingBy.pairings_gql.backgroundColor
     console.log({ pairingBy: this.pairingBy })
     let root = document.documentElement;
     root.style.setProperty('--bg-color', this.bgColor);
-
+     document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   },
   apollo: {
     pairingBy: {

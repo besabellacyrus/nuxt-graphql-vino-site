@@ -11,24 +11,30 @@
         <FooterSection></FooterSection>
       </div>
     </transition>
-    
+    <BackToTop />
   </div>
 </template>
 
 <script>
 import MainNav from "~/components/MainNav"
 import FooterSection from "~/components/sections/FooterSection"
+import BackToTop from "~/components/BackToTop";
 
 
 export default {
   components: {
     MainNav,
     FooterSection,
+    BackToTop
   },
   data () {
     return {
       isLoading: false
     }
+  },
+  mounted () {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   },
   created () {
     if (process.browser) {
