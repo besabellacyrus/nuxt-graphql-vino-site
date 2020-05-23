@@ -65,7 +65,9 @@ export default {
 
 .image-section {
   display: grid;
-  /* justify-items: center; */
+  @media screen and (max-width: 425px) {
+    justify-items: center;
+  }
 }
 
 </style>
