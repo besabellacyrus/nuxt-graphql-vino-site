@@ -1,105 +1,136 @@
 <template>
   <div class="main-wrapper">
-  <div v-if="vino_pageBy && vino_pageBy.fc">
-    <HeroImageDynamic :img-url="vino_pageBy.fc.homeFc[0].image.sourceUrl"></HeroImageDynamic>
-    <div
-        v-for="(vino, index) in vino_pageBy.fc.homeFc"
-        :key="index"
-      >
-      
-      <div v-if="vino.__typename === 'Vino_page_Fc_HomeFc_ContactUs'" class="container mx-auto text-center">
-        <div class="wow fadeInDown">
-          <div class="subtitle"> WANNA TALK TO US? </div>
-          <div class="title">CONTACT US</div>
-        </div>
-        <div class="contact-us-wrapper">
-          <div class="contact-us-forms">
-            <div class="subtitle"> WE'D LOVE TO HEAR FROM YOU! </div>
-            <p>Feel free to send us your questions, comments, or suggestions.</p>
-            <form class="mt-10">
-              <div class="contact-forms">
-                <div class="name">
-                  <label for="">NAME</label><br>
-                  <input type="text">
-                </div>
-                <div class="email">
-                  <label for="">EMAIL</label><br>
-                  <input type="text">
-                </div>
-                <div class="subject">
-                  <label for="">SUBJECT</label><br>
-                  <input type="text">
-                </div>
-                <div class="message">
-                  <label for="">MESSAGE</label><br>
-                  <textarea
-                    name=""
-                    id=""
-                    cols="30"
-                    rows="10"
-                  ></textarea>
-                  <div class="app-buttons contact-submit-btn">
-                    <button>SUBMIT</button>
+    <div v-if="vino_pageBy && vino_pageBy.fc">
+      <HeroImageDynamic
+        :img-url="vino_pageBy.fc.homeFc[0].image.sourceUrl"
+      ></HeroImageDynamic>
+      <div v-for="(vino, index) in vino_pageBy.fc.homeFc" :key="index">
+        <div
+          v-if="vino.__typename === 'Vino_page_Fc_HomeFc_ContactUs'"
+          class="container mx-auto text-center"
+        >
+          <div class="wow fadeInDown">
+            <div class="subtitle">WANNA TALK TO US?</div>
+            <div class="title">CONTACT US</div>
+          </div>
+          <div class="contact-us-wrapper">
+            <div class="contact-us-forms">
+              <div class="subtitle">WE'D LOVE TO HEAR FROM YOU!</div>
+              <p>
+                Feel free to send us your questions, comments, or suggestions.
+              </p>
+              <form class="mt-10" @submit="checkForm">
+                <div class="contact-forms">
+                  <div class="name">
+                    <label for>NAME</label>
+                    <br />
+                    <input type="text" />
+                  </div>
+                  <div class="email">
+                    <label for>EMAIL</label>
+                    <br />
+                    <input type="text" />
+                  </div>
+                  <div class="subject">
+                    <label for>SUBJECT</label>
+                    <br />
+                    <input type="text" />
+                  </div>
+                  <div class="message">
+                    <label for>MESSAGE</label>
+                    <br />
+                    <textarea name id cols="30" rows="10"></textarea>
+                    <div class="app-buttons contact-submit-btn">
+                      <button>SUBMIT</button>
+                    </div>
                   </div>
                 </div>
+              </form>
+            </div>
+            <div>
+              <div v-html="vino.address"></div>
+              <br />
+              <br />
+              <div>
+                <b>Call us at</b>
+                <br />
+                <div v-html="vino.phoneNumber"></div>
               </div>
-            </form>
-          </div>
-          <div>
-            <div v-html="vino.address"> 
-            </div>
-            <br>
-            <br>
-            <div>
-              <b>Call us at</b> <br> 
-              <div v-html="vino.phoneNumber"></div>
-            </div>
-            <br>
-            <br>
-            <div>
-              <b>Email us at</b><br>
-              <div v-html="vino.email"></div>
+              <br />
+              <br />
+              <div>
+                <b>Email us at</b>
+                <br />
+                <div v-html="vino.email"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div v-else>
+    <div v-else>
       <LoadingComponent />
     </div>
   </div>
 </template>
 
 <script>
-import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic"
-import pageGql from "~/apollo/queries/page"
-import LoadingComponent from "~/components/LoadingComponent"
+import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic";
+import pageGql from "~/apollo/queries/page";
+import LoadingComponent from "~/components/LoadingComponent";
 
 export default {
   components: {
     HeroImageDynamic,
     LoadingComponent
   },
-  mounted () {
-    console.log({ vino_pageBy: this.vino_pageBy})
+  data() {
+    return {
+      errors: [],
+      name: null,
+      email: null,
+      subject: null,
+      message: null
+    };
+  },
+  mounted() {
+    console.log({ vino_pageBy: this.vino_pageBy });
   },
   apollo: {
     vino_pageBy: {
       query: pageGql,
-      variables () {
+      variables() {
         return {
-          slug: 'contact'
-        }
+          slug: "contact"
+        };
       }
     }
   },
-  head () {
-    return {
-      title: `Vino 🍷 Contact`,
+  head: {
+    title: `Vino 🍷 Contact`,
+    script: [
+      {
+        src:
+          "https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit"
+      }
+    ]
+  },
+  methods: {
+    async checkForm(e) {
+      e.preventDefault();
+      const contact = await this.$axios.$post(
+        "http://157.245.62.130/wp-json/contact-form-7/v1/contact-forms/339/feedback",
+        {
+          your_name: "new name",
+          your_email: "cybesabella@gmail.com",
+          your_subject: "new subject",
+          your_message: "new message"
+        }
+      );
+      console.log("submit", contact);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

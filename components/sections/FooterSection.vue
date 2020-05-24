@@ -63,7 +63,7 @@
     <div id="myModal" class="modal">
       <div class="modal-content" v-if="modal_content">
         <span class="close" @click="closeModal()">&times;</span>
-        <h1>{{ modal_content.title }}</h1>
+        <!-- <h1>{{ modal_content.title }}</h1> -->
         <div v-html="modal_content.resource.content"></div>
       </div>
     </div>
