@@ -24,28 +24,33 @@
                   <div class="name">
                     <label for>NAME</label>
                     <br />
-                    <input type="text" />
+                    <input v-model="name" type="text" />
                   </div>
                   <div class="email">
                     <label for>EMAIL</label>
                     <br />
-                    <input type="text" />
+                    <input v-model="email" type="text" />
                   </div>
                   <div class="subject">
                     <label for>SUBJECT</label>
                     <br />
-                    <input type="text" />
+                    <input v-model="subject" type="text" />
                   </div>
                   <div class="message">
                     <label for>MESSAGE</label>
                     <br />
-                    <textarea name id cols="30" rows="10"></textarea>
+                    <textarea v-model="message" cols="30" rows="10"></textarea>
                     <div class="app-buttons contact-submit-btn">
-                      <button>SUBMIT</button>
+                      <vue-recaptcha sitekey="Your key here">
+                        <!-- <button>Click me</button> -->
+                        <button>SUBMIT</button>
+                      </vue-recaptcha>
                     </div>
                   </div>
                 </div>
               </form>
+              <div v-html="errors" v-if="errors.length > 0"></div>
+              <div v-html="mailInfo" v-if="mailInfo"></div>
             </div>
             <div>
               <div v-html="vino.address"></div>
@@ -78,11 +83,13 @@
 import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic";
 import pageGql from "~/apollo/queries/page";
 import LoadingComponent from "~/components/LoadingComponent";
+import VueRecaptcha from "vue-recaptcha";
 
 export default {
   components: {
     HeroImageDynamic,
-    LoadingComponent
+    LoadingComponent,
+    VueRecaptcha
   },
   data() {
     return {
@@ -90,7 +97,8 @@ export default {
       name: null,
       email: null,
       subject: null,
-      message: null
+      message: null,
+      mailInfo: null
     };
   },
   mounted() {
@@ -118,16 +126,47 @@ export default {
   methods: {
     async checkForm(e) {
       e.preventDefault();
-      const contact = await this.$axios.$post(
-        "http://157.245.62.130/wp-json/contact-form-7/v1/contact-forms/339/feedback",
-        {
-          your_name: "new name",
-          your_email: "cybesabella@gmail.com",
-          your_subject: "new subject",
-          your_message: "new message"
-        }
-      );
-      console.log("submit", contact);
+      let formData = new FormData();
+      if (!this.name) {
+        this.errors.push("Name required.");
+      }
+      if (!this.email) {
+        this.errors.push("Email required.");
+      }
+
+      if (this.name && this.email) {
+        formData.append("your_name", this.name);
+        formData.append("your_email", this.email);
+        formData.append("your_subject", this.subject);
+        formData.append("your_message", this.message);
+        await this.$axios
+          .$post(
+            "http://157.245.62.130/wp-api/wp-json/contact-form-7/v1/contact-forms/339/feedback",
+            formData,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data"
+              }
+            }
+          )
+          .then(e => {
+            console.log("SUCCESS!!", { e, formData });
+            this.errors = [];
+            if (e.status === "mail_sent") {
+              this.mailInfo = `<p>${e.message}</p>`;
+              this.name = null;
+              this.email = null;
+              this.subject = null;
+              this.message = null;
+            } else {
+              this.mailInfo = `<p>${e.message}</p>`;
+            }
+          })
+          .catch(function() {
+            console.log("FAILURE!!");
+            this.errors = [];
+          });
+      }
     }
   }
 };
