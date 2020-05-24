@@ -1,0 +1,10 @@
+query {
+  resource_pages {
+    nodes {
+      resource {
+        content
+      }
+      title
+    }
+  }
+}
