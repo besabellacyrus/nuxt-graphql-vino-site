@@ -1,10 +1,7 @@
 <template>
   <div class="shop-wrapper">
     <div v-if="vino_pageBy && vino_pageBy.fc">
-      <div
-        v-for="(vino, index) in vino_pageBy.fc.homeFc"
-        :key="index"
-      >
+      <div v-for="(vino, index) in vino_pageBy.fc.homeFc" :key="index">
         <HeroImageDynamic
           v-if="vino.__typename === 'Vino_page_Fc_HomeFc_HeroImage'"
           :img-url="vino.image.sourceUrl"
@@ -19,33 +16,27 @@
           />
         </div>
       </div>
-    <div class="container mx-auto">
-      <div class="shop-items">
-        <div
-          v-for="(item, index) in items"
-          :key="index"
-        >
-          <div class="shop-item">
-            <div class="item-thumbnail">
-              <img
-                :src="item.node.shop_gql.thumbnail.sourceUrl"
-                alt=""
-              >
-            </div>
-            <div class="item-info text-center mt-10">
-              <h4 class="subtitle">{{ item.node.shop_gql.subTitle }}</h4>
-              <h2 class="title">{{ item.node.title }}</h2>
-              <div class="mt-2" v-html="item.node.shop_gql.description"></div>
-              <div class="app-buttons">
-                <a :href="`shop/${item.node.slug}`">
-                  <button>BUY NOW</button>
-                </a>
+      <div class="container mx-auto">
+        <div class="shop-items">
+          <div v-for="(item, index) in items" :key="index">
+            <div class="shop-item">
+              <div class="item-thumbnail">
+                <img :src="item.node.shop_gql.thumbnail.sourceUrl" alt />
+              </div>
+              <div class="item-info text-center mt-10">
+                <h4 class="subtitle">{{ item.node.shop_gql.subTitle }}</h4>
+                <h2 class="title">{{ item.node.title }}</h2>
+                <div class="mt-2" v-html="item.node.shop_gql.description"></div>
+                <div class="app-buttons">
+                  <a :href="`shop/${item.node.slug}`">
+                    <button>BUY NOW</button>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
     <div v-else>
       <LoadingComponent />
@@ -54,12 +45,11 @@
 </template>
 
 <script>
-import shopItemsGql from "~/apollo/queries/shopItems"
-import pageGql from "~/apollo/queries/page"
-import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic"
-import CenterSectionDynamic from "~/components/dynamic/CenterSectionDynamic"
-import LoadingComponent from "~/components/LoadingComponent"
-
+import shopItemsGql from "~/apollo/queries/shopItems";
+import pageGql from "~/apollo/queries/page";
+import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic";
+import CenterSectionDynamic from "~/components/dynamic/CenterSectionDynamic";
+import LoadingComponent from "~/components/LoadingComponent";
 
 export default {
   components: {
@@ -67,36 +57,42 @@ export default {
     CenterSectionDynamic,
     LoadingComponent
   },
-  mounted () {
-     document.body.scrollTop = 0; // For Safari
+  mounted() {
+    document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   },
   computed: {
-    items () {
-      
+    items() {
       if (this.shop_items && this.shop_items.edges) {
-        return this.shop_items.edges
+        return this.shop_items.edges;
       }
     }
   },
   apollo: {
     shop_items: {
       query: shopItemsGql,
-      variables () {
-        return {
-        }
+      variables() {
+        return {};
       }
     },
     vino_pageBy: {
       query: pageGql,
-      variables () {
+      variables() {
         return {
-          slug: 'shop'
-        }
+          slug: "shop"
+        };
       }
-    },
+    }
   },
-}
+  head() {
+    return {
+      meta:
+        this.vino_pageBy && this.vino_pageBy.metas
+          ? this.vino_pageBy.metas.metatags
+          : []
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>

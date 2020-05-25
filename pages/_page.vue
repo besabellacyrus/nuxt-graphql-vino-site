@@ -6,14 +6,8 @@
     <div class="bg-pattern-four"></div>
     <div class="bg-pattern-five"></div>
     <!-- v-if="vino_pageBy && vino_pageBy.fc" -->
-    <div
-      class="content-wrapper mx-auto"
-      v-if="vino_pageBy && vino_pageBy.fc"
-    >
-      <div
-        v-for="(vino, index) in vino_pageBy.fc.homeFc"
-        :key="index"
-      >
+    <div class="content-wrapper mx-auto" v-if="vino_pageBy && vino_pageBy.fc">
+      <div v-for="(vino, index) in vino_pageBy.fc.homeFc" :key="index">
         <HeroImageDynamic
           v-if="vino.__typename === 'Vino_page_Fc_HomeFc_HeroImage'"
           :img-url="vino.image.sourceUrl"
@@ -73,15 +67,15 @@
 </template>
 
 <script>
-import pageGql from "~/apollo/queries/page"
-import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic"
-import TextAreaComponent from "~/components/dynamic/TextAreaComponent"
-import ImageComponent from "~/components/dynamic/ImageComponent"
-import RightImageSectionDynamic from "~/components/dynamic/RightImageSectionDynamic"
-import LeftImageSectionDynamic from "~/components/dynamic/LeftImageSectionDynamic"
-import CenterSectionDynamic from "~/components/dynamic/CenterSectionDynamic"
-import ShowcaseSectionDynamic from "~/components/dynamic/ShowcaseSectionDynamic"
-import LoadingComponent from "~/components/LoadingComponent"
+import pageGql from "~/apollo/queries/page";
+import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic";
+import TextAreaComponent from "~/components/dynamic/TextAreaComponent";
+import ImageComponent from "~/components/dynamic/ImageComponent";
+import RightImageSectionDynamic from "~/components/dynamic/RightImageSectionDynamic";
+import LeftImageSectionDynamic from "~/components/dynamic/LeftImageSectionDynamic";
+import CenterSectionDynamic from "~/components/dynamic/CenterSectionDynamic";
+import ShowcaseSectionDynamic from "~/components/dynamic/ShowcaseSectionDynamic";
+import LoadingComponent from "~/components/LoadingComponent";
 
 export default {
   components: {
@@ -94,39 +88,45 @@ export default {
     TextAreaComponent,
     LoadingComponent
   },
-  data () {
+  data() {
     return {
       slug: null
-    }
+    };
   },
-  mounted () {
-    console.log({ vino: this.vino_pageBy })
-    console.log('index')
+  mounted() {
+    console.log({ vino: this.vino_pageBy });
+    console.log("index");
   },
   apollo: {
     vino_pageBy: {
       query: pageGql,
-      variables () {
+      variables() {
         return {
-          slug: this.$route.path === '/' ? 'home' : this.$route.params.page
-        }
+          slug: this.$route.path === "/" ? "home" : this.$route.params.page
+        };
       }
-    },
+    }
   },
   methods: {
-    renderImage (images) {
+    renderImage(images) {
       if (images) {
-        return images.image.sourceUrl
+        return images.image.sourceUrl;
       }
-      return ""
+      return "";
     }
   },
-  head () {
+  head() {
     return {
-      title: `Vino | ${this.$options.filters.capitalize(this.$route.params.page) || 'Home'}`,
-    }
+      title: `Vino | ${this.$options.filters.capitalize(
+        this.$route.params.page
+      ) || "Home"}`,
+      meta:
+        this.vino_pageBy && this.vino_pageBy.metas
+          ? this.vino_pageBy.metas.metatags
+          : []
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
