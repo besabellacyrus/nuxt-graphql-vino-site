@@ -21,7 +21,7 @@ export default {
       }
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/x-icon", href: "/favicon-1.png" },
       {
         rel: "stylesheet",
         href: "https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"

@@ -41,14 +41,14 @@
         </div>
         <div id="map-wrap"></div>
         <div></div>
-        <div class="text-center">
-          <p>
-            Cannot find us in your preferred store?
-            <a
-              href="mailto: vinoislaheritage@gmail.com"
-            >Let us know</a> so we can fix that.
-          </p>
-        </div>
+      </div>
+      <div class="text-center mt-10">
+        <p>
+          Cannot find us in your preferred store?
+          <a
+            href="mailto: vinoislaheritage@gmail.com"
+          >Let us know</a> so we can fix that.
+        </p>
       </div>
     </div>
     <div>
