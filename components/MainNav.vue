@@ -25,7 +25,7 @@
             <div class="line"></div>
             <div class="line"></div>
           </div>
-          <a to="/">
+          <a href="/">
             <img class src="~/assets/img/logo-footer.svg" alt />
           </a>
         </div>
