@@ -25,7 +25,9 @@
             <div class="line"></div>
             <div class="line"></div>
           </div>
-          <img class src="~/assets/img/logo-footer.svg" alt />
+          <a to="/">
+            <img class src="~/assets/img/logo-footer.svg" alt />
+          </a>
         </div>
       </div>
       <div class="mobile-nav" ref="mobileNav">
