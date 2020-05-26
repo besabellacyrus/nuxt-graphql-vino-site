@@ -118,7 +118,7 @@ export default {
   margin: 0 auto;
   width: 100%;
   transition: all 300ms ease-in-out;
-  background-color: rgba(255, 255, 255, 0.663);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 .main-navigation-wrapper {
   @media screen and (min-width: 769px) {

@@ -1,35 +1,39 @@
 <template>
   <div id="store-locator" class="store-locator-container">
-    <div class="container mx-auto">
-      <img
-        class="app-hero-img"
-        src="~/assets/img/events/events-header-min.png"
-        alt=""
-      >
-    </div>
-    <div v-if="vino_pageBy && vino_pageBy.fc" class="center-content-wrapper mb-10">
-      <div class="subtitle">{{ vino_pageBy.fc.homeFc[0].subTitle }}</div>
-      <div class="title">{{ vino_pageBy.fc.homeFc[0].title }}</div>
-      <div v-html="vino_pageBy.fc.homeFc[0].content" class="app-top-line-center"></div>
+    <div v-if="vino_pageBy && vino_pageBy.fc">
+      <div v-for="(vino, index) in vino_pageBy.fc.homeFc" :key="index">
+        <HeroImageDynamic
+          v-if="vino.__typename === 'Vino_page_Fc_HomeFc_HeroImage'"
+          :img-url="vino.image.sourceUrl"
+        ></HeroImageDynamic>
+        <div data-aos="fade-down" v-if="vino.fieldGroupName === 'vino_page_Fc_HomeFc_CenterText'">
+          <div class="center-content-wrapper mb-10">
+            <CenterSectionDynamic
+              :title="vino.title"
+              :subtitle="vino.subTitle"
+              :content="vino.content"
+              :imageButtons="vino.imageButtons"
+              :buttons="vino.buttons"
+            />
+            <!-- <div class="subtitle">{{ vino_pageBy.fc.homeFc[0].subTitle }}</div>
+            <div class="title">{{ vino_pageBy.fc.homeFc[0].title }}</div>
+            <div v-html="vino_pageBy.fc.homeFc[0].content" class="app-top-line-center"></div>-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="container mx-auto">
       <div class="store-locator-wrapper">
         <div class="search">
           <div class="search-wrapper">
             <h1>SEARCH LOCATION</h1>
-            <input
-              type="text"
-              v-model="query"
-            >
+            <input type="text" v-model="query" />
           </div>
           <div class="query-results">
             <ul>
-              <li
-                v-for="store in filteredStores"
-                :key="store.store_locations.lat"
-              >
+              <li v-for="store in filteredStores" :key="store.store_locations.lat">
                 <h2>{{ store.store_locations.locationName }}</h2>
-                <p>{{ store.store_locations.address  }}</p>
+                <p>{{ store.store_locations.address }}</p>
                 <span
                   class="show-in-map"
                   @click="showInMap(store.store_locations.lng, store.store_locations.lat)"
@@ -38,55 +42,74 @@
             </ul>
           </div>
         </div>
-        <div id="map-wrap">
+        <div id="map-wrap"></div>
+        <div></div>
+        <div class="text-center">
+          <p>
+            Cannot find us in your preferred store?
+            <a
+              href="mailto: vinoislaheritage@gmail.com"
+            >Let us know</a> so we can fix that.
+          </p>
         </div>
       </div>
-    </div> 
+    </div>
   </div>
 </template>
 
 <script>
-import storesGql from "~/apollo/queries/storeLocations"
-import pageGql from "~/apollo/queries/page"
+import storesGql from "~/apollo/queries/storeLocations";
+import pageGql from "~/apollo/queries/page";
+import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic";
+import CenterSectionDynamic from "~/components/dynamic/CenterSectionDynamic";
 
 export default {
-  data () {
+  components: {
+    HeroImageDynamic,
+    CenterSectionDynamic
+  },
+  data() {
     return {
       query: "",
       lng: 0,
       lat: 0,
       stores: [],
       mymap: null
-    }
-  },  
-  computed: { 
-    filteredStores () { 
-      console.log({ stores: this.store_locations })
+    };
+  },
+  computed: {
+    filteredStores() {
+      console.log({ stores: this.store_locations });
       if (this.store_locations) {
-        if (this.query === '') {
+        if (this.query === "") {
           return this.store_locations.nodes;
         }
-        return this.store_locations.nodes.filter(
-          store => { 
-            return store.store_locations.locationName.toLowerCase().indexOf(this.query.toLowerCase()) !== -1
-            || store.store_locations.address.toLowerCase().indexOf(this.query.toLowerCase()) !== -1
-          }
-        );
+        return this.store_locations.nodes.filter(store => {
+          return (
+            store.store_locations.locationName
+              .toLowerCase()
+              .indexOf(this.query.toLowerCase()) !== -1 ||
+            store.store_locations.address
+              .toLowerCase()
+              .indexOf(this.query.toLowerCase()) !== -1
+          );
+        });
       }
-    },
-  }, 
-  mounted () {   
+    }
+  },
+  mounted() {
     if (this.store_locations && this.store_locations.nodes) {
       this.stores = this.store_locations.nodes;
     }
-    this.mymap = L.map('map-wrap', {
+    this.mymap = L.map("map-wrap", {
       attributionControl: false,
       zoomControl: false
     }).setView(L.latLng(14.4166681, 121.0336598), 15);
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
       detectRetina: true,
       maxNativeZoom: 17,
-      accessToken: 'pk.eyJ1Ijoic2FpcGhwIiwiYSI6ImNrNTg2NTdrczBqdXMzbHF4ZXRuNHp2ZjMifQ.TCM8c-eog1TKlX9gLbRjhw'
+      accessToken:
+        "pk.eyJ1Ijoic2FpcGhwIiwiYSI6ImNrNTg2NTdrczBqdXMzbHF4ZXRuNHp2ZjMifQ.TCM8c-eog1TKlX9gLbRjhw"
     }).addTo(this.mymap);
   },
   apollo: {
@@ -95,33 +118,33 @@ export default {
     },
     vino_pageBy: {
       query: pageGql,
-      variables () {
+      variables() {
         return {
-          slug: 'store-locator'
-        }
+          slug: "store-locator"
+        };
       }
-    },
+    }
   },
   methods: {
-    applyMarker (mymap) {
+    applyMarker(mymap) {
       var pruneCluster = new this.PruneClusterForLeaflet();
       var marker = new this.PruneCluster.Marker(this.lng, this.lat);
       pruneCluster.RegisterMarker(marker);
       mymap.addLayer(pruneCluster);
       mymap.setView(L.latLng(this.lng, this.lat), 15);
     },
-    showInMap (lng, lat) {
+    showInMap(lng, lat) {
       this.lng = lng;
       this.lat = lat;
       this.applyMarker(this.mymap);
     }
   },
-  head () {
+  head() {
     return {
-      title: `Vino 🍷 Store Locator`,
-    }
+      title: `Vino 🍷 Store Locator`
+    };
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -132,7 +155,7 @@ export default {
   .app-top-line-center {
     p {
       max-width: 69rem !important;
-      margin: 0 auto !important; 
+      margin: 0 auto !important;
     }
   }
 }
