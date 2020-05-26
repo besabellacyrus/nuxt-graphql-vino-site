@@ -1,22 +1,23 @@
 <template>
   <div class="app-logo flex justify-center my-0 h-0 invisible md:h-12 md:my-5 md:visible">
-    <img
-      class="app-logo pl-1"
-      src="~/assets/img/Logo.svg"
-      alt=""
-    >
+    <img class="pl-1" :src="imageUrl" alt />
   </div>
 </template>
 
 <script>
 export default {
-
-}
+  props: ["imageUrl"]
+};
 </script>
 
-<style>
+<style lang="scss">
 .app-logo {
-  height: 4.2rem;
   margin-bottom: 2rem;
+  height: 4.2rem;
+
+  img {
+    margin-bottom: 2rem;
+    height: 100%;
+  }
 }
 </style>

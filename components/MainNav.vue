@@ -2,12 +2,16 @@
   <div :class="{'sticky-menu': scrolled > 58 }">
     <div class="main-navigation-wrapper">
       <div class="main-navigation-container text-center">
-        <AppLogo :class="{ 'side-logo': scrolled > 15 }" />
-        <ul class="pc-menu">
-          <li
-            v-for="(nav, index) in navItems"
-            :key="index"
-          > 
+        <AppLogo
+          v-if="scrolled > 15"
+          class="side-logo"
+          image-url="/img/logo-vino-isla.svg"
+          alt="Vino Isla"
+        />
+        <AppLogo v-else image-url="/img/Logo.svg" alt="Vino Isla Logo V" />
+
+        <ul :class="{'pc-menu-right ': scrolled > 15 }" class="pc-menu">
+          <li v-for="(nav, index) in navItems" :key="index">
             <nuxt-link :to="nav.node.order_gql.link">{{ nav.node.title.toUpperCase() }}</nuxt-link>
           </li>
         </ul>
@@ -17,34 +21,18 @@
     <div class="mobile mobile-two">
       <div class="header">
         <div class="header-grid">
-          <div
-            class="menu-toggle"
-            @click="toggleMenu($event)"
-          >
+          <div class="menu-toggle" @click="toggleMenu($event)">
             <div class="line"></div>
             <div class="line"></div>
           </div>
-          <img
-            class=""
-            src="~/assets/img/logo-footer.svg"
-            alt=""
-          >
+          <img class src="~/assets/img/logo-footer.svg" alt />
         </div>
-
       </div>
-      <div
-        class="mobile-nav"
-        ref="mobileNav"
-      >
+      <div class="mobile-nav" ref="mobileNav">
         <!-- <h2>Navigation</h2> -->
         <ul>
-          <li
-            v-for="(nav, index) in navItems"
-            :key="index"
-          >
-            <a :href="nav.node.order_gql.link">
-              {{ nav.node.title.toUpperCase() }}
-            </a>
+          <li v-for="(nav, index) in navItems" :key="index">
+            <a :href="nav.node.order_gql.link">{{ nav.node.title.toUpperCase() }}</a>
           </li>
         </ul>
       </div>
@@ -53,9 +41,9 @@
 </template>
 
 <script>
-import AppLogo from "~/components/AppLogo"
-import navGql from "~/apollo/queries/nav"
-import _ from "lodash"
+import AppLogo from "~/components/AppLogo";
+import navGql from "~/apollo/queries/nav";
+import _ from "lodash";
 
 export default {
   components: {
@@ -64,52 +52,53 @@ export default {
   apollo: {
     vino_pages: {
       query: navGql
-    },
-  },
-  data () {
-    return {
-      scrolled: 0
     }
   },
+  data() {
+    return {
+      scrolled: 0
+    };
+  },
   computed: {
-    navItems () { 
+    navItems() {
       if (this.vino_pages && this.vino_pages.edges) {
-        const items = this.vino_pages.edges.filter(e => e.node.order_gql.isMainPage);
-        return _.orderBy(items, 'node.order_gql.order', 'asc');
+        const items = this.vino_pages.edges.filter(
+          e => e.node.order_gql.isMainPage
+        );
+        return _.orderBy(items, "node.order_gql.order", "asc");
       }
     }
   },
   methods: {
-    handleScroll (event) {
-      this.scrolled = window.scrollY
+    handleScroll(event) {
+      this.scrolled = window.scrollY;
     },
-    toggleMenu (event) {
+    toggleMenu(event) {
       const { mobileNav } = this.$refs;
-      if (window.getComputedStyle(mobileNav, null).display === 'block') {
+      if (window.getComputedStyle(mobileNav, null).display === "block") {
         this.hideElem(mobileNav);
         return;
       }
       this.showElem(mobileNav);
     },
-    showElem (elem) {
-      elem.style.display = 'block';
-
+    showElem(elem) {
+      elem.style.display = "block";
     },
-    hideElem (elem) {
-      elem.style.display = 'none';
+    hideElem(elem) {
+      elem.style.display = "none";
     }
   },
-  created () {
+  created() {
     if (process.browser) {
-      window.addEventListener('scroll', this.handleScroll);
+      window.addEventListener("scroll", this.handleScroll);
     }
   },
-  destroyed () {
+  destroyed() {
     if (process.browser) {
-      window.removeEventListener('scroll', this.handleScroll);
+      window.removeEventListener("scroll", this.handleScroll);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -118,9 +107,10 @@ export default {
 }
 .side-logo {
   position: absolute;
-  top: -6px;
+  top: 8px;
   margin-bottom: 0px !important;
   margin-left: 1rem;
+  height: 1.3rem !important;
 }
 .sticky-menu {
   position: fixed;
@@ -139,6 +129,9 @@ export default {
   }
   .main-navigation-container {
     padding: 2rem 0;
+  }
+  .pc-menu-right {
+    text-align: right;
   }
   .pc-menu {
     font-weight: bold;
