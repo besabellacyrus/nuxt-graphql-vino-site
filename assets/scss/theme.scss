@@ -11,10 +11,17 @@
   }
 
   @media screen and (max-width: 425px) {
-    mask-image: initial;
-    -webkit-mask-image: initial;
+    // mask-image: initial;
+    // -webkit-mask-image: initial;
+    mask-image: url("~assets/img/header_shape.svg");
+    mask-size: 96rem;
+    background-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    mask-position: center;
     height: 13rem;
     margin-bottom: 3rem;
+    background-size: contain;
+    background-position: center center;
   }
   @media screen and (max-width: 768px) {
     height: 28rem;

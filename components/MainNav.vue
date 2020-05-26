@@ -12,7 +12,7 @@
 
         <ul :class="{'pc-menu-right ': scrolled > 15 }" class="pc-menu">
           <li v-for="(nav, index) in navItems" :key="index">
-            <nuxt-link :to="nav.node.order_gql.link" prefetch>{{ nav.node.title.toUpperCase() }}</nuxt-link>
+            <nuxt-link :to="nav.node.order_gql.link">{{ nav.node.title.toUpperCase() }}</nuxt-link>
           </li>
         </ul>
       </div>
@@ -31,8 +31,8 @@
       <div class="mobile-nav" ref="mobileNav">
         <!-- <h2>Navigation</h2> -->
         <ul>
-          <li v-for="(nav, index) in navItems" :key="index">
-            <a :href="nav.node.order_gql.link">{{ nav.node.title.toUpperCase() }}</a>
+          <li @click="closeMobileNav" v-for="(nav, index) in navItems" :key="index">
+            <nuxt-link :to="nav.node.order_gql.link">{{ nav.node.title.toUpperCase() }}</nuxt-link>
           </li>
         </ul>
       </div>
@@ -80,6 +80,11 @@ export default {
         return;
       }
       this.showElem(mobileNav);
+    },
+    closeMobileNav() {
+      const { mobileNav } = this.$refs;
+      console.log({ mobileNav });
+      mobileNav.style.display = "none";
     },
     showElem(elem) {
       elem.style.display = "block";
@@ -196,6 +201,9 @@ export default {
   cursor: pointer;
 }
 
+.mobile-nav {
+  transition: all 2s;
+}
 .mobile-nav ul {
   height: 54rem;
   padding: 0;
