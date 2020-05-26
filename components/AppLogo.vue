@@ -13,7 +13,7 @@ export default {
 <style lang="scss">
 .app-logo {
   margin-bottom: 2rem;
-  height: 4.2rem;
+  height: 5.3rem;
 
   img {
     margin-bottom: 2rem;
