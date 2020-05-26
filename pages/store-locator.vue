@@ -15,9 +15,6 @@
               :imageButtons="vino.imageButtons"
               :buttons="vino.buttons"
             />
-            <!-- <div class="subtitle">{{ vino_pageBy.fc.homeFc[0].subTitle }}</div>
-            <div class="title">{{ vino_pageBy.fc.homeFc[0].title }}</div>
-            <div v-html="vino_pageBy.fc.homeFc[0].content" class="app-top-line-center"></div>-->
           </div>
         </div>
       </div>
@@ -53,6 +50,9 @@
           </p>
         </div>
       </div>
+    </div>
+    <div>
+      <div class="app-spacer">&nbsp;</div>
     </div>
   </div>
 </template>
