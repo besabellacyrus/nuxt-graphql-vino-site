@@ -12,7 +12,7 @@
 
         <ul :class="{'pc-menu-right ': scrolled > 15 }" class="pc-menu">
           <li v-for="(nav, index) in navItems" :key="index">
-            <nuxt-link :to="nav.node.order_gql.link">{{ nav.node.title.toUpperCase() }}</nuxt-link>
+            <nuxt-link :to="nav.node.order_gql.link" prefetch>{{ nav.node.title.toUpperCase() }}</nuxt-link>
           </li>
         </ul>
       </div>
