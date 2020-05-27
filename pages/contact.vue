@@ -25,12 +25,12 @@
                   <div class="name">
                     <label for>NAME</label>
                     <br />
-                    <input v-model="name" type="text" />
+                    <input v-model="name" type="text" required />
                   </div>
                   <div class="email">
                     <label for>EMAIL</label>
                     <br />
-                    <input v-model="email" type="text" />
+                    <input v-model="email" type="text" required />
                   </div>
                   <div class="subject">
                     <label for>SUBJECT</label>
@@ -42,12 +42,11 @@
                     <br />
                     <textarea v-model="message" cols="30" rows="10"></textarea>
                     <div class="app-buttons contact-submit-btn">
-                      <vue-recaptcha
+                      <!-- <vue-recaptcha
                         sitekey="6LcN4fwUAAAAAICH00LD3A1nx3Rxqcl9lqq4U7XQ"
                       >
-                        <!-- <button>Click me</button> -->
-                        <button>SUBMIT</button>
-                      </vue-recaptcha>
+                      </vue-recaptcha> -->
+                      <button>SUBMIT</button>
                     </div>
                   </div>
                 </div>
