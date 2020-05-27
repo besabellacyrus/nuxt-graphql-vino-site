@@ -7,30 +7,21 @@
           <div class="subtitle">{{ eventPage[1].subTitle}}</div>
           <div class="title">{{ eventPage[1].title }}</div>
         </div>
-        <p class="bar-top-line-center mt-10 wow fadeInUp">
-        </p>
+        <p class="bar-top-line-center mt-10 wow fadeInUp"></p>
       </div>
     </div>
     <div class="container mx-auto">
       <div class="events-wrapper">
-        <div
-          class="events-items"
-          v-if="events"
-        >
-          <div
-            v-for="(event, index) in eventsData"
-            :key="index"
-            class="event-item"
-          >
+        <div class="events-items" v-if="events">
+          <div v-for="(event, index) in eventsData" :key="index" class="event-item">
             <div class="event-image">
-              <img
-                :src="event.node.events_gql.image.sourceUrl"
-                alt=""
-              >
+              <img :src="event.node.events_gql.image.sourceUrl" alt />
             </div>
             <div class="event-info">
               <h1 class="subtitle">{{ event.node.title }}</h1>
-              <p><b>{{ event.node.events_gql.date }}</b></p>
+              <p>
+                <b>{{ event.node.events_gql.date }}</b>
+              </p>
               <p>{{ event.node.events_gql.content }}</p>
             </div>
           </div>
@@ -41,47 +32,49 @@
 </template>
 
 <script>
-import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic"
-import pageGql from "~/apollo/queries/page"
-import eventsGql from "~/apollo/queries/events"
+import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic";
+import pageGql from "~/apollo/queries/page";
+import eventsGql from "~/apollo/queries/events";
 
 export default {
   components: {
     HeroImageDynamic
   },
-  data () {
+  data() {
     return {
       slug: null,
       eventPage: null,
       eventsData: null
-    }
+    };
   },
-  mounted () {
-    const { fc: { homeFc } } = this.vino_pageBy;
+  mounted() {
+    const {
+      fc: { homeFc }
+    } = this.vino_pageBy;
     const { edges } = this.events;
-    console.log({ edges })
+    console.log({ edges });
     this.eventsData = edges;
     this.eventPage = homeFc;
   },
   apollo: {
     vino_pageBy: {
       query: pageGql,
-      variables () {
+      variables() {
         return {
-          slug: 'events'
-        }
+          slug: "events"
+        };
       }
     },
     events: {
       query: eventsGql
     }
   },
-  head () {
+  head() {
     return {
-      title: `Vino 🍷 Events`,
-    }
+      title: `Vino 🍷 Events`
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

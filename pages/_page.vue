@@ -95,7 +95,7 @@ export default {
   },
   mounted() {
     console.log({
-      vino: this.vino_pageBy
+      vino: this.vino_pageBy ? this.vino_pageBy : "wee"
     });
     console.log("index");
   },
@@ -124,7 +124,11 @@ export default {
       ) || "Home"}`,
       meta:
         this.vino_pageBy && this.vino_pageBy.metas
-          ? this.vino_pageBy.metas.metatags
+          ? this.vino_pageBy.metas.metatags.concat(
+              this.vino_pageBy.og_tags.ogTags
+                ? this.vino_pageBy.og_tags.ogTags
+                : []
+            )
           : []
     };
   }

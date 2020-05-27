@@ -66,7 +66,11 @@ export default {
       ) || "Home"}`,
       meta:
         this.vino_pageBy && this.vino_pageBy.metas
-          ? this.vino_pageBy.metas.metatags
+          ? this.vino_pageBy.metas.metatags.concat(
+              this.vino_pageBy.og_tags.ogTags
+                ? this.vino_pageBy.og_tags.ogTags
+                : []
+            )
           : []
     };
   }

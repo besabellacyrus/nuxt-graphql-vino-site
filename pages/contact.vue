@@ -1,9 +1,7 @@
 <template>
   <div class="main-wrapper">
     <div v-if="vino_pageBy && vino_pageBy.fc">
-      <HeroImageDynamic
-        :img-url="vino_pageBy.fc.homeFc[0].image.sourceUrl"
-      ></HeroImageDynamic>
+      <HeroImageDynamic :img-url="vino_pageBy.fc.homeFc[0].image.sourceUrl"></HeroImageDynamic>
       <div v-for="(vino, index) in vino_pageBy.fc.homeFc" :key="index">
         <div
           v-if="vino.__typename === 'Vino_page_Fc_HomeFc_ContactUs'"
@@ -16,9 +14,7 @@
           <div class="contact-us-wrapper">
             <div class="contact-us-forms">
               <div class="subtitle">WE'D LOVE TO HEAR FROM YOU!</div>
-              <p>
-                Feel free to send us your questions, comments, or suggestions.
-              </p>
+              <p>Feel free to send us your questions, comments, or suggestions.</p>
               <form class="mt-10" @submit="checkForm">
                 <div class="contact-forms">
                   <div class="name">
@@ -116,6 +112,14 @@ export default {
   },
   head: {
     title: `Vino 🍷 Contact`,
+    meta:
+      this.vino_pageBy && this.vino_pageBy.metas
+        ? this.vino_pageBy.metas.metatags.concat(
+            this.vino_pageBy.og_tags.ogTags
+              ? this.vino_pageBy.og_tags.ogTags
+              : []
+          )
+        : [],
     script: [
       {
         src:

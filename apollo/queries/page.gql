@@ -87,10 +87,17 @@ query GET_CUSTOM_POST($slug: String!) {
       slug
       metas {
         metatags {
-            content
-            hid
-            name
-          }
+          content
+          hid
+          name
+        }
+      }
+      og_tags {
+        ogTags {
+          content
+          hid
+          property
+        }
       }
       fc {
         homeFc {
