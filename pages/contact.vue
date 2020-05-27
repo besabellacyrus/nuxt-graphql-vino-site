@@ -42,7 +42,9 @@
                     <br />
                     <textarea v-model="message" cols="30" rows="10"></textarea>
                     <div class="app-buttons contact-submit-btn">
-                      <vue-recaptcha sitekey="Your key here">
+                      <vue-recaptcha
+                        sitekey="6LcN4fwUAAAAAICH00LD3A1nx3Rxqcl9lqq4U7XQ"
+                      >
                         <!-- <button>Click me</button> -->
                         <button>SUBMIT</button>
                       </vue-recaptcha>
@@ -139,7 +141,7 @@ export default {
         formData.append("your_message", this.message);
         await this.$axios
           .$post(
-            "http://157.245.62.130/wp-api/wp-json/contact-form-7/v1/contact-forms/339/feedback",
+            "http://vinoislatropicalwines.com/wp-api/wp-json/contact-form-7/v1/contact-forms/339/feedback",
             formData,
             {
               headers: {
