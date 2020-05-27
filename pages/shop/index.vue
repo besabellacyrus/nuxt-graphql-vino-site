@@ -86,9 +86,7 @@ export default {
   },
   head() {
     return {
-      title: `Vino | ${this.$options.filters.capitalize(
-        this.$route.params.page
-      ) || "Home"}`,
+      title: `Vino 🍷 Shop`,
       meta:
         this.vino_pageBy && this.vino_pageBy.metas
           ? this.vino_pageBy.metas.metatags.concat(

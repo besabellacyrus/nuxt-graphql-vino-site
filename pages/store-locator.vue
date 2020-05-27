@@ -6,7 +6,10 @@
           v-if="vino.__typename === 'Vino_page_Fc_HomeFc_HeroImage'"
           :img-url="vino.image.sourceUrl"
         ></HeroImageDynamic>
-        <div data-aos="fade-down" v-if="vino.fieldGroupName === 'vino_page_Fc_HomeFc_CenterText'">
+        <div
+          data-aos="fade-down"
+          v-if="vino.fieldGroupName === 'vino_page_Fc_HomeFc_CenterText'"
+        >
           <div class="center-content-wrapper mb-10">
             <CenterSectionDynamic
               :title="vino.title"
@@ -28,13 +31,22 @@
           </div>
           <div class="query-results">
             <ul>
-              <li v-for="store in filteredStores" :key="store.store_locations.lat">
+              <li
+                v-for="store in filteredStores"
+                :key="store.store_locations.lat"
+              >
                 <h2>{{ store.store_locations.locationName }}</h2>
                 <p>{{ store.store_locations.address }}</p>
                 <span
                   class="show-in-map"
-                  @click="showInMap(store.store_locations.lng, store.store_locations.lat)"
-                >SHOW IN MAP</span>
+                  @click="
+                    showInMap(
+                      store.store_locations.lng,
+                      store.store_locations.lat
+                    )
+                  "
+                  >SHOW IN MAP</span
+                >
               </li>
             </ul>
           </div>
@@ -45,9 +57,8 @@
       <div class="text-center mt-10">
         <p>
           Cannot find us in your preferred store?
-          <a
-            href="mailto: vinoislaheritage@gmail.com"
-          >Let us know</a> so we can fix that.
+          <a href="mailto: vinoislaheritage@gmail.com">Let us know</a> so we can
+          fix that.
         </p>
       </div>
     </div>
@@ -141,7 +152,15 @@ export default {
   },
   head() {
     return {
-      title: `Vino 🍷 Store Locator`
+      title: `Vino 🍷 Store Locator`,
+      meta:
+        this.vino_pageBy && this.vino_pageBy.metas
+          ? this.vino_pageBy.metas.metatags.concat(
+              this.vino_pageBy.og_tags.ogTags
+                ? this.vino_pageBy.og_tags.ogTags
+                : []
+            )
+          : []
     };
   }
 };
