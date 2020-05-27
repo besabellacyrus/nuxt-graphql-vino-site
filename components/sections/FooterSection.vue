@@ -145,6 +145,9 @@ export default {
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
   outline: 8px solid rgba(175, 141, 113, 0.7);
+  a {
+    text-decoration: underline;
+  }
 }
 
 /* The Close Button */

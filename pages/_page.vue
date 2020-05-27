@@ -94,7 +94,9 @@ export default {
     };
   },
   mounted() {
-    console.log({ vino: this.vino_pageBy });
+    console.log({
+      vino: this.vino_pageBy
+    });
     console.log("index");
   },
   apollo: {

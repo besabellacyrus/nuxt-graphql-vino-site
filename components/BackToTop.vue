@@ -1,37 +1,37 @@
 <template>
   <div v-if="scroll > 1151" class="back-to-top" @click="backToTop">
-      <img src="~/assets/img/back-to-top.svg" alt="">
+    <img src="~/assets/img/back-to-top.svg" alt />
   </div>
 </template>
 
 <script>
-export default { 
-  data () {
+export default {
+  data() {
     return {
       scroll: 0
-    }
+    };
   },
-  mounted () {
+  mounted() {
     window.addEventListener("scroll", this.scrollFunc);
-  },  
-  destroy () { 
+  },
+  destroy() {
     window.removeEventListener("scroll", this.scrollFunc);
   },
   methods: {
-    scrollFunc (e) {
+    scrollFunc(e) {
       this.scroll = window.scrollY;
     },
-    backToTop () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    backToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .back-to-top {
-  height: 7rem;
-  position: fixed; 
+  height: 5rem;
+  position: fixed;
   right: 3rem;
   z-index: 99;
   bottom: 3rem;

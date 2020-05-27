@@ -7,26 +7,22 @@
           <div class="subtitle">{{ vino_pageBy.fc.homeFc[1].subTitle}}</div>
           <div class="title">{{ vino_pageBy.fc.homeFc[1].title }}</div>
         </div>
-        <div v-html="vino_pageBy.fc.homeFc[1].content" class="bar-top-line-center mt-10 wow fadeInUp"> 
-        </div>
+        <div
+          v-html="vino_pageBy.fc.homeFc[1].content"
+          class="bar-top-line-center mt-10 wow fadeInUp"
+        ></div>
       </div>
       <div class="text-center header-title">
         <h1 class="subtitle">CHOOSE YOUR VINO</h1>
       </div>
       <div class="pairing-items">
-        <div
-          v-for="(pair, index) in vino_pageBy.fc.homeFc[1].imageButtons"
-          :key="index"
-        >
+        <div v-for="(pair, index) in vino_pageBy.fc.homeFc[1].imageButtons" :key="index">
           <a :href="pair.routePath">
-            <img
-              :src="pair.image.sourceUrl"
-              alt=""
-            >
+            <img :src="pair.image.sourceUrl" alt />
           </a>
           <div class="mt-5">
             <h3>{{ pair.subTitle }}</h3>
-            <h1 class="">{{ pair.title }}</h1>
+            <h1 class>{{ pair.title }}</h1>
             <div v-html="pair.content"></div>
           </div>
         </div>
@@ -35,43 +31,46 @@
     <div v-else>
       <LoadingComponent />
     </div>
-
   </div>
 </template>
 
 <script>
-import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic"
-import pageGql from "~/apollo/queries/page"
-import LoadingComponent from "~/components/LoadingComponent"
-
+import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic";
+import pageGql from "~/apollo/queries/page";
+import LoadingComponent from "~/components/LoadingComponent";
 
 export default {
   components: {
     HeroImageDynamic,
     LoadingComponent
   },
-  data () {
+  data() {
     return {
       slug: null
-    }
+    };
   },
   apollo: {
     vino_pageBy: {
       query: pageGql,
-      variables () {
+      variables() {
         return {
-          slug: 'pairing'
-        }
+          slug: "pairing"
+        };
       }
-    },
-
-  },
-  head () {
-    return {
-      title: `Vino 🍷 Pairing`,
     }
+  },
+  head() {
+    return {
+      title: `Vino | ${this.$options.filters.capitalize(
+        this.$route.params.page
+      ) || "Home"}`,
+      meta:
+        this.vino_pageBy && this.vino_pageBy.metas
+          ? this.vino_pageBy.metas.metatags
+          : []
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
