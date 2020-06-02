@@ -133,7 +133,7 @@ export default {
 }
 .bg-pattern-one {
   background-image: url("~assets/img/bg/bg_01.svg");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   height: 46rem;
   width: 37%;
@@ -144,7 +144,7 @@ export default {
 }
 .bg-pattern-two {
   background-image: url("~assets/img/bg/bg_02.svg");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   height: 60rem;
   width: 37%;
@@ -155,7 +155,7 @@ export default {
 }
 .bg-pattern-three {
   background-image: url("~assets/img/bg/bg_03.svg");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   height: 60rem;
   width: 37%;
@@ -166,7 +166,7 @@ export default {
 }
 .bg-pattern-four {
   background-image: url("~assets/img/bg/bg_04.svg");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   height: 60rem;
   width: 37%;
