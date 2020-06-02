@@ -26,11 +26,6 @@
           </div>
         </div>
         <div class="app-main-nav container mx-auto invisible md:visible">
-          <!-- <AppLogo
-            class="float-left left-logo"
-            v-show="scrolled > 40"
-          ></AppLogo>-->
-          <!-- {{ navItems }} -->
           <ul class="flex justify-center font-semibold tracking-wide">
             <li class="mr-6 mt-1" v-for="(nav, index) in navItems" :key="index">
               <a :href="nav.node.order_gql.link">{{ nav.node.title.toUpperCase() }}</a>

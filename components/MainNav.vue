@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'sticky-menu': scrolled > 58 }">
+  <div :class="{ 'sticky-menu': scrolled > 58 }">
     <div class="main-navigation-wrapper">
       <div class="main-navigation-container text-center">
         <AppLogo
@@ -10,9 +10,11 @@
         />
         <AppLogo v-else image-url="/img/Logo.svg" alt="Vino Isla Logo V" />
 
-        <ul :class="{'pc-menu-right ': scrolled > 15 }" class="pc-menu">
+        <ul :class="{ 'pc-menu-right ': scrolled > 15 }" class="pc-menu">
           <li v-for="(nav, index) in navItems" :key="index">
-            <nuxt-link :to="nav.node.order_gql.link">{{ nav.node.title.toUpperCase() }}</nuxt-link>
+            <nuxt-link :to="nav.node.order_gql.link">{{
+              nav.node.title.toUpperCase()
+            }}</nuxt-link>
           </li>
         </ul>
       </div>
@@ -33,8 +35,14 @@
       <div class="mobile-nav" ref="mobileNav">
         <!-- <h2>Navigation</h2> -->
         <ul>
-          <li @click="closeMobileNav" v-for="(nav, index) in navItems" :key="index">
-            <nuxt-link :to="nav.node.order_gql.link">{{ nav.node.title.toUpperCase() }}</nuxt-link>
+          <li
+            @click="closeMobileNav"
+            v-for="(nav, index) in navItems"
+            :key="index"
+          >
+            <nuxt-link :to="nav.node.order_gql.link">{{
+              nav.node.title.toUpperCase()
+            }}</nuxt-link>
           </li>
         </ul>
       </div>
@@ -146,7 +154,7 @@ export default {
     color: #8f8f8f;
     li {
       display: inline;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
       transition: all 300ms;
       &:hover {
         color: #6d6662;
