@@ -1,6 +1,9 @@
 <template>
   <div class="pairing-wrapper">
-    <div v-if="vino_pageBy && vino_pageBy.fc">
+    <div class="bg-pattern-one"></div>
+    <div class="bg-pattern-two"></div>
+    <div class="bg-pattern-three"></div>
+    <div class="content-wrapper" v-if="vino_pageBy && vino_pageBy.fc">
       <HeroImageDynamic :img-url="vino_pageBy.fc.homeFc[0].image.sourceUrl"></HeroImageDynamic>
       <div class="container mx-auto text-center pairing-content">
         <div class="wow fadeInDown mx-10">
@@ -78,8 +81,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.content-wrapper {
+  z-index: 9;
+  position: relative;
+}
 .pairing-wrapper {
   margin-bottom: 10rem;
+  overflow: hidden;
   .pairing-content {
     padding: 0 26rem;
     @media screen and (max-width: 768px) {
@@ -93,6 +101,7 @@ export default {
     padding-left: 6rem;
     padding-right: 6rem;
     text-align: center;
+    margin-bottom: 5rem;
     h3 {
       font-weight: bold;
     }
@@ -113,5 +122,57 @@ export default {
       top: 0rem;
     }
   }
+}
+.pairing-wrapper {
+  overflow: hidden;
+  .pairing-content,
+  .pairing-items {
+    z-index: 9;
+    /* position: relative; */
+  }
+}
+.bg-pattern-one {
+  background-image: url("~assets/img/bg/bg_01.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 46rem;
+  width: 37%;
+  right: 0;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+.bg-pattern-two {
+  background-image: url("~assets/img/bg/bg_02.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60rem;
+  width: 37%;
+  left: 0;
+  position: absolute;
+  top: 75rem;
+  z-index: 1;
+}
+.bg-pattern-three {
+  background-image: url("~assets/img/bg/bg_03.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60rem;
+  width: 37%;
+  right: 0;
+  position: absolute;
+  top: 150rem;
+  z-index: 1;
+}
+.bg-pattern-four {
+  background-image: url("~assets/img/bg/bg_04.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60rem;
+  width: 37%;
+  left: 0;
+  position: absolute;
+  top: 200rem;
+  z-index: 1;
 }
 </style>

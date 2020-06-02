@@ -1,15 +1,14 @@
 <template>
   <div id="store-locator" class="store-locator-container">
-    <div v-if="vino_pageBy && vino_pageBy.fc">
+    <div class="bg-pattern-one"></div>
+    <div class="bg-pattern-two"></div>
+    <div class="content-wrapper" v-if="vino_pageBy && vino_pageBy.fc">
       <div v-for="(vino, index) in vino_pageBy.fc.homeFc" :key="index">
         <HeroImageDynamic
           v-if="vino.__typename === 'Vino_page_Fc_HomeFc_HeroImage'"
           :img-url="vino.image.sourceUrl"
         ></HeroImageDynamic>
-        <div
-          data-aos="fade-down"
-          v-if="vino.fieldGroupName === 'vino_page_Fc_HomeFc_CenterText'"
-        >
+        <div data-aos="fade-down" v-if="vino.fieldGroupName === 'vino_page_Fc_HomeFc_CenterText'">
           <div class="center-content-wrapper mb-10">
             <CenterSectionDynamic
               :title="vino.title"
@@ -22,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="container mx-auto">
+    <div class="content-wrapper container mx-auto">
       <div class="store-locator-wrapper">
         <div class="search">
           <div class="search-wrapper">
@@ -31,10 +30,7 @@
           </div>
           <div class="query-results">
             <ul>
-              <li
-                v-for="store in filteredStores"
-                :key="store.store_locations.lat"
-              >
+              <li v-for="store in filteredStores" :key="store.store_locations.lat">
                 <h2>{{ store.store_locations.locationName }}</h2>
                 <p>{{ store.store_locations.address }}</p>
                 <span
@@ -45,8 +41,7 @@
                       store.store_locations.lat
                     )
                   "
-                  >SHOW IN MAP</span
-                >
+                >SHOW IN MAP</span>
               </li>
             </ul>
           </div>
@@ -57,7 +52,9 @@
       <div class="text-center mt-10">
         <p>
           Cannot find us in your preferred store?
-          <a href="mailto: vinoislaheritage@gmail.com">Let us know</a> so we can
+          <a
+            href="mailto: vinoislaheritage@gmail.com"
+          >Let us know</a> so we can
           fix that.
         </p>
       </div>
@@ -167,6 +164,10 @@ export default {
 </script>
 
 <style lang="scss">
+.content-wrapper {
+  position: relative;
+  z-index: 9;
+}
 #store-locator {
   a {
     text-decoration: underline;

@@ -1,6 +1,10 @@
 <template>
   <div class="shop-wrapper">
-    <div v-if="vino_pageBy && vino_pageBy.fc">
+    <div class="bg-pattern-one"></div>
+    <div class="bg-pattern-two"></div>
+    <div class="bg-pattern-three"></div>
+
+    <div class="content-wrapper" v-if="vino_pageBy && vino_pageBy.fc">
       <div v-for="(vino, index) in vino_pageBy.fc.homeFc" :key="index">
         <HeroImageDynamic
           v-if="vino.__typename === 'Vino_page_Fc_HomeFc_HeroImage'"
@@ -101,6 +105,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.content-wrapper {
+  position: relative;
+  z-index: 9;
+}
 .shop-wrapper {
   margin-bottom: 10rem;
   .shop-items {
@@ -108,6 +116,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(34rem, 1fr));
     grid-gap: 3rem;
+    margin-bottom: 22rem;
     .shop-item {
       position: relative;
       margin-bottom: 4rem;

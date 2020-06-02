@@ -1,6 +1,9 @@
 <template>
   <div class="main-wrapper">
-    <div v-if="vino_pageBy && vino_pageBy.fc">
+    <div class="bg-pattern-one"></div>
+    <div class="bg-pattern-two"></div>
+    <div class="bg-pattern-three"></div>
+    <div class="content-wrapper" v-if="vino_pageBy && vino_pageBy.fc">
       <div v-for="(vino, index) in vino_pageBy.fc.homeFc" :key="index">
         <HeroImageDynamic
           v-if="vino.__typename === 'Vino_page_Fc_HomeFc_HeroImage'"
@@ -17,9 +20,7 @@
           <div class="contact-us-wrapper">
             <div class="contact-us-forms">
               <div class="subtitle">WE'D LOVE TO HEAR FROM YOU!</div>
-              <p>
-                Feel free to send us your questions, comments, or suggestions.
-              </p>
+              <p>Feel free to send us your questions, comments, or suggestions.</p>
               <form class="mt-10" @submit="checkForm">
                 <div class="contact-forms">
                   <div class="name">
@@ -45,7 +46,7 @@
                       <!-- <vue-recaptcha
                         sitekey="6LcN4fwUAAAAAICH00LD3A1nx3Rxqcl9lqq4U7XQ"
                       >
-                      </vue-recaptcha> -->
+                      </vue-recaptcha>-->
                       <button>SUBMIT</button>
                     </div>
                   </div>
@@ -85,13 +86,11 @@
 import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic";
 import pageGql from "~/apollo/queries/page";
 import LoadingComponent from "~/components/LoadingComponent";
-import VueRecaptcha from "vue-recaptcha";
 
 export default {
   components: {
     HeroImageDynamic,
-    LoadingComponent,
-    VueRecaptcha
+    LoadingComponent
   },
   data() {
     return {
@@ -125,6 +124,7 @@ export default {
   methods: {
     async checkForm(e) {
       e.preventDefault();
+
       let formData = new FormData();
       if (!this.name) {
         this.errors.push("Name required.");
@@ -172,6 +172,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.content-wrapper {
+  z-index: 9;
+  position: relative;
+}
 .contact-submit-btn {
   color: #fff;
   float: right;
