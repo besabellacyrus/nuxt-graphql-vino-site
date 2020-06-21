@@ -54,8 +54,7 @@
           Cannot find us in your preferred store?
           <a
             href="mailto: vinoislaheritage@gmail.com"
-          >Let us know</a> so we can
-          fix that.
+          >Let us know.</a>
         </p>
       </div>
     </div>

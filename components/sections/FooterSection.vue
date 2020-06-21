@@ -52,7 +52,7 @@
           <h1>CONTACT US</h1>
           <p
             class="px-5 text-center md:text-left"
-          >U2518 Corporate Ave. Corner Parkway Place, Filinvest City , Alabang, Muntinlupa, Metro Manila</p>
+          >U2518 Parkway Corporate Center, Parkway Ave., Filinvest Alabang, Muntinlupa City, Philippines.</p>
           <div class="get-connected">
             <h1>GET CONNECTED</h1>
             <SocialMedia />
