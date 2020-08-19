@@ -1,6 +1,13 @@
 query GET_CUSTOM_POST($slug: String!) {
   pairingBy(slug: $slug) {
     title
+    chef {
+      bio
+      name
+      photo {
+        sourceUrl
+      }
+    }
     pairings_gql {
       heroImage {
         sourceUrl
