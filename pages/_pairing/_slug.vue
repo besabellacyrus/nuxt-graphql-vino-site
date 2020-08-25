@@ -5,7 +5,7 @@
       :img-url="pairings.pairings_gql.heroImage.sourceUrl"
     ></HeroImageDynamic>
 
-    <div v-if="pairings">
+    <div class="single-pairing-wrapper" v-if="pairings">
       <div class="app-section-container">
         <div class="app-content-wrapper">
           <div>
@@ -63,9 +63,31 @@
       </div>
       <div class="app-section-container">
         <!-- <hr class="my-10" /> -->
+        <div class="text-center mt-20">
+          <h1>CHECK OUT PAIRINGS FOR OTHER FLAVORS</h1>
+        </div>
+        <ul class="other-pairings-wrapper">
+          <li v-for="pairing in pairingsAll" :key="pairing.slug">
+            <a :href="`/pairing/${pairing.node.slug}`">
+              <div class="paginate-container">
+                <img
+                  class="paginate-image"
+                  :src="pairing.node.pairings_gql.images[0].image.sourceUrl"
+                  alt
+                />
+                <h1>
+                  <small class="subtitle">TROPICAL</small>
+                  <br />
+                  {{ pairing.node.title }}
+                </h1>
+              </div>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
+  <div class="single-pairing-wrapper" v-else></div>
 </template>
 
 <script>
@@ -73,6 +95,7 @@ import gql from "graphql-tag";
 import HeroImageDynamic from "~/components/dynamic/HeroImageDynamic";
 import RightImageSectionDynamic from "~/components/dynamic/RightImageSectionDynamic";
 import pairingGql from "~/apollo/queries/pairings";
+import pairings from "~/apollo/queries/allPairings";
 
 export default {
   components: {
@@ -84,7 +107,14 @@ export default {
       slug: null,
       bgColor: "",
       pairings: null,
+      allPairings: null,
     };
+  },
+  computed: {
+    pairingsAll() {
+      console.log({ ssss: this.slug });
+      return this.allPairings.edges.filter((e) => e.node.slug !== this.slug);
+    },
   },
   mounted() {
     this.slug = this.$route.params.slug;
@@ -114,6 +144,15 @@ export default {
         }
       },
     },
+    pairings: {
+      query: pairings,
+      result({ data, loading }) {
+        console.log({ data, loading });
+        if (!loading) {
+          this.allPairings = data.pairings;
+        }
+      },
+    },
   },
   head: {
     bodyAttrs: {
@@ -136,6 +175,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.other-pairings-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 5rem 0;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 768px) {
+    grid-template-columns: initial;
+  }
+  .paginate-container {
+    grid-gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: 768px) {
+      display: grid;
+      text-align: center;
+    }
+  }
+  .paginate-image {
+    width: 19rem;
+    @media screen and (max-width: 768px) {
+      margin: 0 auto;
+    }
+  }
+}
+.single-pairing-wrapper {
+  min-height: 800px;
+}
 .app-section-container {
   max-width: 103rem;
   margin: 0 auto;

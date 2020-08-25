@@ -1,0 +1,17 @@
+query {
+  pairings {
+    edges {
+      node {
+        pairings_gql {
+          images {
+            image {
+              sourceUrl
+            }
+          }
+        }
+        slug
+        title
+      }
+    }
+  }
+}
