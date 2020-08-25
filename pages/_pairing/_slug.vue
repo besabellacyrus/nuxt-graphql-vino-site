@@ -54,7 +54,7 @@
           <div>
             <h4>EXQUISITELY PUT TOGETHER BY</h4>
             <h1>{{ pairings.chef.name }}</h1>
-            <p>{{ pairings.chef.bio }}</p>
+            <div v-html="pairings.chef.bio"></div>
           </div>
           <div>
             <img :src="pairings.chef.photo.sourceUrl" alt />
