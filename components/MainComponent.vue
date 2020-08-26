@@ -13,10 +13,7 @@
           v-if="vino.__typename === 'Vino_page_Fc_HomeFc_HeroImage'"
           :img-url="vino.image.sourceUrl"
         ></HeroImageDynamic>
-        <div
-          data-aos="fade-right"
-          v-if="vino.orientation && vino.orientation === 'right'"
-        >
+        <div data-aos="fade-right" v-if="vino.orientation && vino.orientation === 'right'">
           <RightImageSectionDynamic
             :title="vino.title"
             :subtitle="vino.subTitle"
@@ -25,10 +22,7 @@
             :buttons="vino.buttons"
           />
         </div>
-        <div
-          data-aos="fade-left"
-          v-if="vino.orientation && vino.orientation === 'left'"
-        >
+        <div data-aos="fade-left" v-if="vino.orientation && vino.orientation === 'left'">
           <LeftImageSectionDynamic
             :title="vino.title"
             :subtitle="vino.subTitle"
@@ -37,10 +31,7 @@
             :buttons="vino.buttons"
           />
         </div>
-        <div
-          data-aos="fade-down"
-          v-if="vino.fieldGroupName === 'vino_page_Fc_HomeFc_CenterText'"
-        >
+        <div data-aos="fade-down" v-if="vino.fieldGroupName === 'vino_page_Fc_HomeFc_CenterText'">
           <CenterSectionDynamic
             :title="vino.title"
             :subtitle="vino.subTitle"
@@ -96,11 +87,11 @@ export default {
     ShowcaseSectionDynamic,
     ImageComponent,
     TextAreaComponent,
-    LoadingComponent
+    LoadingComponent,
   },
   data() {
     return {
-      slug: null
+      slug: null,
     };
   },
   apollo: {
@@ -108,10 +99,10 @@ export default {
       query: pageGql,
       variables() {
         return {
-          slug: this.$route.path === "/" ? "home" : this.$route.params.page
+          slug: this.$route.path === "/" ? "home" : this.$route.params.page,
         };
-      }
-    }
+      },
+    },
   },
   methods: {
     renderImage(images) {
@@ -119,13 +110,13 @@ export default {
         return images.image.sourceUrl;
       }
       return "";
-    }
+    },
   },
   head() {
     return {
-      title: `Vino 🍷 ${this.$options.filters.capitalize(
-        this.$route.params.page
-      ) || "Home"}`,
+      title: `Vino 🍷 ${
+        this.$options.filters.capitalize(this.$route.params.page) || "Home"
+      }`,
       meta:
         this.vino_pageBy && this.vino_pageBy.metas
           ? this.vino_pageBy.metas.metatags.concat(
@@ -133,10 +124,14 @@ export default {
                 ? this.vino_pageBy.og_tags.ogTags
                 : []
             )
-          : []
+          : [],
     };
-  }
+  },
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.center-images .image-btn img {
+  height: 39rem;
+}
+</style>

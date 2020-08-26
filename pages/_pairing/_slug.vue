@@ -34,10 +34,10 @@
       <div v-for="(item, index) in pairings.pairings_gql.items" :key="index">
         <div class="app-section-container">
           <div class="app-content-wrapper" :class="{ 'display-reverse': isOdd(index) }">
-            <div>
+            <div class="mx-3 my-3">
               <img :src="item.images[0].image.sourceUrl" alt />
             </div>
-            <div>
+            <div class="mx-3 my-3">
               <img class="horizontal-wine-img" :src="item.images[1].image.sourceUrl" alt />
               <div class="wine-label-wrapper">
                 <h1>{{ item.title }}</h1>
@@ -294,7 +294,6 @@ h1.separator-label {
   }
   .app-content-wrapper {
     display: flex;
-    grid-gap: 2rem;
     @media screen and (max-width: 425px) {
       flex-direction: column;
       text-align: center;
