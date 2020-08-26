@@ -2,7 +2,6 @@
   <div class="pairing-wrapper">
     <div class="bg-pattern-one"></div>
     <div class="bg-pattern-two"></div>
-    <div class="bg-pattern-three"></div>
     <div class="content-wrapper" v-if="vino_pageBy && vino_pageBy.fc">
       <HeroImageDynamic :img-url="vino_pageBy.fc.homeFc[0].image.sourceUrl"></HeroImageDynamic>
       <div class="container mx-auto text-center pairing-content">
@@ -17,16 +16,57 @@
       </div>
       <div class="text-center header-title">
         <h1 class="subtitle">CHOOSE YOUR VINO</h1>
+        <div class="img-separator">
+          <img src="/pairing_separator.svg" alt />
+        </div>
       </div>
-      <div class="pairing-items">
-        <div v-for="(pair, index) in vino_pageBy.fc.homeFc[1].imageButtons" :key="index">
-          <a :href="pair.routePath">
-            <img :src="pair.image.sourceUrl" alt />
+      <div class="pairing-items-wrapper">
+        <div>
+          <a href="/pairing/coconut-wine">
+            <img src="/pairing/coconut-image.jpg" alt="Coconut Wine" />
+            <div class="pairing-item-label">
+              <h4>TROPICAL</h4>
+              <h1>COCONUT WINE</h1>
+            </div>
           </a>
-          <div class="mt-5">
-            <h3>{{ pair.subTitle }}</h3>
-            <h1 class>{{ pair.title }}</h1>
-            <div v-html="pair.content"></div>
+          <div class="btn-wrapper">
+            <a href="/pairing/coconut-wine">
+              <div class="app-btn">
+                <button>SELECT</button>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div>
+          <a href="/pairing/mango-wine">
+            <img src="/pairing/mango-image.jpg" alt="Mango Wine" />
+            <div class="pairing-item-label">
+              <h4>TROPICAL</h4>
+              <h1>MANGO WINE</h1>
+            </div>
+          </a>
+          <div class="btn-wrapper">
+            <a href="/pairing/mango-wine">
+              <div class="app-btn">
+                <button>SELECT</button>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div>
+          <a href="/pairing/sugarcane-wine">
+            <img src="/pairing/sugarcane-image.jpg" alt="Sugarcane Wine" />
+            <div class="pairing-item-label">
+              <h4>TROPICAL</h4>
+              <h1>SUGARCANE WINE</h1>
+            </div>
+          </a>
+          <div class="btn-wrapper">
+            <a href="/pairing/sugarcane-wine">
+              <div class="app-btn">
+                <button>SELECT</button>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -45,11 +85,11 @@ import LoadingComponent from "~/components/LoadingComponent";
 export default {
   components: {
     HeroImageDynamic,
-    LoadingComponent
+    LoadingComponent,
   },
   data() {
     return {
-      slug: null
+      slug: null,
     };
   },
   apollo: {
@@ -57,16 +97,16 @@ export default {
       query: pageGql,
       variables() {
         return {
-          slug: "pairing"
+          slug: "pairing",
         };
-      }
-    }
+      },
+    },
   },
   head() {
     return {
-      title: `Vino | ${this.$options.filters.capitalize(
-        this.$route.params.page
-      ) || "Home"}`,
+      title: `Vino | ${
+        this.$options.filters.capitalize(this.$route.params.page) || "Home"
+      }`,
       meta:
         this.vino_pageBy && this.vino_pageBy.metas
           ? this.vino_pageBy.metas.metatags.concat(
@@ -74,13 +114,52 @@ export default {
                 ? this.vino_pageBy.og_tags.ogTags
                 : []
             )
-          : []
+          : [],
     };
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+.img-separator {
+  margin: 0 auto;
+  text-align: center;
+  width: 7rem;
+  margin-bottom: 3rem;
+}
+.pairing-items-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3rem;
+  max-width: 97rem;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+  .btn-wrapper {
+    margin: 2rem 6rem;
+    button {
+      padding: 0.5rem;
+      font-weight: bold;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    grid-template-columns: initial;
+  }
+  .pairing-item-label {
+    margin-top: 2rem;
+    h4 {
+      color: #af8d72;
+      font-weight: bold;
+    }
+    h1 {
+      margin: 0;
+      font-weight: bold;
+    }
+  }
+}
+
 .content-wrapper {
   z-index: 9;
   position: relative;

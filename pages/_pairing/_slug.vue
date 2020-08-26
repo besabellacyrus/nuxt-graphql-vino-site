@@ -8,13 +8,15 @@
     <div class="single-pairing-wrapper" v-if="pairings">
       <div class="app-section-container">
         <div class="app-content-wrapper">
-          <div>
-            <h4>{{ pairings.pairings_gql.subTitle }}</h4>
-            <h1>{{ pairings.title }}</h1>
-            <p>{{ pairings.pairings_gql.content }}</p>
-          </div>
-          <div class="image-container">
-            <img :src="pairings.pairings_gql.images[0].image.sourceUrl" alt />
+          <div class="pairing-headline">
+            <div>
+              <!-- <h4>{{ pairings.pairings_gql.subTitle }}</h4> -->
+              <h1>{{ pairings.title }}</h1>
+              <!-- <p>{{ pairings.pairings_gql.content }}</p> -->
+            </div>
+            <div class="image-container">
+              <img :src="pairings.pairings_gql.images[0].image.sourceUrl" alt />
+            </div>
           </div>
         </div>
       </div>
@@ -178,6 +180,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.pairing-headline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
 h1.separator-label {
   color: #b58e6f;
   font-size: 2rem;
