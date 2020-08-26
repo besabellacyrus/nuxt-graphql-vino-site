@@ -64,7 +64,10 @@
       <div class="app-section-container">
         <!-- <hr class="my-10" /> -->
         <div class="text-center mt-20">
-          <h1>CHECK OUT PAIRINGS FOR OTHER FLAVORS</h1>
+          <h1 class="separator-label">CHECK OUT PAIRINGS FOR OTHER FLAVORS</h1>
+          <div class="img-separator">
+            <img src="/pairing_separator.svg" alt />
+          </div>
         </div>
         <ul class="other-pairings-wrapper">
           <li v-for="pairing in pairingsAll" :key="pairing.slug">
@@ -175,6 +178,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h1.separator-label {
+  color: #b58e6f;
+  font-size: 2rem;
+}
+.img-separator {
+  img {
+    height: 1rem;
+  }
+}
 .other-pairings-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
