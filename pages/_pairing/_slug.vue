@@ -204,10 +204,12 @@ h1.separator-label {
     grid-template-columns: initial;
   }
   .paginate-container {
-    grid-gap: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    img {
+      margin-right: 2rem;
+    }
     @media screen and (max-width: 768px) {
       display: grid;
       text-align: center;
