@@ -43,8 +43,6 @@
   }
 }
 
-
-
 .app-wrapper-image-right,
 .app-wrapper-image-left {
   display: grid;
@@ -60,7 +58,6 @@
   @media screen and (max-width: 375px) {
     grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
   }
-
 }
 .app-wrapper-image-right {
   .content {
@@ -186,7 +183,7 @@
   }
   .image-btn {
     img {
-      height: 28rem;
+      height: 41rem;
       margin: 0 auto;
     }
   }
@@ -223,7 +220,7 @@
     h1 {
       font-size: 1.7rem;
       font-weight: bold;
-    margin: 0;
+      margin: 0;
     }
   }
 }
@@ -232,7 +229,7 @@
   width: 4rem;
   margin: 0 auto;
   border-bottom: 0.5rem solid #443c39;
-  @media screen and (max-width: 475px ){
+  @media screen and (max-width: 475px) {
     margin-top: 1rem;
   }
 }
