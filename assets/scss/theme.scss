@@ -186,6 +186,13 @@
       height: 41rem;
       margin: 0 auto;
     }
+    @media screen and (min-width: 911px) {
+      &:nth-child(2) {
+        img {
+          margin-top: 5rem;
+        }
+      }
+    }
   }
 }
 .events-list-wrapper {
