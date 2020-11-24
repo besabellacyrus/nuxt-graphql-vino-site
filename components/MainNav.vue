@@ -136,10 +136,10 @@ export default {
   background-color: rgba(255, 255, 255, 0.9);
 }
 .main-navigation-wrapper {
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 923px) {
     display: block;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 922px) {
     display: none;
   }
   .main-navigation-container {
@@ -169,10 +169,10 @@ export default {
   overflow: hidden;
   position: relative;
   display: inline-block;
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 923px) {
     display: none;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 922px) {
     display: block;
   }
 }
